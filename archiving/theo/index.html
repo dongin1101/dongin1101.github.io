@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>테오 (Theo of Golden) 독서 노트 | 강동인</title>
+<meta name="description" content="앨런 레비, 『테오』 독서 노트 — 소도시 골든의 노신사 테오가 초상화를 나눠주며 사람을 있는 그대로 존중하는 태도로 공동체를 바꿔가는 이야기">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791175772892.jpg" alt="『테오』 표지">
+        <div>
+          <h1>테오 (Theo of Golden)</h1>
+          <p class="byline">앨런 레비 지음</p>
+          <div class="meta-row">
+            <span class="tag">Novel</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>556쪽</span>
+            <span>2026.09 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000220307771" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">소도시 골든에 정착한 노신사 테오가 마을 사람들에게 손수 그린 초상화를 나눠주며, 사람을 있는 그대로 존중하는 태도 하나로 공동체를 조금씩 바꿔가는 이야기.</p>
+
+      <h2>1. 책 소개</h2>
+      <p>《테오》는 변호사이자 판사를 거쳐 전업 싱어송라이터로 살아온 앨런 레비가 70대에 접어들어 발표한 첫 장편소설이다. 애초에 출간할 생각조차 없던 원고가 주변의 권유로 자비출판되었고, 오직 입소문만으로 미국 전역에 퍼져나가며 <strong>"그 하얀 책(The White Book)"</strong>이라는 별칭까지 얻었다는 이야기 자체가, 이 소설이 전하려는 메시지와 묘하게 닮아 있다. <strong>요란하지 않아도 진심은 결국 전해진다는 것.</strong></p>
+      <p>소설은 한적한 소도시 '골든'에 정착한 한 노신사 '테오'가 마을 사람들에게 손수 그린 초상화를 나눠주며 벌어지는 이야기를 따라간다. 화려한 사건이나 반전보다, 사람과 사람이 진심으로 마주하는 순간들을 쌓아가며 이야기를 완성한다.</p>
+
+      <hr>
+
+      <h2>2. 전체적인 인상</h2>
+      <p>가장 먼저 든 생각은, 이 소설이 <strong>'어른'이라는 존재</strong>에 대해 이야기하고 있다는 것이었다. 테오는 누군가를 가르치거나 계몽하려 들지 않는다. 그저 마을 사람 한 명 한 명을 있는 그대로 존중하며 관계를 맺어갈 뿐인데, 그 태도 하나로 주변 사람들이 조금씩 변화한다.</p>
+      <p>자극적인 언어와 빠른 전개에 익숙해진 요즘 읽다 보면 처음엔 느리게 느껴질 수 있지만, 다 읽고 나면 오히려 <strong>그 느림이 이 소설의 힘</strong>이라는 걸 알게 된다.</p>
+
+      <hr>
+
+      <h2>3. 인상 깊었던 장면들</h2>
+      <h3>폰더 회사 관리인 기들리의 변화</h3>
+      <p>테오를 처음엔 미심쩍고 부정적인 시선으로 바라보던 기들리가, 초상화를 나눠주는 과정을 지켜보면서 서서히 태도를 바꿔가는 흐름이 특히 인상적이었다. 사람을 판단하던 시선이 이해와 존중으로 옮겨가는 과정이 설교조가 아니라 자연스러운 사건의 축적으로 그려져서 더 설득력 있게 다가왔다. <strong>한 사람을 향한 편견이 무너지는 데는 대단한 사건이 아니라, 반복되는 작은 진심들이 필요하다</strong>는 걸 새삼 느꼈다.</p>
+
+      <h3>엘렌의 서사</h3>
+      <p>어린 나이에 딸 윌라를 낳고 입양 보내야 했던 엘렌의 이야기, 그리고 소설 마지막에 그 아이가 다시 그녀를 찾아오는 장면은 이 책에서 가장 마음이 오래 머문 부분이었다. 상실을 안고 살아가던 인물에게 뒤늦게 찾아온 회복의 순간이, <strong>테오가 만들어낸 공동체 안에서 가능해졌다</strong>는 점이 뭉클했다.</p>
+
+      <h3>애셔와 서점 주인 토니와의 관계</h3>
+      <p>애셔, 그리고 서점을 운영하는 토니가 테오와 맺는 관계도 좋았다. 나이나 위치에 따른 상하 관계가 아니라 <strong>인간 대 인간으로서 서로를 존중하며</strong> 다양한 에피소드를 쌓아가는 모습이, 이 소설이 그리는 '이상적인 관계'의 축소판처럼 느껴졌다.</p>
+
+      <h3>초상화를 나누는 테오</h3>
+      <p>결국 이 모든 이야기의 중심에는, 마을 사람 한 명 한 명에게 초상화를 그려주며 그들을 있는 그대로 바라봐주는 테오가 있다. 대가를 바라지 않는 선의, 무용해 보이지만 사실은 <strong>누군가의 존재를 인정해주는 행위.</strong> 이 작은 반복이 공동체 전체를 서서히 바꿔놓는 과정을 지켜보는 것이 이 책을 읽는 가장 큰 즐거움이었다.</p>
+
+      <hr>
+
+      <h2>4. 결말에 대해</h2>
+      <p>이야기가 훈훈하게만 흘러가다 끝나지 않고 <strong>비극으로 마무리된다</strong>는 점이 오히려 이 소설을 더 오래 기억하게 만들었다. 선의와 존중으로 쌓아 올린 관계들이 영원히 지속되는 해피엔딩이 아니라, 상실을 동반한 채로 남는다는 사실이 더 현실적으로 다가왔다.</p>
+      <p>그리고 그 상실 이후에도 테오가 남긴 것들 — 달라진 기들리, 되찾은 엘렌의 딸, 이어지는 관계들 — 이 마을에 그대로 남아 있다는 점에서, <strong>비극이 오히려 테오라는 인물의 진심을 더 선명하게 증명해주는 장치</strong>처럼 느껴졌다.</p>
+
+      <hr>
+
+      <h2>5. 삶과 일에 대한 시사점</h2>
+      <p>이 소설을 읽으며 계속 떠오른 생각은, <strong>사람을 대하는 태도가 결국 관계의 질을 결정한다</strong>는 것이었다. 테오는 누구에게도 특별한 지위나 권위를 앞세우지 않았지만, 있는 그대로 존중하는 태도만으로 마을 전체의 분위기를 바꿔놓았다.</p>
+      <p>인생을 살아가거나 직장 생활을 하거나, 다양한 상황에서 사람을 만날 때 한 사람 한 사람을 진심으로 바라봐주는 반복된 태도의 중요성을 다시 생각하게 됐다. 이 책에서 가장 크게 얻어가는 것은 두 가지다.</p>
+      <p><strong>대가 없는 선의와 무용해 보이는 친절이 실은 공동체를 지탱하는 가장 단단한 토대일 수 있다는 것. 그리고 그런 태도는 시간이 걸리더라도 결국 사람을 변화시킨다는 것.</strong></p>
+
+      <hr>
+
+      <h2>6. 핵심 문장</h2>
+      <blockquote><p>주는 것이 받는 것보다 복되다.<span class="pg">p.117</span></p></blockquote>
+      <blockquote><p>삶은 계속될 것이고, 또 계속되어야만 한다. 비록 완전히 새로운 삶, 슬픔에 종속된 삶, 걸음을 내딛을 때마다 슬픔이 따라오는 삶이라고 해도 계속되어야 한다.<span class="pg">p.139</span></p></blockquote>
+      <blockquote><p>작고, 이름 없고, 기억되지 않는 것. 우리는 원래 그런 식으로 생각하지 않는 것 같지만, 특히 요즘 세상 사람들은 무언가 '큰 것', '입소문 나는 것', 그런 것들을 좋아하잖아요.<span class="pg">p.278</span></p></blockquote>
+      <blockquote><p>선행은 하되, 남의 눈에 띄거나 보상을 바라지 말라는 뜻이지요.<span class="pg">p.279</span></p></blockquote>
+      <blockquote><p>슬픔을 잘만 보듬고 쓰다듬어 준다면 그 안에서 큰 사랑이 자랄 수 있는 아름다운 가능성은 언제나 있어요. 슬픔은 우리를 쓰라리게 만들 수도, 지혜롭게 만들 수도 있습니다.<span class="pg">p.287</span></p></blockquote>
+      <blockquote><p>작게 살기로 한 그의 선택은 그를 누구보다 크게 만들었다.<span class="pg">p.492</span></p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
