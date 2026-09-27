@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>좋은 리더를 넘어 위대한 리더로 (BE 2.0) 독서 노트 | 강동인</title>
+<meta name="description" content="짐 콜린스, 『좋은 리더를 넘어 위대한 리더로』 독서 노트 — 위대한 조직은 결국 사람에서 시작한다. 리더십의 7가지 기능부터 비전, 전략, 혁신, 전술까지 짐 콜린스가 정리한 위대한 기업으로 가는 지도.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788965966463.jpg" alt="『좋은 리더를 넘어 위대한 리더로』 표지">
+        <div>
+          <h1>좋은 리더를 넘어 위대한 리더로 (BE 2.0)</h1>
+          <p class="byline">짐 콜린스 지음</p>
+          <div class="meta-row">
+            <span class="tag">Management</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>520쪽</span>
+            <span>2025.02 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000214097098" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">위대한 조직은 결국 사람에서 시작한다. 리더십의 7가지 기능부터 비전, 전략, 혁신, 전술까지 짐 콜린스가 정리한 위대한 기업으로 가는 지도.</p>
+
+      <h2>1. 조직과 리더가 위대해지기 위한 핵심 원칙</h2>
+      <p>30여 년 전에 나온 『기업가 정신을 넘어서(Beyond Entrepreneurship)』의 후속판이다. 짐 콜린스는 위대한 기업과 리더의 공통적인 특징을 분석하며, 조직과 리더가 위대해지기 위한 핵심 원칙을 제시한다.</p>
+
+      <hr>
+
+      <h2>2. 결국 사람이다</h2>
+      <ul>
+        <li>조직의 가치관, 비전, 재무 성과보다 중요한 것은 <strong>사람</strong>이다. 위대한 조직은 위대한 사람들이 만들고, 훌륭한 아이디어와 시스템도 결국 사람이 실행한다.</li>
+        <li>위대한 사람은 구성원에게 영감을 주며, <strong>성공은 동료에게 돌리고 실패는 자신이 책임진다.</strong></li>
+        <li>처음부터 위대한 조직은 없다. 성장을 통해 위대해지며, 구성원 전체의 지속적인 성장 추구가 필수다.</li>
+        <li>위대한 조직을 만들려면 훌륭한 조직 문화를 형성하고, <strong>인재를 중심으로</strong> 운영해야 한다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>3. 리더십과 리더의 7가지 기능</h2>
+      <p>리더십이란 <strong>사람들이 자발적으로 행동하게 만드는 기술</strong>이다. 리더십의 <strong>기능</strong>은 모든 리더에게 공통되고, 리더십의 <strong>유형</strong>은 개인의 성격에 따라 다르다.</p>
+      <table>
+        <tr><th>기능</th><th>의미</th></tr>
+        <tr><td><strong>1. 진정성</strong></td><td>말과 행동의 일치, 목표의 지속적인 실행</td></tr>
+        <tr><td><strong>2. 단호함</strong></td><td>빠르고 명확한 의사결정</td></tr>
+        <tr><td><strong>3. 집중력</strong></td><td>가장 중요한 일에 집중하는 능력</td></tr>
+        <tr><td><strong>4. 대인 관계</strong></td><td>조직 안팎에서 원만한 관계 형성</td></tr>
+        <tr><td><strong>5. 강하면서 부드러운 인사관리</strong></td><td>상황에 따라 유연하게 조직을 운영</td></tr>
+        <tr><td><strong>6. 의사소통</strong></td><td>명확한 비전과 전략을 바탕으로 소통</td></tr>
+        <tr><td><strong>7. 진취성</strong></td><td>조직과 개인의 성장을 함께 추구</td></tr>
+      </table>
+
+      <hr>
+
+      <h2>4. 비전, 기업의 시작과 끝</h2>
+      <p>기업의 가장 중요한 비물질적 요소는 <strong>비전</strong>이다. 비전은 세 가지로 구성된다.</p>
+      <ol>
+        <li><strong>핵심 가치관</strong> — 조직이 추구하는 가치와 신념</li>
+        <li><strong>목적</strong> — 궁극적인 목표이자 방향성</li>
+        <li><strong>미션(BHAG)</strong> — 목표 달성을 위한 크고 대담한 도전 과제</li>
+      </ol>
+      <p>비전은 조직 전체에 공유되고 실행될 때 비로소 지속적인 성장을 이끈다.</p>
+
+      <hr>
+
+      <h2>5. 행운을 불러오는 마인드</h2>
+      <ul>
+        <li>성공한 기업에도 실패한 기업에도 행운과 불운은 똑같이 찾아온다.</li>
+        <li>차이는 <strong>철저한 준비와 위기 대응력</strong>이다. 이것이 행운을 극대화한다.</li>
+        <li>스티브 잡스와 콜드웰의 사례처럼, 위대한 리더는 어려움을 극복하며 기회를 극대화했다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>6. 위대한 기업으로 가는 지도</h2>
+      <ol>
+        <li><strong>규율 있는 사람</strong> — 강한 리더십과 인재 중심 운영</li>
+        <li><strong>규율 있는 사고</strong> — 현실 직시와 명확한 전략 설정</li>
+        <li><strong>규율 있는 행동</strong> — 지속적인 실행과 개선</li>
+        <li><strong>영속성 구축</strong> — 조직이 지속적으로 성장할 수 있는 시스템 마련</li>
+      </ol>
+
+      <hr>
+
+      <h2>7. 전략, 지속 가능한 경쟁우위를 만드는 법</h2>
+      <p>전략은 <strong>단순해야 하며, 내부 구성원 누구나 쉽게 이해할 수 있어야</strong> 한다. 전략은 세 가지 요소로 이루어진다.</p>
+      <ol>
+        <li><strong>비전</strong> — 조직의 목표</li>
+        <li><strong>내부 평가</strong> — 강점과 약점 분석</li>
+        <li><strong>외부 평가</strong> — 시장과 경쟁 환경 분석</li>
+      </ol>
+
+      <hr>
+
+      <h2>8. 혁신 조직으로 거듭나기</h2>
+      <p>혁신 조직이 되기 위한 여섯 가지 방법:</p>
+      <ol>
+        <li><strong>아이디어 수용</strong> — 안팎의 창의적인 아이디어를 받아들인다.</li>
+        <li><strong>직접 고객이 되어 보기</strong> — 고객의 시각에서 경험한다.</li>
+        <li><strong>실험과 실패</strong> — 반복적인 실험과 학습</li>
+        <li><strong>훌륭한 인재 영입</strong> — 혁신적인 인재를 확보한다.</li>
+        <li><strong>탈중앙화</strong> — 유연한 조직 구조를 운영한다.</li>
+        <li><strong>보상 체계 점검</strong> — 적절한 인센티브를 제공한다.</li>
+      </ol>
+
+      <hr>
+
+      <h2>9. 전술적 탁월함, 신은 디테일에 있다</h2>
+      <ul>
+        <li>비전과 전략이 아무리 좋아도 <strong>실행력</strong>이 없다면 성공할 수 없다.</li>
+        <li>전술을 실행할 때는 <strong>명확한 기간, 담당자, 목표</strong>가 필요하다.</li>
+        <li>구성원들이 전술의 의미를 이해하고 적극적으로 참여해야 한다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>짐 콜린스는 위대한 조직이 되기 위한 핵심 원칙으로 <strong>사람 중심의 조직 운영, 명확한 비전, 지속적인 실행과 개선, 혁신적인 사고</strong>를 강조한다. 좋은 리더를 넘어 위대한 리더가 되려면 <strong>리더십 역량, 조직 문화, 전략 실행, 지속적인 혁신</strong>이 함께 필요하다.</p>
+      <blockquote><p>위대한 기업과 리더는 하루아침에 만들어지지 않는다. 철저한 준비와 실천으로 쌓아 올리는 것이며, 그래서 조직과 리더는 끊임없이 성장하고 변화해야 한다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

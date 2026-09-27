@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>씽크 어게인 (Think Again) 독서 노트 | 강동인</title>
+<meta name="description" content="애덤 그랜트, 『씽크 어게인』 독서 노트 — 내가 아는 것을 끊임없이 의심하고 업데이트하는 ‘과학자의 태도’를 개인, 관계, 조직의 세 차원에서 어떻게 실천할 수 있는지 보여주는 다시 생각하기의 기술.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788947547079.jpg" alt="『씽크 어게인』 표지">
+        <div>
+          <h1>씽크 어게인 (Think Again)</h1>
+          <p class="byline">애덤 그랜트 지음</p>
+          <div class="meta-row">
+            <span class="tag">Psychology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>400쪽</span>
+            <span>2025.11 완독</span>
+          </div>
+          <a class="buy" href="https://search.kyobobook.co.kr/search?keyword=%EC%94%BD%ED%81%AC+%EC%96%B4%EA%B2%8C%EC%9D%B8&gbCode=TOT&target=total" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">내가 아는 것을 끊임없이 의심하고 업데이트하는 ‘과학자의 태도’를 개인, 관계, 조직의 세 차원에서 어떻게 실천할 수 있는지 보여주는 다시 생각하기의 기술.</p>
+
+      <h2>1. 개인 차원 — 과학자처럼 사고하기</h2>
+      <p>우리 마음속에는 신념을 설교하는 <strong>전도사</strong>, 타인의 오류를 입증하려는 <strong>검사</strong>, 동의를 얻으려는 <strong>정치인</strong>이 존재한다. 그러나 진정한 성장을 위해서는 자신의 지식을 끊임없이 의심하고 업그레이드하는 <strong>과학자의 태도</strong>가 필수적이다.</p>
+      <ul>
+        <li><strong>블랙베리 vs 아이폰</strong> — 기존 신념을 고집하느냐, 주변의 설득을 통해 다시 생각하기를 실천하느냐가 조직의 생존을 결정한다.</li>
+        <li><strong>확신에 찬 겸손함</strong> — 자신의 역량을 과신하는 자만심도, 과하게 낮게 보는 불신도 아닌, <strong>자신에 대한 믿음은 갖되 도구에 대한 의심은 늦추지 않는 태도</strong>. 아이슬란드 대선의 할라 토마스도티르 사례처럼 겸손한 확신은 대중의 지지를 끌어내는 힘이 된다.</li>
+        <li><strong>틀렸을 때의 유연함</strong> — 자신의 의견이 틀렸을 때 정당화하기보다 성장의 계기로 삼는다.</li>
+        <li><strong>건설적인 업무 갈등</strong> — 픽사와 라이트 형제가 보여주었듯, 감정을 상하게 하는 관계 갈등은 피하되 아이디어를 개선하는 업무 갈등을 장려하는 <strong>도전 네트워크</strong>를 만들 때 혁신적인 결과물이 나온다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>2. 개인과 개인 사이 — 설득과 토론의 기술</h2>
+      <p>관계에서 다시 생각하기를 이끌어내려면, 토론을 승패를 가리는 전투가 아니라 <strong>서로의 보폭을 맞추는 일종의 춤</strong>으로 바라봐야 한다.</p>
+      <ul>
+        <li><strong>세계 토론 챔피언 하리시</strong> — 상대의 주장에 공감하고, 핵심적인 질문을 던지며, 공통된 지점을 찾아가는 과정은 상대를 방어적으로 만들기보다 마음을 열게 한다.</li>
+        <li><strong>고정관념 깨기</strong> — KKK 단원들과 대화하며 인식을 바꾼 대릴 데이비스, 레드삭스와 양키스 팬 사이의 적대감을 줄인 연구처럼, <strong>상대의 가치를 인정하는 태도</strong>가 변화의 씨앗이 된다.</li>
+        <li><strong>동기부여 면담</strong> — 행동 변화를 원한다면 강요하기보다 <strong>경청과 질문</strong>으로 상대 스스로 생각을 재점검하도록 돕는다. 백신 접종 거부처럼 완고한 신념조차 다시 생각하게 만드는 강력한 도구다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>3. 집단 차원 — 조직의 학습 지대 만들기</h2>
+      <p>집단의 변화를 위해서는 세상을 흑백으로 보는 이분법에서 벗어나 <strong>문제의 복잡성을 인정</strong>하는 태도가 먼저다.</p>
+      <ul>
+        <li><strong>복잡성의 공유</strong> — 기후 변화 같은 첨예한 이슈에서 다양한 스펙트럼의 의견을 공유하고, 자신의 논리에 있는 결함을 솔직히 인정할 때 오히려 공감을 얻는다.</li>
+        <li><strong>교육 현장</strong> — 교과서의 오류를 직접 찾아보게 하거나 동료 간 피드백으로 작업을 발전시키는 도전 네트워크를 통해, 아이들이 스스로 지식을 재구성하는 경험을 하게 해야 한다.</li>
+        <li><strong>학습 추구 조직</strong> — NASA의 성과 중심 문화가 초래한 폐해를 경계하고, 빌 게이츠 재단처럼 리더가 먼저 자신의 약점을 드러내 구성원이 <strong>심리적 안정감</strong>을 느끼게 해야 한다.</li>
+        <li><strong>과정에 대한 책임</strong> — 과감한 실험을 장려하는 아마존처럼, 실패를 학습의 과정으로 수용하는 문화가 있어야 조직은 지속 가능하게 성장한다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>터널 시야에서 벗어나기</h2>
+      <p>결국 우리는 특정 직업이나 목표에만 매몰되어 다른 가능성을 보지 못하는 <strong>‘터널 시야’</strong>를 경계해야 한다. 과거의 계획을 지키기 위해 미래를 포기하기보다, <strong>내가 진정 이 일을 원하는지 끊임없이 질문하며 진로를 수정해 나가는 용기</strong>가 필요하다.</p>
+      <p>이 책을 통해 배운 것은 네 가지다.</p>
+      <ul>
+        <li>고정관념의 위험성을 경계할 것</li>
+        <li>확신과 겸손의 균형을 유지할 것</li>
+        <li>갈등을 혁신의 도구로 활용할 것</li>
+        <li>상대를 이기려 하기보다 공감하고, 조직 안에 학습 지대를 만들고, 세상의 복잡성을 수용할 것</li>
+      </ul>
+      <blockquote><p>스스로의 생각을 최신 상태로 업데이트하는 <strong>과학자적 태도</strong>를 습관화할 때, 우리는 터널 시야에서 벗어나 지속적으로 성장하는 삶을 살 수 있다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

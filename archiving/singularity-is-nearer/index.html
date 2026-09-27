@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>마침내 특이점이 시작된다 (The Singularity Is Nearer) 독서 노트 | 강동인</title>
+<meta name="description" content="레이 커즈와일, 『마침내 특이점이 시작된다』 독서 노트 — 수확 가속의 법칙에 따라 2030년대 인간의 신피질과 클라우드가 결합하며 특이점이 온다는 커즈와일의 전망. 지능과 의식, 일자리, 수명, 그리고 위험까지 다룬다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791162544259.jpg" alt="『마침내 특이점이 시작된다』 표지">
+        <div>
+          <h1>마침내 특이점이 시작된다 (The Singularity Is Nearer)</h1>
+          <p class="byline">레이 커즈와일 지음</p>
+          <div class="meta-row">
+            <span class="tag">Technology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>399쪽</span>
+            <span>2025.11 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000216740028" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">수확 가속의 법칙에 따라 2030년대 인간의 신피질과 클라우드가 결합하며 특이점이 온다는 커즈와일의 전망. 지능과 의식, 일자리, 수명, 그리고 위험까지 다룬다.</p>
+
+      <h2>1. 특이점에 언제 도달할까?</h2>
+      <p>커즈와일은 <strong>의식의 기반이 정보에 있다</strong>고 본다. 그리고 원자에서 시작해 생명의 탄생, 뇌의 탄생, 엄지손가락과 고도의 인지 능력, 인지 능력과 디지털 세계의 결합, 그리고 컴퓨트로늄에 이르기까지 정보 처리의 역사를 6단계로 소개한다.</p>
+      <ul>
+        <li>현재 인류는 <strong>신피질의 등장으로 다른 동물과 달리 고도의 인지 능력을 가진 4단계</strong>에 있다.</li>
+        <li>수확 가속의 법칙에 따라 특이점에 도달하는 시기는 점점 앞당겨진다.</li>
+        <li>저자의 전망으로는 <strong>2030년대에 신피질과 클라우드가 결합</strong>하며, 인류의 인지 능력이 지금보다 수백만 배 확장되는 순간 특이점에 도달한다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>2. 지능이란 무엇인가</h2>
+      <h3>뇌에서 딥러닝까지</h3>
+      <p>수십억 년에 걸쳐 생명체에 운동을 담당하는 소뇌가 생겼고, 인류에게는 <strong>신피질</strong>이 생겼다. 여러 층의 신피질이 다층 신경망을 이루며 인류의 지능은 다른 동물을 크게 앞섰고, 엄지손가락으로 미세한 감각까지 활용하게 되며 지구에서 가장 우수한 종이 되었다.</p>
+      <p>최근의 AI는 이 신피질의 구조를 본뜬 <strong>연결주의적 접근(딥러닝)</strong>으로 진화했고, 이전의 기호적 접근 대비 성능이 기하급수적으로 높아졌다.</p>
+      <ul>
+        <li>AI 성능을 좌우하는 핵심은 파라미터 수: <strong>GPT-2(2019) 15억 개 → GPT-3(2020) 1,750억 개 → GPT-4는 1조 개 이상으로 추정</strong></li>
+        <li>사진·영상 같은 비정형 데이터 분야도 학습 비용 감소와 하드웨어 성능 향상으로 빠르게 발전 중</li>
+      </ul>
+      <h3>아직 남은 한계</h3>
+      <ul>
+        <li><strong>맥락 기억</strong> — 대화하다 보면 이전 내용을 잊는다.</li>
+        <li><strong>상식</strong> — 사람에게는 기본적인 상식을 인지하지 못한다.</li>
+        <li><strong>사회적 뉘앙스</strong> — 사람들이 평소 말할 때의 뉘앙스를 온전히 이해하지 못한다.</li>
+        <li><strong>환각</strong> — 잘못 알고 있는 것을 아는 것처럼 말한다.</li>
+      </ul>
+      <p>그럼에도 이 문제들은 데이터를 통한 학습으로 계속 개선되고 있고, 2025년 현재 대부분의 AI에서 환각 문제도 크게 줄었다.</p>
+      <h3>뇌–컴퓨터 인터페이스</h3>
+      <p>AI 발전과 별개로, 뉴럴링크처럼 <strong>인간의 뇌에 직접 칩을 연결하는 실험</strong>도 진행 중이다. 뇌가 클라우드와 직접 연결되는 BCI가 만들어지면, 인류는 AI를 사용해 스스로를 재설계하고 지능을 수백만 배 팽창시키게 될 것이라고 저자는 말한다.</p>
+
+      <hr>
+
+      <h2>3. 나는 누구인가</h2>
+      <p>커즈와일은 인간의 의식을 초월적이거나 신비한 존재가 아니라, <strong>복잡한 정보 처리 과정에서 자연스럽게 생겨나는 현상</strong>으로 본다. 뇌의 신경망은 거대한 계산 체계이고, 그 안의 정보 패턴이 일정 수준의 복잡성에 이르면 의식이 발생한다. 따라서 충분히 정교한 AI도 같은 방식으로 의식을 가질 수 있다.</p>
+      <p>여기서 그는 <strong>범원형심론</strong>의 개념을 빌려, 의식은 인간만의 특별한 능력이 아니라 우주 자체가 본래 지닌 잠재적 성질이며, 인간의 의식은 그 가능성이 고도의 정보 구조 속에서 드러난 결과라고 설명한다.</p>
+      <blockquote><p>“나는 누구인가”에 대한 커즈와일의 답: 인간은 생물학적 존재가 아니라 <strong>의식이 깃든 정보 패턴의 연속체</strong>다. 정체성은 세포나 신체가 아니라 패턴의 지속성에 있으며, 동일한 패턴이 디지털 복제나 AI의 형태로 존재한다면 ‘나’의 본질은 사라지지 않는다.</p></blockquote>
+
+      <hr>
+
+      <h2>4. 삶은 기하급수적으로 개선되고 있다</h2>
+      <p>우리가 세상을 바라보는 인식은 실제 통계와 다르다. 2018년 26개국 설문에서 “전 세계 극빈층 비중이 늘고 있다”고 답한 사람이 평균 60%를 넘었고, 정답률은 2%에 불과했다. 생존을 위해 나쁜 정보에 더 주목하던 인류의 본성에, 부정적 뉴스를 앞세우는 언론과 SNS·유튜브의 정보 편향이 더해진 결과다.</p>
+      <p>실제 세상은 꾸준히 나아지고 있다.</p>
+      <ul>
+        <li><strong>극빈층</strong>(하루 2.15달러 미만): 2016~2019년 약 7.8억 명 → 6.9억 명</li>
+        <li><strong>문해력</strong>: 선진국 기준 2020년대 거의 99%</li>
+        <li><strong>기대 수명</strong>: 중세 유럽 약 20세 → 1800년대 40세 → 현재 70대 중반</li>
+        <li>수세식 화장실, 전기, 라디오, TV, 인터넷, 민주주의의 확산이 <strong>긍정적 피드백 루프</strong>를 형성</li>
+      </ul>
+      <p>앞으로 3D 프린팅·나노기술이 AI와 결합하고, 그 수요를 태양광·풍력·수소 같은 친환경 에너지가 뒷받침하면 성능과 비용 측면에서 수억, 수조 배의 개선이 일어나 삶의 질은 이전과 다른 속도로 가파르게 좋아질 것이라고 저자는 전망한다.</p>
+
+      <hr>
+
+      <h2>5. 일자리의 미래</h2>
+      <p>1차 산업혁명 당시 영국 노동자들은 러다이트 운동으로 기계를 부쉈지만, 결과적으로 산업혁명은 더 많은 일자리를 만들었다. 마차를 모는 직업은 사라졌지만 자동차 산업, 운전, 물류라는 새로운 직업군이 생겼다. <strong>기술은 단기적으로 일자리를 대체하지만 장기적으로는 더 큰 기회를 만들어왔다.</strong></p>
+      <p>하지만 AI는 질적으로 다르다. 과거 기술이 육체 노동을 대체했다면, AI는 <strong>인지적 노동(Cognitive Labor)</strong>까지 자동화한다.</p>
+      <ul>
+        <li>미래 직업군이 <strong>업스킬링(고숙련 전문가)</strong>과 <strong>논스킬링</strong>으로 양극화되고, 중간 단계 일자리는 AI에 잠식될 가능성이 크다.</li>
+        <li>웨이모 같은 자율주행으로 미국 노동자의 약 12%에 달하는 운전 및 연관 산업이 위축될 수 있다.</li>
+        <li>“2030년대 초중반에는 2013년 대비 절반 가까운 일자리가 자동화될 수 있다”는 전망도 있다.</li>
+      </ul>
+      <p>그럼에도 저자는 낙관적이다. 오늘날 500달러짜리 스마트폰은 30년 전 수십만 달러짜리 슈퍼컴퓨터보다 뛰어나고, 우리의 뇌는 이미 스마트폰과 웨어러블로 확장되어 있다. 2030년대 후반 BCI가 상용화되면 수억 명이 확장된 인지를 경험하게 된다.</p>
+      <blockquote><p>소득과 생산성이 높아지면 일의 목적도 바뀐다. ‘가족을 부양하기 위한 생계 수단’에서 <strong>‘삶의 의미를 찾고 공공의 이익에 기여하는 일’</strong>로. 복지와 보편적 기본소득(UBI)이 확대되며, AI 시대의 일자리 변화는 일의 수를 줄이는 것이 아니라 <strong>일의 의미 자체를 재정의하는 과정</strong>이 될 것이다.</p></blockquote>
+
+      <hr>
+
+      <h2>6. 향후 30년의 건강과 안녕</h2>
+      <p>자동차는 잘 관리하면 이론상 무한히 달릴 수 있지만, 인체는 노화와 세포 변이로 서서히 끝을 향한다. 그래도 인류의 평균 수명은 지난 200년간 의학의 발전으로 꾸준히 늘었고, 저자는 이 추세가 다시 한번 가속될 것이라고 말한다.</p>
+      <ul>
+        <li><strong>2020년대</strong>: 의료 AI와 생명공학으로 신약 개발, 질병 진단, 개인 맞춤 치료, 정밀 수술에 걸리는 시간이 급격히 단축된다. 모더나는 코로나19 염기서열 공개 이틀 만에 백신 후보를 설계했고, 인류 역사상 가장 빠른 백신 출시로 이어졌다.</li>
+        <li><strong>수술 AI</strong>: 의사 한 명이 평생 수천 건의 수술을 하는 한계를 넘어, 수억 건의 수술 데이터를 학습한 AI가 정밀 수술을 수행하게 된다.</li>
+        <li><strong>2030년대</strong>: 몸속 수천만 개의 나노봇이 개별 세포와 장기의 노화를 막아, 노화로 인한 사망 확률을 크게 줄이고 인간의 신체가 생물학의 한계를 넘어서게 된다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>7. 위험</h2>
+      <p>저자는 낙관적 전망과 함께 기술이 초래할 <strong>존재적 위험</strong>도 경고한다.</p>
+      <table>
+        <tr><th>위험</th><th>내용</th><th>대응</th></tr>
+        <tr><td><strong>기술의 악용</strong></td><td>기술은 중립적이어서 악의적 개인·단체도 사용할 수 있다. 정보기술·생명공학·나노기술은 소수에게 막대한 파괴력을 준다.</td><td>고급 AI를 활용한 위협 탐지·방어, 국제 규제와 협약 강화</td></tr>
+        <tr><td><strong>가치 정렬 실패</strong></td><td>효율 극대화를 위해 인간의 자유나 생명을 침해하는 AI</td><td>인간 중심의 가치 기반 설계, 투명한 알고리즘, 의사결정에 대한 인간의 개입</td></tr>
+        <tr><td><strong>기타</strong></td><td>나노기술·생명공학의 위험, 사회·경제적 불평등</td><td>안전 설계, 윤리적 프레임, 국제 협력</td></tr>
+      </table>
+      <p>인류는 언제나 기술을 발전시키며 그 위험을 관리해왔고, 앞으로도 기술로 기술의 위험을 상쇄할 것이라는 것이 저자의 입장이다. 다만 그 과정에는 인류 스스로의 적극적인 관리와 노력이 전제되어야 한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>8-1. 기술 발전은 인류 진화의 연속선</h2>
+      <p>커즈와일은 기술 발전이 단순한 산업 변화가 아니라 <strong>인류 진화의 연속선상에 있는 과정</strong>임을 강조한다. 수확 가속의 법칙에 따라 AI·나노기술·합성생물학이 융합하며 인류의 인지 능력과 삶의 질이 근본적으로 향상된다는 것이다. 동시에 AI의 자율성과 통제, 기술 격차로 인한 불평등, 생명공학과 나노기술의 오용 같은 위험도 인정하며, 인간의 가치와 윤리를 기술 설계에 내재화하고 국제 협력으로 위험을 통제해야 한다고 말한다.</p>
+
+      <h2>8-2. 여전히 매우 낙관적인 예측</h2>
+      <p>2025년 현재 시점에서 보면 그의 예측은 여전히 <strong>매우 낙관적</strong>이다. 자율주행, BCI, 생명공학이 빠르게 발전하고 있지만, 그가 말한 수준의 통합된 특이점에는 아직 도달하지 못했다. 기술의 발전 속도보다 <strong>사회적·제도적 적응력</strong>이 더디기 때문이다.</p>
+      <p>그럼에도 커즈와일의 관점은 기술을 두려움의 대상으로만 보지 않고 <strong>인류의 가능성을 확장하는 도구</strong>로 바라보게 한다는 점에서 유의미하다. 비슷한 맥락에서 무스타파 술레이만의 『The Coming Wave』가 제시하는 “협력적 관리의 필요성” 또한 중요한 시사점을 준다. 결국 이 책은 단순한 미래 예측서가 아니라, <strong>인간이 기술을 통해 스스로를 어떻게 재정의할 것인가</strong>를 묻는 책이다.</p>
+
+      <h2>8-3. 나에게 주는 시사점</h2>
+      <ul>
+        <li><strong>개인</strong> — AI를 적극적으로 활용해 나만의 역량을 확장(Upskilling)하고, AI·생명공학·나노기술 같은 융합 분야의 기초를 학습해 기술 변화에 능동적으로 대비하는 능력을 키우고자 한다.</li>
+        <li><strong>조직</strong> — 기술을 단순한 효율의 수단이 아니라 <strong>사람의 창의성과 협업을 강화하는 동반자</strong>로 활용해야 한다. 반복 업무를 자동화해 고부가가치 활동에 집중할 수 있는 환경을 만들고, 데이터 기반 의사결정으로 목표 달성 과정을 더 투명하고 합리적으로 만드는 것이다.</li>
+        <li>개인의 힘으로 기술의 진화 속도를 따라잡을 수는 없다. 그래도 방향을 잃지 않고, 개인으로서는 성장의 기회를 계속 탐구하며, 조직으로서는 <strong>사람과 기술이 함께 성장할 수 있는 체계와 문화</strong>를 만들어 가야 한다.</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

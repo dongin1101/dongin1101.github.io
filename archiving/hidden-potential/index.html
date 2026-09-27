@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>히든 포텐셜 (Hidden Potential) 독서 노트 | 강동인</title>
+<meta name="description" content="애덤 그랜트, 『히든 포텐셜』 독서 노트 — 잠재력은 타고나는 것이 아니라 품성 기량, 동기 시스템, 기회를 만드는 체제로 설계하는 것. 출발점이 아니라 얼마나 멀리 왔는지를 보라고 말하는 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788947549363.jpg" alt="『히든 포텐셜』 표지">
+        <div>
+          <h1>히든 포텐셜 (Hidden Potential)</h1>
+          <p class="byline">애덤 그랜트 지음</p>
+          <div class="meta-row">
+            <span class="tag">Psychology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>392쪽</span>
+            <span>2025.09 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000211914718" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">잠재력은 타고나는 것이 아니라 품성 기량, 동기 시스템, 기회를 만드는 체제로 설계하는 것. 출발점이 아니라 얼마나 멀리 왔는지를 보라고 말하는 책.</p>
+
+      <h2>1. 출발점이 아닌 도착점을 보라</h2>
+      <p>우리는 흔히 ‘재능’을 초기의 반짝임으로 판단한다. 하지만 애덤 그랜트는 모차르트 같은 천재보다, 평범함 속에서 비범함을 꽃피운 바흐 같은 <strong>대기만성형 인재</strong>에 주목한다. 30~50대 창업자를 대상으로 한 연구에서는 인지적 지능보다 <strong>품성 기량(Character Skills)</strong>을 훈련받은 집단의 수익률이 3배나 높았다.</p>
+      <blockquote><p>잠재력은 타고나는 것이 아니라, <strong>우리가 어떻게 설계하느냐</strong>에 달려 있다.</p></blockquote>
+
+      <hr>
+
+      <h2>2. 품성 기량 — 더 멀리 도약하는 내면의 힘</h2>
+      <p>품성은 성격(Personality)과 다르다. 품성은 <strong>원칙을 실천하는 학습된 역량</strong>이며, 후천적으로 개발할 수 있다.</p>
+      <h3>① 불편함의 피조물이 되라</h3>
+      <p>성장은 어색함을 견디는 과정에서 일어난다. 6개 국어를 익힌 세라 해즈번처럼 실수를 피하지 않고 불편함을 자처하며 <strong>실수 속에서 배우는 ‘불편한 학습’</strong>을 지속할 때 역량은 빠르게 향상된다.</p>
+      <h3>② 인간 스펀지가 되라</h3>
+      <p>환경에서 필요한 정보는 주도적으로 흡수하고 불필요한 것은 배출해야 한다. 독학으로 올림픽 투창 은메달을 딴 줄리어스 예고처럼, 누군가 이끌어주기를 기다리는 ‘찰흙’이 아니라 <strong>스스로 학습법을 찾아 걸러내는 능력</strong>이 핵심이다.</p>
+      <h3>③ 불완전주의자가 되라</h3>
+      <p>안도 다다오의 건축 철학이나 저자의 다이빙 연습 경험에서 보듯, 완벽주의는 사소한 것에 매몰되게 해 도전을 회피하게 만든다. <strong>완벽함 대신 탁월함을 추구하고, 과거의 나와 비교하며 성장 곡선을 확인하는 것</strong>이 지속 가능한 성장의 비결이다.</p>
+
+      <hr>
+
+      <h2>3. 동기 유발 시스템 — 장애물을 넘는 임시 구조물</h2>
+      <p>목표로 가는 길은 직선이 아니다. 정체기를 돌파하려면 <strong>‘임시 구조물’</strong>로서의 전략이 필요하다.</p>
+      <ul>
+        <li><strong>계획적인 놀이</strong> — 드러머 에벌린 글레니는 악보를 거꾸로 연주하는 등 놀이 같은 연습으로 번아웃을 막았다. 일상에 비경직성을 더할 때 성장이 지속된다.</li>
+        <li><strong>우회로 택하기</strong> — 정체기에 무작정 직진하기보다 다른 길을 찾는다. R.A. 디키는 투수로서의 치명적 결함을 너클볼이라는 우회로로 극복했다. 때로는 출발점으로 돌아가 새로운 나침반을 따르는 용기가 진전을 만든다.</li>
+        <li><strong>상부상조</strong> — 혼자 힘으로 중력을 거스를 수 없음을 인정하고 동료와 협력한다. ‘황금의 13인’이 서로를 이끌며 불가능해 보이던 훈련을 수료했듯, 주변의 도움과 내적 동기는 강력한 추진력이 된다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>4. 기회를 만드는 체제 — 잠재력을 키우는 시스템</h2>
+      <p>개인의 노력을 넘어, 학교와 조직 차원의 <strong>시스템 설계</strong>가 뒷받침되어야 잠재력이 극대화된다.</p>
+      <ul>
+        <li><strong>핀란드식 교육</strong> — 일부 우수 학생이 아닌 모든 아이에게 전폭적으로 지원하고, 교사가 한 학생을 수년간 깊이 이해하며 맞춤형 교육을 제공한다.</li>
+        <li><strong>격자형 조직과 팀워크</strong> — 칠레 광부 구조 사건처럼, 말단 직원의 아이디어가 리더에게 수용될 수 있는 유연한 체계와 친화적인 팀 구성이 위기 극복의 열쇠가 된다.</li>
+        <li><strong>원석 발굴</strong> — 학력이나 경력보다 성장 과정과 위기 극복 경험에 주목한다. NASA 우주비행사 호세 에르난데스처럼, 현재의 위치보다 <strong>역경을 딛고 얼마나 멀리 이동해 왔는가</strong>를 평가할 때 진짜 잠재력이 보인다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>『히든 포텐셜』이 주는 가장 큰 통찰은 <strong>잠재력은 고정된 자산이 아니라 역동적인 과정</strong>이라는 것이다. 이 메시지는 개인의 성장을 넘어, 우리 사회의 시스템에 세 가지 질문을 던진다.</p>
+
+      <h2>5-1. ‘능력’이 아닌 ‘기회’의 민주화</h2>
+      <p>우리는 재능 있는 사람을 선발하는 데 혈안이 되어 있지만, 정작 그 재능이 꽃필 수 있는 <strong>환경</strong>을 만드는 데는 소홀하다. 핀란드 교육 모델과 칠레 광부 구조 사례는 시스템이 개인의 한계를 어떻게 무너뜨리는지 보여준다. 미래의 조직은 “누가 가장 뛰어난가”가 아니라 <strong>“어떻게 하면 평범한 사람들의 잠재력을 끌어낼 체제를 만들 것인가”</strong>를 물어야 한다.</p>
+      <p>엔비디아도 마찬가지다. 2010년대까지 GPU를 파는 회사에 머물던 엔비디아에서, 한 직원이 CUDA를 AI 학습에 활용할 수 있다는 점을 발견해 젠슨 황에게 전했을 때 그가 흘려들었다면 지금의 엔비디아는 없었을 것이다.</p>
+
+      <h2>5-2. AI 시대, 인간만의 고유한 ‘품성 기량’</h2>
+      <p>인지적 업무의 상당 부분을 AI가 대체하는 시대에 끝까지 남는 경쟁력은 <strong>품성 기량</strong>이다. AI는 정보를 처리하지만, <strong>불편함을 감수하고 도전하며, 실패 속에서 스펀지처럼 흡수하고, 타인과 협력해 임시 구조물을 세우는 일</strong>은 인간의 고유 영역이다. 따라서 미래의 교육은 ‘지식 전달’에서 ‘품성 개발’로 패러다임을 바꿔야 하며, 그래야 인간 고유의 영역을 지키면서 AI와 큰 시너지를 낼 수 있다.</p>
+
+      <h2>5-3. 인구 감소 시대의 인재 전략 — ‘원석’을 찾는 눈</h2>
+      <p>인구가 급격히 줄어드는 사회에서 우리는 단 한 명의 잠재력도 낭비할 여유가 없다. 학벌이나 화려한 경력 위주의 평가는 이미 다듬어진 다이아몬드만 찾는 일이다. 사회를 지탱하고 혁신을 일으키는 힘은 호세 에르난데스처럼 <strong>역경을 딛고 얼마나 멀리 이동해 왔는가를 증명한 원석들</strong>에게서 나온다. 성과 중심의 잣대를 내려놓고, 성장 잠재력을 알아보는 새로운 평가의 눈을 길러야 한다.</p>
+
+      <h2>5-4. 우리의 이동 거리를 믿어라</h2>
+      <p>잠재력은 박제된 유물이 아니다. 지금 마주한 불편함, 정체기에 시도한 우회로, 동료와 나눈 보잘것없어 보이는 협력이 모두 잠재력을 빚어가는 과정이다.</p>
+      <p>내가 존경하는 이중학 교수님의 책 『Better than Best』의 의미처럼, 우리는 최고보다 최선을 추구해야 한다. 이를 위해 결과 중심의 질문은 이제 그만두어야 한다.</p>
+      <blockquote><p>“나는, 그리고 내 팀은 얼마나 높은 곳에 있는가?”가 아니라 <strong>“우리는 어제보다 얼마나 더 멀리 나아갔는가?”</strong> 그 이동 거리가 바로 진짜 실력이자, 세상을 바꿀 히든 포텐셜이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

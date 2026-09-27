@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI는 인간을 먹고 자란다 (Feeding the Machine) 독서 노트 | 강동인</title>
+<meta name="description" content="마크 그레이엄 외, 『AI는 인간을 먹고 자란다』 독서 노트 — AI는 스스로 학습하는 기계가 아니라, 데이터 주석·콘텐츠 검수·물류 노동자들의 보이지 않는 노동을 흡수하며 자라는 ‘추출 기계’라는 사실을 드러내는 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788965967149.jpg" alt="『AI는 인간을 먹고 자란다』 표지">
+        <div>
+          <h1>AI는 인간을 먹고 자란다 (Feeding the Machine)</h1>
+          <p class="byline">마크 그레이엄 외 지음</p>
+          <div class="meta-row">
+            <span class="tag">Technology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>348쪽</span>
+            <span>2026.02 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000216503948" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">AI는 스스로 학습하는 기계가 아니라, 데이터 주석·콘텐츠 검수·물류 노동자들의 보이지 않는 노동을 흡수하며 자라는 ‘추출 기계’라는 사실을 드러내는 책.</p>
+
+      <h2>1. 알고리즘 뒤의 사람들</h2>
+      <p>우리가 흔히 접하는 AI 관련 서적들은 대개 AI 발전의 역사를 소개한 뒤, 기술의 경이로움이나 장밋빛 미래, 혹은 디스토피아적 공포를 막연히 이야기하며 흘러간다. 하지만 『AI는 인간을 먹고 자란다』는 시선을 완전히 돌려, <strong>AI 발전의 이면에서 실제로 AI를 만들어내는 사람들</strong> — 데이터 주석 노동자, 물류 노동자, 실리콘밸리 엔지니어 — 을 다룬다. 그리고 AI가 이들 사이의 불평등에 어떤 영향을 주었는지, 이를 해소하기 위해 개인과 집단에 어떤 노력이 요구되는지를 소개한다.</p>
+
+      <hr>
+
+      <h2>2. 현대판 ‘유령 노동’ — AI 노동의 계층 구조</h2>
+      <p>저자는 AI가 자동으로 학습하는 존재가 아니라, <strong>수많은 노동자의 파편화된 노동을 흡수하며 성장하는 추출 기계</strong>임을 폭로한다. 책이 묘사하는 노동의 계층 구조는 극명하다.</p>
+      <table>
+        <tr><th>계층</th><th>누구인가</th><th>노동의 모습</th></tr>
+        <tr><td><strong>데이터 주석 노동자·<br>콘텐츠 검수자</strong></td><td>주로 아프리카·인도 등, 메타·알파벳 등 빅테크 하청 구조의 끝단</td><td>초저임금으로 AI의 ‘눈과 입’을 만든다. 폭력적·선정적 영상을 검수하며 정신적 스트레스를 받으면서도 알고리즘이 정한 할당량을 채워야 한다. 단기 계약과 조직 내 생존 경쟁 — <strong>디지털 공장</strong>의 모습.</td></tr>
+        <tr><td><strong>물류 노동자</strong></td><td>아마존 풀필먼트 센터 등 거대 물류 기업</td><td>AI에 의해 <strong>관리당하는 대상</strong>. 1분 1초를 감시하는 알고리즘이 인간을 기계의 일부, 언제든 교체 가능한 소모품으로 만든다.</td></tr>
+        <tr><td><strong>실리콘밸리 엔지니어</strong></td><td>AI 노동의 상류층</td><td>쉽게 대체되지 않아 기업과의 협상력이 있고, 고임금을 받는다.</td></tr>
+        <tr><td><strong>투자자</strong></td><td>실리콘밸리·월가의 자본</td><td>AI 기업에 투자한 뒤 재무 성과를 위해 아웃소싱을 강제하는 등 경영에 참여 → <strong>대체 쉬운 노동자와 대체 어려운 노동자 간 불평등의 핵심 원인</strong>이 된다.</td></tr>
+      </table>
+
+      <hr>
+
+      <h2>3. 불평등은 왜 더 교묘해졌는가</h2>
+      <p>노동의 불평등은 중세 유럽에도, 산업혁명기에도 존재했다. 그러나 현대 AI 산업의 불평등은 <strong>기업가–노동자 사이의 불평등 위에 노동자들 사이의 불평등까지 겹치며</strong> 더욱 교묘해지고 있다.</p>
+      <ul>
+        <li>알파벳·아마존·메타 등은 대체하기 어려운 엔지니어에게는 유연한 복지와 보상을 제공하며 노동력을 얻는다.</li>
+        <li>반면 물류 노동자, 데이터 주석 노동자 같은 ‘말단 노동자’와는 <strong>직접 계약조차 맺지 않는 다단계 하청 구조</strong> 뒤로 숨어버린다.</li>
+      </ul>
+      <blockquote><p>AI 산업의 불평등은 단순한 임금 차이를 넘어 <strong>책임의 회피와 협상력의 부재</strong>에서 나온다. 대체 불가능한 기술 권력은 더욱 공고해지는 반면, 파편화된 플랫폼 노동자들은 자신을 착취하는 실체가 누구인지조차 알기 어려운 구조에 갇혀 있다.</p></blockquote>
+
+      <hr>
+
+      <h2>4. ‘먹이 사슬’을 해소하는 방법 — 기술의 민주화</h2>
+      <p>저자는 불평등을 해소하기 위한 경로로 다음을 제시한다.</p>
+      <ol>
+        <li><strong>노동자 간의 연합</strong></li>
+        <li><strong>전 세계적인 노동조합</strong>의 설립</li>
+        <li><strong>법적 규제</strong></li>
+        <li><strong>테크 기업의 민주화</strong></li>
+      </ol>
+      <p>AI 발전이라는 가치 사슬의 가장 아래에 있는 노동자들에게도 그 혜택이 돌아갈 수 있도록 하는 <strong>구조적 전환</strong>을 강조한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>우리가 보지 못했던, 때로는 외면했던 ‘현재’의 위협</h2>
+      <p>흔히 사람들은 AI로 인해 변호사·의사 같은 전문직이 사라지는 ‘노동의 종말’을 이야기하거나, 영화처럼 인류의 생존을 위협하는 AI에 대해 뜨거운 논쟁을 벌인다. 하지만 <strong>지금 당장 눈앞에서 벌어지고 있는 ‘AI 노동 생태계의 밑바닥’의 착취에는 너무 무감각했다</strong>고 생각한다.</p>
+      <p>우리가 미래의 위협을 계산하는 동안, 지구 반대편의 누군가는 당장의 생존을 위해 하루 몇 달러의 임금으로 SNS의 혐오 영상을 걸러내고, 알고리즘에 의해 1분 1초를 감시당하고 있다. 이 책은 <strong>기술 진보가 가져온 화려한 혜택이 사실은 가장 취약한 계층의 희생 위에 세워진 것</strong>임을 뼈아프게 지적한다.</p>
+      <p>이제는 AI의 지능 발전만 논할 것이 아니라, <strong>그 지능을 만드는 인간의 노동</strong>에 대한 세계적인 논의가 필요한 때다. 이들 삶의 불안정성을 해소하는 것은 AI의 발전이 모든 인류의 진보가 되기 위해 치러야 할 비용이다. 세계적인 법적 규제, 노동조합 설립, 테크 기업의 사회적 책임 강화는 당장은 비용으로 보일 수 있지만, <strong>AI가 인간을 먹고 자라는 괴물이 되지 않도록</strong>, 그리고 기술 발전의 혜택이 모든 인류에게 돌아갈 수 있도록 지속적인 관심과 노력이 필요하다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

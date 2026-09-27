@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>규칙 없음 (No Rules Rules) 독서 노트 | 강동인</title>
+<meta name="description" content="리드 헤이스팅스·에린 마이어, 『규칙 없음』 독서 노트 — 인재 밀도, 솔직한 피드백, 통제가 아닌 맥락. 규칙 대신 자유와 책임으로 움직이는 넷플릭스 조직 문화의 설계도.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788925599632.jpg" alt="『규칙 없음』 표지">
+        <div>
+          <h1>규칙 없음 (No Rules Rules)</h1>
+          <p class="byline">리드 헤이스팅스·에린 마이어 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization Culture</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>468쪽</span>
+            <span>2025.03 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000000479470" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">인재 밀도, 솔직한 피드백, 통제가 아닌 맥락. 규칙 대신 자유와 책임으로 움직이는 넷플릭스 조직 문화의 설계도.</p>
+
+      <h2>1. 세계적인 IT 기업이 된 넷플릭스의 조직 문화</h2>
+      <p>넷플릭스 창업자 리드 헤이스팅스와 『컬처 맵』의 저자이자 인시아드 교수인 에린 마이어가 함께 쓴 책으로, 2010년대 중반부터 급격히 성장한 넷플릭스의 이면을 보여준다. 넷플릭스를 세계적인 IT 기업으로 만든 그들만의 조직 문화와, 글로벌 시장에 뛰어들기 위해 준비한 내용을 상세히 소개해 <strong>조직 문화를 만들어 가는 방법에 대한 하나의 지도</strong>를 제공한다.</p>
+
+      <hr>
+
+      <h2>2. 넷플릭스 문화의 다섯 가지 축</h2>
+
+      <h3>① 인재 밀도를 높여라</h3>
+      <p>넷플릭스는 2001년 닷컴 버블 붕괴로 대규모 구조조정을 단행할 수밖에 없었다. 많은 인원이 해고되면서 조직이 장기 침체에 빠질 것이라 예상했지만, 오히려 짧은 시간 만에 분위기가 반전되었다. 남아 있는 인재들의 역량이 매우 뛰어났기 때문에 <strong>인재 밀도가 상승하며 조직 성과도 눈에 띄게 향상</strong>된 것이다.</p>
+      <blockquote><p>이 경험에서 넷플릭스는 <strong>“최고의 인재만 남기고, 보통의 인재는 과감히 정리한다”</strong>는 원칙을 세웠다.</p></blockquote>
+
+      <h3>② 키퍼 테스트를 적용하라</h3>
+      <p>인재 밀도를 유지하기 위한 도구가 <strong>키퍼 테스트(Keeper Test)</strong>다. 관리자가 팀원 한 명 한 명을 떠올리며 이렇게 자문한다.</p>
+      <blockquote><p>“이 직원이 회사를 떠나겠다고 하면, 나는 그를 붙잡을 것인가?”</p></blockquote>
+      <p>‘그렇다’는 확신이 들지 않는다면 조직에 필요하지 않은 인재일 수 있다는 신호로 본다. 이를 통해 인재 선별 기준을 명확히 하고, 우수 인재 중심의 조직을 유지한다.</p>
+
+      <h3>③ 솔직한 피드백 문화를 활성화하라</h3>
+      <p>넷플릭스는 <strong>솔직한 피드백</strong>을 조직 문화의 핵심으로 삼는다. 상사와 동료 사이에 위계 없이 피드백을 주고받으며, 개선할 점을 명확하게 전달하도록 장려한다. 그 기준이 되는 것이 <strong>4A 규칙</strong>이다.</p>
+      <table>
+        <tr><th>역할</th><th>원칙</th></tr>
+        <tr><td><strong>피드백을 주는 사람</strong></td><td><strong>Aim to Assist</strong> — 도움을 목표로 하라<br><strong>Actionable</strong> — 실행 가능하게 하라</td></tr>
+        <tr><td><strong>피드백을 받는 사람</strong></td><td><strong>Appreciate</strong> — 감사하라<br><strong>Accept or Discard</strong> — 수용하거나 버려라</td></tr>
+      </table>
+      <p>한국인의 시각에서는 다소 거칠게 느껴질 수 있지만, 넷플릭스에서 피드백은 개인과 조직의 성과를 동시에 끌어올리는 핵심 동력이다. 회사 안에서는 이를 <strong>‘피드백 서클’</strong>이라 부르며, 끊임없는 소통과 피드백이 조직의 유연성과 경쟁력을 키운다고 믿는다.</p>
+
+      <h3>④ 통제가 아닌 맥락으로</h3>
+      <p>넷플릭스는 직원을 통제하거나 일일이 지시하는 대신 <strong>충분한 맥락(context)</strong>을 제공해 스스로 결정하게 한다. <strong>‘자유와 책임’</strong>이라는 원칙 아래 업무의 방향성과 큰 그림을 공유하고, 실행은 각자 판단해 결과에 책임지게 한다. 그 결과 빠르게 변하는 시장에 유연하게 대응할 수 있고, 구성원의 몰입도도 올라간다.</p>
+
+      <h3>⑤ 글로벌 시장으로</h3>
+      <p>넷플릭스는 미국에서의 성공에 안주하지 않고 일찍이 글로벌 확장을 준비했다. <strong>각국의 문화적 차이를 존중하면서도 넷플릭스의 가치와 문화는 유지</strong>하는 방식으로 현지화를 추진했고, 글로벌 팀 간 협업에서 ‘신뢰 기반 문화’를 강조하며 물리적 거리를 뛰어넘는 일하는 방식을 정착시켰다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>이 책은 넷플릭스가 기존 기업들의 문화를 완전히 뒤엎고 <strong>인재 중심의 자율적이고 유연한 조직 문화</strong>를 만들어 가는 과정을 보여준다. 특히 인재 밀도, 키퍼 테스트, 솔직한 피드백 문화는 추상적인 구호가 아니라 <strong>조직 운영의 구체적인 전략이자 실제 성과로 연결된 사례</strong>다.</p>
+      <p>규칙과 절차보다 <strong>맥락과 서로에 대한 신뢰</strong>를 기반으로 구성원을 대하고, 글로벌 확장 과정에서도 일관된 조직 문화를 유지하려는 시도는 조직 문화를 설계하는 입장에서 많은 시사점을 준다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
