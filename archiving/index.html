@@ -74,7 +74,28 @@
   .empty h2 { font-family: var(--serif); color: var(--ink); font-size: 22px; margin: 0 0 8px; }
   .empty p { margin: 0; }
 
-  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 24px; }
+  .filters { display: grid; gap: 16px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--leaf-tint); }
+  .filter-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); cursor: pointer;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; line-height: 1.6;
+  }
+  .chip:hover { border-color: var(--marigold-deep); }
+  .chip[aria-pressed="true"] { background: var(--marigold); border-color: var(--marigold); color: #1E3326; font-weight: 600; }
+  .chip .n { opacity: .65; margin-left: 4px; font-size: 12px; }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+  .filter-row label { font-size: 13px; font-weight: 600; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; }
+  .filter-row select {
+    font: inherit; font-size: 14px; font-weight: 400; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 132px;
+  }
+  .result-bar { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; font-size: 14px; color: var(--ink-soft); }
+  .reset { font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+  #no-result { margin-top: 24px; }
+  #no-result .reset { margin-top: 12px; }
+
+  .archive-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 24px; }
   .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
   .archive-list a { display: flex; gap: 20px; text-decoration: none; color: inherit; }
   .archive-list .cover { width: 64px; height: 92px; object-fit: cover; border-radius: 6px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
@@ -116,8 +137,30 @@
 
   <section>
     <div class="wrap">
-      <ul class="archive-list">
-        <li>
+      <div class="filters" id="filters" hidden>
+        <div>
+          <span class="filter-label" id="field-label">분야</span>
+          <div class="chips" id="field-chips" role="group" aria-labelledby="field-label"></div>
+        </div>
+        <div class="filter-row">
+          <label>읽은 시기<select id="year-filter"><option value="">전체</option></select></label>
+          <label>평점<select id="rating-filter"><option value="">전체</option></select></label>
+          <label>정렬<select id="sort">
+            <option value="date-desc">최신순</option>
+            <option value="date-asc">오래된순</option>
+            <option value="rating-desc">평점 높은순</option>
+          </select></label>
+        </div>
+      </div>
+
+      <div class="result-bar" id="result-bar" hidden>
+        <span id="result-count" aria-live="polite"></span>
+        <button type="button" class="reset" id="reset" hidden>필터 초기화</button>
+      </div>
+
+      <!-- 책 추가: <li>에 data-date(YYYY-MM), data-field(분야), data-rating(1~5)를 넣으면 필터에 자동 반영된다 -->
+      <ul class="archive-list" id="archive-list">
+        <li data-date="2026-08" data-field="Technology" data-rating="5">
           <a href="/archiving/supremacy/">
             <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791141610227.jpg" alt="『패권』 표지" loading="lazy">
             <div>
@@ -130,6 +173,13 @@
         </li>
       </ul>
 
+      <div class="empty" id="no-result" hidden>
+        <div class="icon">📚</div>
+        <h2>조건에 맞는 책이 없어요</h2>
+        <p>다른 분야나 시기를 선택해 보세요.</p>
+        <button type="button" class="reset" data-reset>필터 초기화</button>
+      </div>
+
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
   </section>
@@ -138,6 +188,93 @@
 <footer>
   <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
 </footer>
+
+<script>
+(function () {
+  var list = document.getElementById('archive-list');
+  var items = Array.prototype.slice.call(list.children);
+  if (!items.length) return;
+
+  var chipsEl = document.getElementById('field-chips');
+  var yearSel = document.getElementById('year-filter');
+  var ratingSel = document.getElementById('rating-filter');
+  var sortSel = document.getElementById('sort');
+  var countEl = document.getElementById('result-count');
+  var resetBtn = document.getElementById('reset');
+  var noResult = document.getElementById('no-result');
+  var state = { field: '' };
+
+  function tally(key) {
+    var m = {};
+    items.forEach(function (li) { var v = key(li); m[v] = (m[v] || 0) + 1; });
+    return m;
+  }
+  var year = function (li) { return (li.dataset.date || '').slice(0, 4); };
+
+  // 분야 칩: 권수 많은 순
+  var fields = tally(function (li) { return li.dataset.field; });
+  function addChip(value, label, n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.value = value;
+    b.setAttribute('aria-pressed', value === state.field ? 'true' : 'false');
+    b.innerHTML = label + '<span class="n">' + n + '</span>';
+    chipsEl.appendChild(b);
+  }
+  addChip('', '전체', items.length);
+  Object.keys(fields).sort(function (a, b) { return fields[b] - fields[a] || a.localeCompare(b); })
+    .forEach(function (f) { addChip(f, f, fields[f]); });
+
+  var years = tally(year);
+  Object.keys(years).sort().reverse().forEach(function (y) {
+    yearSel.add(new Option(y + '년 (' + years[y] + ')', y));
+  });
+  var ratings = tally(function (li) { return li.dataset.rating; });
+  Object.keys(ratings).sort().reverse().forEach(function (r) {
+    ratingSel.add(new Option('⭐'.repeat(+r) + ' (' + ratings[r] + ')', r));
+  });
+
+  function apply() {
+    var shown = 0;
+    items.forEach(function (li) {
+      var ok = (!state.field || li.dataset.field === state.field)
+        && (!yearSel.value || year(li) === yearSel.value)
+        && (!ratingSel.value || li.dataset.rating === ratingSel.value);
+      li.hidden = !ok;
+      if (ok) shown++;
+    });
+
+    var s = sortSel.value;
+    items.slice().sort(function (a, b) {
+      var d = a.dataset.date.localeCompare(b.dataset.date);
+      if (s === 'rating-desc') return (b.dataset.rating - a.dataset.rating) || -d;
+      return s === 'date-asc' ? d : -d;
+    }).forEach(function (li) { list.appendChild(li); });
+
+    var filtered = state.field || yearSel.value || ratingSel.value;
+    countEl.textContent = filtered ? shown + '권 / 전체 ' + items.length + '권' : '전체 ' + items.length + '권';
+    resetBtn.hidden = !filtered;
+    noResult.hidden = shown > 0;
+    Array.prototype.forEach.call(chipsEl.children, function (c) {
+      c.setAttribute('aria-pressed', c.dataset.value === state.field ? 'true' : 'false');
+    });
+  }
+
+  chipsEl.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip');
+    if (!c) return;
+    state.field = c.dataset.value;
+    apply();
+  });
+  [yearSel, ratingSel, sortSel].forEach(function (el) { el.addEventListener('change', apply); });
+  function reset() { state.field = ''; yearSel.value = ''; ratingSel.value = ''; apply(); }
+  resetBtn.addEventListener('click', reset);
+  noResult.querySelector('[data-reset]').addEventListener('click', reset);
+
+  document.getElementById('filters').hidden = false;
+  document.getElementById('result-bar').hidden = false;
+  apply();
+})();
+</script>
 
 </body>
 </html>
