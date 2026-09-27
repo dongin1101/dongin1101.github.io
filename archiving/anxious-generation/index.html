@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>불안 세대 (The Anxious Generation) 독서 노트 | 강동인</title>
+<meta name="description" content="조너선 하이트, 『불안 세대』 독서 노트 — 2012년 이후 청소년의 불안과 우울이 급증한 이유는 스마트폰과 SNS, 그리고 현실에서는 과잉보호하고 온라인에서는 방치한 어른들에게 있다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901285894.jpg" alt="『불안 세대』 표지">
+        <div>
+          <h1>불안 세대 (The Anxious Generation)</h1>
+          <p class="byline">조너선 하이트 지음</p>
+          <div class="meta-row">
+            <span class="tag">Psychology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>528쪽</span>
+            <span>2024.12 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000213913660" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">2012년 이후 청소년의 불안과 우울이 급증한 이유는 스마트폰과 SNS, 그리고 현실에서는 과잉보호하고 온라인에서는 방치한 어른들에게 있다.</p>
+
+      <h2>1. 2012년 이후, 청소년에게 무슨 일이 일어났나</h2>
+      <p>조너선 하이트는 2012년 이후 청소년과 영 어덜트(18~25세)의 불안, 우울 같은 정신 질환이 눈에 띄게 증가한 현상에 주목하고 그 원인을 추적한다.</p>
+      <p>그리고 <strong>스마트폰 보급과 SNS 사용자의 증가</strong>가 <strong>정신 질환의 증가</strong>와 맞물려 있다는 상관관계를 발견한다. 특히 이 현상은 <strong>남학생보다 여학생에게서 훨씬 크게</strong> 나타났다.</p>
+      <ul>
+        <li>SNS에서 맺는 관계는 질보다 양을 추구하고, 외모가 뛰어난 사람이나 다이어트 정보 같은 콘텐츠가 과잉 유입된다. 이 시기의 여학생들은 이를 더 민감하게 받아들이며 자신의 외모와 평가를 끊임없이 비교하고 우울감을 느낀다.</li>
+        <li>‘좋아요’, ‘리트윗’ 같은 반응에 의존하는 특성도 여학생에게 더 부정적으로 작용한다.</li>
+        <li>그 밖에도 <strong>현실의 사회적 관계 단절, 수면 부족과 수면의 질 저하, 주의력 상실</strong> 같은 문제가 뒤따른다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>2. 어른들의 책임 — 안전 지상주의</h2>
+      <p>청소년들이 이런 문제에 방치된 데는 <strong>어른들의 책임</strong>도 있다.</p>
+      <p>1980년대 이후 TV와 컴퓨터가 보급되면서 사람들은 세계 곳곳의 부정적인 소식을 집에서 접하게 되었고, <strong>“사회가 점점 위험해지고 있다”</strong>고 느끼게 되었다. 그 결과 부모들은 <strong>‘안전 지상주의(safetyism)’</strong>로 아이를 키우기 시작했다.</p>
+      <table>
+        <tr><th>현실 세계</th><th>디지털 세계</th></tr>
+        <tr><td><strong>과잉보호.</strong> 아이를 위험에서 지나치게 떼어놓아, 위험을 겪고 극복하며 회복탄력성을 키울 기회를 빼앗았다.</td><td><strong>방치.</strong> 정작 온라인에서 오는 위협으로부터는 아이를 지키지 못했다.</td></tr>
+      </table>
+
+      <hr>
+
+      <h2>3. 해결 방안 — 보호의 방향을 뒤집어라</h2>
+      <ul>
+        <li><strong>현실에서는 덜 보호하라.</strong> 아이들은 위험을 경험하며 배운다. 지나친 보호를 줄이고 스스로 문제를 해결할 기회를 주어야 한다. 더 많은 자유 놀이 시간을 허용하고, 어른의 감독을 최소화해 자율성을 키워야 한다.</li>
+        <li><strong>온라인에서는 더 보호하라.</strong> 디지털 세계에는 약간의 안전 지상주의가 필요하다. 연령에 따른 유해 콘텐츠 차단, <strong>SNS 가입 연령 상향</strong> 같은 방식으로 아이들이 건강하게 성장하도록 도와야 한다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">나의 생각</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>5-1. 익숙했던 기술의 이면</h2>
+      <p>스마트폰, SNS와 함께 자라면서 그 이점은 익숙했지만 단점은 깊이 체감할 기회가 없었다. 이 책을 통해 <strong>수면 부족, 집중력 저하, 우울증</strong> 같은 부정적인 측면을 명확히 알게 된 것이 큰 배움이었다.</p>
+      <p>진 트웬지의 세대 연구, 요한 하리의 『도둑맞은 집중력』과 연결해 읽으며 <strong>기술의 발전과 정서적 문제의 상관관계</strong>를 더 넓은 시각에서 이해할 수 있었다.</p>
+
+      <h2>5-2. 세대 차이가 아니라 전환점</h2>
+      <p>스마트폰만이 아니라 <strong>부모 세대의 양육 방식 변화</strong>도 큰 원인이었다는 시각이 중요하게 느껴졌다.</p>
+      <ul>
+        <li>지금의 20~30대까지만 해도 부모님 피처폰의 간단한 게임과 친구들과의 야외 놀이가 공존했다. 몸을 움직이며 놀고, 사소한 문제를 일으키고, 그 해답을 스스로 찾아가던 기억이 있다.</li>
+        <li>반면 스마트폰이 한창 보급될 때 유년기를 보낸 2000년대 후반 출생자들부터는 밖에서 노는 모습이 줄고 디지털 기기에 더 의존하는, 나에게는 낯선 모습을 보았다.</li>
+        <li>책을 통해 돌아보니, 이 변화는 단순한 세대 차이가 아니라 <strong>한 세대의 정서 발달에 영향을 준 중대한 전환점</strong>이었다.</li>
+      </ul>
+
+      <h2>5-3. 앞으로의 단서</h2>
+      <p>훗날 부모가 된다면 자녀의 디지털 기기 사용을 어떻게 다룰지, 위험을 감수하고 자율성을 키울 수 있는 환경을 어떻게 만들어 줄지에 대한 중요한 단서를 얻었다. 사회적으로도 여러 나라에서 청소년의 SNS 접근을 제한하려는 움직임이 왜 나오는지 그 배경을 이해하게 되었다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

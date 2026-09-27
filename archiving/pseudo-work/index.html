@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>가짜 노동 - 스스로 만드는 번아웃의 세계 독서 노트 | 강동인</title>
+<meta name="description" content="데니스 뇌르마르크·아네르스 포그 옌센, 『가짜 노동』 독서 노트 — 기술이 발전했는데 왜 우리는 여전히 바쁜가. 바빠 보이기 위한 ‘가짜 노동’의 기원과 형태를 해부하고, ‘왜 이 일을 하는가’를 다시 묻게 하는 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788954448413.jpg" alt="『가짜 노동』 표지">
+        <div>
+          <h1>가짜 노동 - 스스로 만드는 번아웃의 세계</h1>
+          <p class="byline">데니스 뇌르마르크·아네르스 포그 옌센 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>412쪽</span>
+            <span>2026.01 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000061583967" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">기술이 발전했는데 왜 우리는 여전히 바쁜가. 바빠 보이기 위한 ‘가짜 노동’의 기원과 형태를 해부하고, ‘왜 이 일을 하는가’를 다시 묻게 하는 책.</p>
+
+      <h2>1. 실패한 예언 — 주 15시간 노동</h2>
+      <p>1930년대 케인스를 비롯한 여러 지식인은 기술 발전 덕분에 100년 뒤 인류가 <strong>주 15시간만 일하며</strong> 여가를 즐기게 될 것이라 확신했다. 벤저민 프랭클린, 마르크스 같은 사상가들도 경제 문제가 해결되면 인류의 고민은 ‘남는 시간을 어떻게 쓸 것인가’가 될 것이라 보았다. 하지만 2030년을 눈앞에 둔 지금, 노동 시간은 과거보다 줄었을지언정 주 15시간은 여전히 먼 이상이다.</p>
+
+      <hr>
+
+      <h2>2. 가짜 노동은 어떻게 생겨났나</h2>
+      <p>이 괴리는 노동의 역사적 변화에서 비롯되었다.</p>
+      <ul>
+        <li>수렵·채집 시대보다 농경·산업 사회에서 노동 시간이 급증했다.</li>
+        <li>테일러의 <strong>과학적 관리법</strong>은 효율을 위해 작업을 초 단위로 측정했고, 이를 기록하고 분석할 <strong>거대한 관리직 계층</strong>을 탄생시켰다.</li>
+        <li>육체노동이 외주화되자 피터 드러커는 <strong>지식 노동자</strong>를 강조했지만, 사무실에는 마땅한 관리 방식이 없었다. 결국 공장의 관리 방식이 사무실로 그대로 옮겨졌고, 효율을 높이려는 시도가 역설적으로 사무직과 관리직의 비대화를 불렀다.</li>
+        <li>기술 발전은 통제와 감시를 정교하게 만들어, 직원들이 실제 성과와 무관하게 <strong>‘일하는 모습’을 끊임없이 증명해야 하는 구조</strong>를 굳혔다.</li>
+      </ul>
+      <h3>텅 빈 노동과 보어아웃</h3>
+      <p>덴마크 노동자들을 관찰한 결과, 업무 시간 중 상당 부분이 무의미하게 사라지고 있었고 많은 사람이 자신의 업무량을 실제보다 과대평가했다. 상사에게 “할 일이 없다”고 말하는 것이 금기인 문화에서, 직원들은 쇼핑이나 딴짓으로 시간을 채우는 <strong>‘보어아웃(boreout)’</strong>을 겪는다. 이것이 성과가 보이지 않는 곳에서 바빠 보이기 위해 문서 정리나 불필요한 회의에 매달리는 <strong>‘가짜 노동’</strong>으로 구체화된다.</p>
+
+      <hr>
+
+      <h2>3. 조직 속 가짜 노동의 얼굴들</h2>
+      <ul>
+        <li><strong>파킨슨의 법칙</strong> — 일의 양과 상관없이 주어진 마감 시간을 다 채우고, 행정 인력만 불어난다.</li>
+        <li><strong>과도한 규제</strong> — 좋은 의도로 도입했지만 현장을 마비시킨다. 미국식 시스템을 도입한 덴마크 병원의 사례가 그렇다.</li>
+        <li><strong>교육 현장의 행정화</strong> — 본질인 교육보다 행정적 과시와 서류 작업에 치중한다.</li>
+        <li><strong>우수 조직 따라 하기</strong> — 다른 조직의 성공 사례를 맹목적으로 모방한다.</li>
+        <li><strong>리더의 과시성 프로젝트</strong> — 실질적 가치 없이 업무만 양산한다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>4. 가짜 노동에서 벗어나려면</h2>
+      <p>저자는 우리가 맹신하던 <strong>‘바보 같은 합리성’</strong>에서 탈출해야 한다고 말한다.</p>
+      <ul>
+        <li><strong>How가 아니라 Why</strong> — ‘이 일을 왜 하는가’를 끊임없이 묻고 불필요한 업무를 과감히 덜어낸다.</li>
+        <li><strong>시간이 아니라 성과</strong> — ‘오래 앉아 있는 것이 생산성’이라는 낡은 공식을 버린다. IIH 노르딕처럼 불필요한 회의를 줄이고 집중도를 높여 주 4일제를 현실화한 사례도 있다.</li>
+        <li><strong>신뢰</strong> — 불신이 낳은 과도한 감사와 보고서를 줄이고, 실무진에게 권한과 책임을 주어 가짜 노동에 저항할 수 있게 한다.</li>
+        <li><strong>개인의 용기</strong> — 할 일이 없으면 과감히 퇴근하고, 자신의 가치를 무의미한 바쁨이 아니라 세상과의 진짜 상호작용에서 찾는다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">나의 생각</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>5-1. 새로운 평가 패러다임</h2>
+      <p>앞으로의 인사 담당자는 <strong>‘시간이 곧 성과’라는 산업화 시대의 신념</strong>을 버리고, 지식 노동에 맞는 새로운 평가 패러다임을 설계해야 한다. 출퇴근 시간이나 근태 같은 외적 통제에 집착하기보다, 구성원이 만들어내는 성과와 협력의 정도로 평가를 정교화해야 한다. 그래야 구성원들이 ‘보여주기식 바쁨’이라는 연기에서 벗어나 조직의 본질적인 목표에 몰입할 수 있다.</p>
+      <h2>5-2. 신뢰를 기반으로 한 Lean한 조직</h2>
+      <p>가짜 노동의 핵심 원인은 <strong>조직 내 신뢰의 결핍</strong>이다. 불신에 기반한 과도한 보고와 감시는 행정 비용을 높이고 실무진의 의욕을 꺾는다.</p>
+      <ul>
+        <li>불필요한 회의와 성과로 이어지지 않는 과시성 프로젝트를 과감히 줄이는 <strong>Lean한 조직 설계</strong>를 HR이 주도한다.</li>
+        <li>실무진에게 권한을 위임해 업무의 주도권을 갖게 한다.</li>
+        <li>할 일이 없을 때 솔직하게 말하고 일찍 퇴근하거나 쉴 수 있는 <strong>유연한 문화</strong>를 만든다.</li>
+      </ul>
+      <blockquote><p>이런 변화를 통해 조직은 텅 빈 노동의 굴레에서 벗어나 <strong>진정한 생산성</strong>을 만들어 낼 수 있을 것이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>위대한 기업의 선택 (Great by Choice) 독서 노트 | 강동인</title>
+<meta name="description" content="짐 콜린스·모튼 한센, 『위대한 기업의 선택』 독서 노트 — 불확실하고 혼란스러운 환경에서도 위대해진 ‘10X 기업’의 비밀은 비전이나 운이 아니라 꾸준함, 검증, 생산적 편집증이라는 원칙이었다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788934959564.jpg" alt="『위대한 기업의 선택』 표지">
+        <div>
+          <h1>위대한 기업의 선택 (Great by Choice)</h1>
+          <p class="byline">짐 콜린스·모튼 한센 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>376쪽</span>
+            <span>2025.01 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000000596508" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">불확실하고 혼란스러운 환경에서도 위대해진 ‘10X 기업’의 비밀은 비전이나 운이 아니라 꾸준함, 검증, 생산적 편집증이라는 원칙이었다.</p>
+
+      <h2>1. 좋은 기업이 위대한 기업이 되는 방법</h2>
+      <p>짐 콜린스는 수십 년의 연구를 통해, 그가 <strong>‘10X 기업’</strong>이라 부르는 위대한 기업들을 그저 좋은 기업으로 남거나 몰락한 <strong>‘비교 기업’</strong>과 대비하며, 좋은 기업이 위대한 기업으로 가는 방법을 소개한다.</p>
+      <p>책의 데이터는 1970년대부터 2002년까지이고 책은 2011년에 나왔으니, 지금은 많은 것이 바뀌었을 것이다. 그럼에도 저자는 <strong>지금 위대한 기업도 미래에 몰락할 수 있고, 몰락한 기업도 다시 위대해질 수 있다</strong>는 점을 강조한다.</p>
+      <p>10X 기업은 혼란스럽고 예측할 수 없는 환경에서도 지속적인 성과를 낸다. 비결은 뛰어난 비전이나 혁신이 아니라, <strong>원칙에 기반한 실행, 철저한 준비, 리스크 관리 능력</strong>이다.</p>
+
+      <hr>
+
+      <h2>2. 10X 기업의 세 가지 행동 원칙</h2>
+
+      <h3>① 20마일 행진 — 꾸준함의 원칙</h3>
+      <p>10X 기업은 환경이 좋을 때 지나치게 확장하지 않고, 어려울 때도 기본 목표를 포기하지 않는다. 그렇게 예측 가능한 성과를 꾸준히 달성한다.</p>
+      <blockquote><p>아문센 일행은 철저한 준비와 매일 일정한 거리를 나아가는 방식으로 인류 최초로 남극점에 도달했다. 비슷한 시기에 도전한 스콧 일행은 날씨에 따라 들쭉날쭉한 전진과 준비 부족으로 실패했고, 결국 돌아오지 못했다.</p></blockquote>
+
+      <h3>② 총알 먼저, 대포알은 나중에 — 검증의 원칙</h3>
+      <p>새로운 전략이나 프로젝트는 먼저 <strong>작은 실험(총알)</strong>으로 검증하고, 성공 가능성이 확인되면 자원을 집중 투입(대포알)한다. 애플도 애플 스토어를 전 세계로 확장하기 전, 소수의 매장에서 충분히 실험하며 성공 경험을 쌓은 뒤 점차 넓혀 나갔다.</p>
+
+      <h3>③ 생산적 편집증 — 위험 관리의 원칙</h3>
+      <p>낙관을 경계하고 늘 최악의 상황에 대비한다. 외부 환경 변화에 민감하게 반응하되, 지나친 변화는 경계한다. 빌 게이츠는 회사가 언제든 위험해질 수 있다는 생각으로, <strong>매출이 없어도 1년을 버틸 수 있는 현금</strong>을 늘 확보해 두었다.</p>
+
+      <hr>
+
+      <h2>3. 환경, 그리고 운</h2>
+      <h3>SMaC — 구체적이고, 체계적이며, 일관된</h3>
+      <p>10X 기업은 성공 요인을 외부 환경이 아니라 <strong>내부</strong>에서 찾는다. 같은 환경에서 어떤 기업은 성공하고 어떤 기업은 실패하는 이유가 여기 있다. 외부 변화에 반응하는 것보다 내부에서 <strong>SMaC(Specific, Methodical, Consistent)</strong> 원칙을 지키는 것이 중요하다.</p>
+      <h3>운의 반환율</h3>
+      <p>운이 성공을 좌우한다고 생각하기 쉽지만, 행운과 불운은 모든 기업에 비슷하게 찾아온다. 차이는 10X 기업이 <strong>운이 왔을 때 바로 활용할 준비와 능력</strong>을 갖추고 있었다는 것이다. 저자는 이를 <strong>‘운의 반환율(Return on Luck)’</strong>이라 부른다. 꾸준히 준비하고, 운이 주는 기회를 효과적으로 활용하는 것이 성공의 차이를 만든다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>『위대한 기업의 선택』은 혼란과 불확실성이 높은 경영 환경에서 성공하려면 <strong>원칙을 고수하고, 일관된 실행력을 갖추고, 줌인과 줌아웃을 반복하며 생산적으로 위험을 관리해야 한다</strong>고 말한다.</p>
+      <blockquote><p>10X 기업의 리더들은 과도한 위험은 피하면서도 과감한 선택을 할 줄 알았고, 운을 맞이할 준비를 철저히 했으며, 구체적이고 지속적인 목표로 장기적인 탁월함을 만들어냈다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

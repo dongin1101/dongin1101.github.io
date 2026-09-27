@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>일할 사람이 사라진다 독서 노트 | 강동인</title>
+<meta name="description" content="이철희, 『일할 사람이 사라진다』 독서 노트 — 초저출산·초고령 사회가 된 한국의 노동시장을 데이터로 예측한다. 정년 연장, 여성 경제활동, 외국인 노동자 모두 절대적 해법은 아니지만 지금부터 대비해야 하는 이유.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791171712014.jpg" alt="『일할 사람이 사라진다』 표지">
+        <div>
+          <h1>일할 사람이 사라진다</h1>
+          <p class="byline">이철희 지음</p>
+          <div class="meta-row">
+            <span class="tag">Society</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>312쪽</span>
+            <span>2025.04 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000213350332" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">초저출산·초고령 사회가 된 한국의 노동시장을 데이터로 예측한다. 정년 연장, 여성 경제활동, 외국인 노동자 모두 절대적 해법은 아니지만 지금부터 대비해야 하는 이유.</p>
+
+      <h2>1. 출생아가 줄어드는 한국의 미래</h2>
+      <p>2025년 한 인기 경제 유튜브 채널에서, 합계출산율 0.7~0.8, 연간 출생아 30만 명 미만이 이어질 경우 100년 뒤 한국의 모습을 예측한 영상이 큰 화제가 되었다.</p>
+      <p>저자는 <strong>저출산·고령화와 그에 따른 노동력 감소</strong>라는 위기를 단순한 통계나 문제 제기에 그치지 않고, <strong>데이터 기반의 미래 예측, 노동시장의 구조적 변화, 대응 방안</strong>까지 다각도로 조망한다.</p>
+
+      <hr>
+
+      <h2>2. 향후 노동시장의 변화</h2>
+      <p>2024년 합계출산율 약 0.7, 출생아 수 25만 명 이하, 중위연령 40대 중반. 한국은 <strong>초고령·초저출산 사회</strong>로 접어들고 있다.</p>
+      <h3>진짜 문제는 2050년대 이후</h3>
+      <p>노동시장에 들어올 청년이 확연히 줄고 있다는 것은 모두가 안다. 하지만 저자의 분석은 조금 다르다. <strong>2040년대 중반까지는</strong> AI 등 기술 발전과 여성의 경제활동 참여 확대로 청년 감소의 충격이 생각만큼 크지 않을 것이다. 진짜 문제는 <strong>2050년대 이후</strong>다. 청년 인구가 지금의 절반으로 줄고, 현재 40대 세대가 본격적으로 은퇴하면, 기술 발전만으로는 메울 수 없는 생산성 문제가 닥친다.</p>
+      <h3>산업별 불균형</h3>
+      <p>청년들은 산업별로 고르게 분포하지 않고 인기 있고 유망한 산업으로 몰린다. 그 결과 <strong>유망하지 않은 산업은 인력 부족, 유망한 산업은 인력 과잉으로 인한 취업난</strong>이라는 새로운 문제가 생기고 있고, 앞으로 더 심해질 것이다.</p>
+
+      <hr>
+
+      <h2>3. 흔히 떠올리는 세 가지 해법, 그리고 그 한계</h2>
+      <table>
+        <tr><th>해법</th><th>기대 효과</th><th>한계</th></tr>
+        <tr><td><strong>정년 연장</strong></td><td>65세 이상 인구가 절반에 가까워질 미래에, 숙련된 시니어 인력을 오래 활용해 생산성을 일정 수준 유지</td><td>새로운 세대의 진입을 막는 <strong>인력 정체</strong>, 세대 갈등, 조직 역동성 저하. 단기 처방은 되지만 지속 가능한 구조 개선은 아니다</td></tr>
+        <tr><td><strong>여성의 경제활동 참여 확대</strong></td><td>OECD 최하위권인 한국 여성의 경제활동 참여율, 특히 30대 이상 기혼 여성의 노동시장 복귀를 가로막는 문제를 완화</td><td>그래도 <strong>노동력 총량의 절대 부족</strong>이라는 본질적 문제는 해소하기 어렵다</td></tr>
+        <tr><td><strong>외국인 노동자 유입</strong></td><td>총량 부족을 보완</td><td>무분별한 유입은 내국인과의 경쟁을 낳고, 특정 산업이 외국인 노동력에 의존하면 유입이 끊겼을 때 산업이 흔들린다. 게다가 신흥국이 성장할수록 해외로 나오는 노동자는 줄어든다</td></tr>
+      </table>
+      <p>그래서 저자는 외국인 노동력에 대해서도 <strong>산업별로 필요한 인력의 총량을 정의</strong>하고, 비전문 인력보다 <strong>전문 인력 유치</strong>에 집중하는 정책을 강조한다. 그래야 내국인 역차별을 막고, 청년 감소로 실제 타격을 받는 전문 분야의 인력을 채울 수 있다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>시니어 인력의 활용, 여성의 경제활동 지원, 외국인 노동자 유입으로 저출산이 가져올 미래 문제를 해결할 수 있을까? 저자의 답은 <strong>여전히 ‘아니다’</strong>다. 그럼에도 지금부터 완화책을 시행해야, 큰 충격으로 다가올 문제에 대비할 수 있다.</p>
+      <h2>HR에 주는 시사점</h2>
+      <p>조직의 관점에서 노동력 감소는 곧 <strong>인재 확보 경쟁의 심화</strong>를 뜻하고, 기존의 채용·육성·배치 전략이 점점 통하지 않게 된다는 뜻이다.</p>
+      <ul>
+        <li>조직은 인재를 <strong>‘찾는’ 역할</strong>을 넘어, 인재를 <strong>‘지속 가능하게 유지하고 순환시키는’</strong> 전략으로 전환해야 한다.</li>
+        <li>AI 기반 직무 분석, 맞춤형 교육, 유연한 근무 환경으로 <strong>개인화된 관리</strong>를 하며 구성원과 조직의 성장을 함께 추구해야 한다.</li>
+      </ul>
+      <blockquote><p>인사 담당자의 역할도 바뀌어야 한다. 앞으로의 인사 관리는 <strong>데이터 기반의 기획력과 사회 변화에 대한 통찰력</strong>을 동시에 요구받게 될 것이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
