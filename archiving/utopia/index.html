@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유토피아 (Utopia) 독서 노트 | 강동인</title>
+<meta name="description" content="토마스 모어, 『유토피아』 독서 노트 — 사유 재산도 화폐도 없고 하루 6시간만 일하는 섬나라. 500년 전 모어가 그린 이상 사회에서, 노동이 사라진 AI 시대에 삶을 무엇으로 채울지를 다시 묻는다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191174595.jpg" alt="『유토피아』 표지">
+        <div>
+          <h1>유토피아 (Utopia)</h1>
+          <p class="byline">토마스 모어 지음</p>
+          <div class="meta-row">
+            <span class="tag">Novel</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>296쪽</span>
+            <span>2026.02 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000001948554" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">사유 재산도 화폐도 없고 하루 6시간만 일하는 섬나라. 500년 전 모어가 그린 이상 사회에서, 노동이 사라진 AI 시대에 삶을 무엇으로 채울지를 다시 묻는다.</p>
+
+      <h2>1. 16세기 영국·유럽 사회 비판</h2>
+      <p>주인공 토마스 모어는 영국과 카스티야 사이의 통상 협상을 위해 플랑드르에 파견되었다가, 지인의 소개로 <strong>‘라파엘’</strong>이라는 노인을 만난다. 수많은 곳을 여행하며 경험과 학식을 쌓았지만 공직에는 몸담지 않은 인물이다. 그의 지식이 재야에 묻혀 있는 것을 안타깝게 여긴 모어가 공직에 나가 봉사하지 않는 이유를 묻자, 라파엘은 <strong>주변에 베풀 것은 다 베풀었고, 왕 주변의 신하들과 정치적 논쟁을 벌이는 것이 싫다</strong>고 답한다.</p>
+      <h3>절도와 사형에 관한 논쟁</h3>
+      <p>라파엘은 영국에서 존경받는 추기경의 집에 머물던 때의 이야기를 꺼낸다. 당시 영국과 유럽에서 절도는 살인과 같은 사형으로 처벌되었는데, 라파엘은 이것이 지나치다고 주장했다. 그리고 절도의 원인으로 세 가지를 든다.</p>
+      <ul>
+        <li>귀족 가문 가신들의 몰락</li>
+        <li>양 사육의 증가로 인한 곡물 가격 상승</li>
+        <li>과점으로 인한 양모 가격 상승 — 여기서 <strong>“양이 사람을 잡아먹는다”</strong>는 말이 나온다</li>
+      </ul>
+      <p>원인은 외면한 채 절도범을 사형에 처하는 것에 반대하며, 라파엘은 페르시아의 한 나라에서 시행되는 징역형을 대안으로 제시한다. 낮에는 노동을 하고 통제는 밤에만 하며, 탈주와 탈주 방조는 엄히 처벌하되 탈주 계획을 고발하면 사면으로 보상하는 식의 <strong>처벌과 교화의 조화</strong>다.</p>
+      <p>흥미로운 것은 좌중의 반응이다. 라파엘 혼자 말할 때는 모두 반대했지만, 그 자리에서 가장 높은 추기경이 동의하자 모두가 태도를 바꿔 동의했다. 라파엘이 궁정에 들어가 왕에게 좋은 조언을 해도 조신들에게 어떤 취급을 받을지, 그의 인식을 보여주는 장면이다.</p>
+
+      <hr>
+
+      <h2>2. 유토피아에서의 5년</h2>
+      <p>라파엘은 이어서 유토피아라는 나라에서 5년간 살며 겪은 이야기를 들려준다.</p>
+      <ul>
+        <li><strong>하나의 설계도</strong> — 모든 도시의 관습, 법, 언어가 같고, 모든 도시가 하나의 설계도로 지어졌다. 수도 아마우로툼의 모습이 곧 다른 도시들의 모습이다.</li>
+        <li><strong>공동 생산, 공동 소유</strong> — 사유 재산이라는 개념이 없다.</li>
+        <li><strong>왕 없는 정치</strong> — 관리자는 시민의 투표로 뽑고, 왕이나 단일 지도자는 없다. 각 도시의 최고 공직자들이 정기적으로 수도에 모여 국가의 중대사를 결정한다. 독재를 꾀하면 강제로 폐위되며, 공직자는 노동에서 면제되지만 오히려 시민들과 함께 일한다.</li>
+        <li><strong>하루 6시간 노동</strong> — 이후에는 오락이나 기술·학문 공부 등 다양한 여가를 즐긴다. 생산해서 사람들에게 도움이 되는 직업만 존재하고, 불필요한 노동은 하지 않으며, 과잉 생산 시 노동을 멈춘다.</li>
+      </ul>
+      <p>이 모든 것이 가능한 이유는, 다른 나라들을 움직이는 요소 — 화폐 중심의 경제, 금·은·곡물·땅을 많이 가질수록 높아지는 사회적 지위, 남에게 과시하고 싶은 욕구 — 를 유토피아에서는 <strong>제한하고 금지</strong>하기 때문이다. 작중의 모어는 동의하지 못하는 부분도 있지만, 많은 것이 현실 사회에 적용되면 세상이 훨씬 나아질 것 같다고 말한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">나의 생각</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>노동이 사라진 뒤, 우리는 무엇으로 삶을 채울 것인가</h2>
+      <p>솔직히 고전에서 얻을 수 있는 인사이트는 세상이 변하면서 많이 제한된다고 느끼는 편이다. 하지만 지금처럼 AI가 발전하며 인간의 노동이 점차 사라지고, <strong>보편적 기본소득(UBI)</strong>이 많은 학자와 CEO의 입에서 오르내리는 시점에서는 다르다.</p>
+      <blockquote><p>“노동이 사라진 후 우리는 무엇으로 삶을 채울 것인가”라는 질문에, 500년 전 토마스 모어가 내놓은 대답 — <strong>여가와 수양 중심의 삶</strong> — 은 인류가 맞이할 새로운 노동 패러다임에 흥미로운 관점을 제시한다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

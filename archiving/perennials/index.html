@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>멀티제너레이션, 대전환의 시작 (The Perennials) 독서 노트 | 강동인</title>
+<meta name="description" content="마우로 기옌, 『멀티제너레이션, 대전환의 시작』 독서 노트 — ‘교육-일-은퇴’라는 순차적 인생 모형은 끝났다. 나이에 갇히지 않고 평생 배우고 일하는 ‘퍼레니얼’의 시대를 위해 개인, 기업, 정부가 바뀌어야 할 것들.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901277509.jpg" alt="『멀티제너레이션, 대전환의 시작』 표지">
+        <div>
+          <h1>멀티제너레이션, 대전환의 시작 (The Perennials)</h1>
+          <p class="byline">마우로 기옌 지음</p>
+          <div class="meta-row">
+            <span class="tag">Society</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>404쪽</span>
+            <span>2026.01 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000211648745" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">‘교육-일-은퇴’라는 순차적 인생 모형은 끝났다. 나이에 갇히지 않고 평생 배우고 일하는 ‘퍼레니얼’의 시대를 위해 개인, 기업, 정부가 바뀌어야 할 것들.</p>
+
+      <h2>1. 인위적인 ‘나이’의 장벽과 순차적 인생 모형의 위기</h2>
+      <p>산업혁명 이후 사회의 효율을 높이기 위해, 인간의 삶을 <strong>‘놀이 → 교육 → 일 → 은퇴’</strong>라는 선형적인 단계로 나누는 <strong>순차적 인생 모형</strong>이 퍼졌다. 19세기 말 등장한 의무 교육과 연금 제도는 특정 연령에 특정 역할을 요구하는 <strong>연령 기반 사회 구조</strong>를 공고히 했다.</p>
+      <p>이 모형은 인구가 유지되는 출산율과 사망률 안에서는 무난하게 작동했다. 하지만 지금은 근간부터 흔들리고 있다.</p>
+      <ul>
+        <li>100세 시대의 도래로 인한 연금 문제</li>
+        <li>초저출산으로 인한 노동력 부족</li>
+        <li>건강 수명 연장으로 늘어난 고령 노동력</li>
+        <li>한 조직 안에 공존하는 다양한 세대</li>
+      </ul>
+
+      <hr>
+
+      <h2>2. ‘퍼레니얼(Perennials)’의 등장과 다세대 사회</h2>
+      <p>마우로 기옌은 나이라는 생물학적 틀에 갇히지 않고, 세대를 아우르며 끊임없이 배우고 성장하는 사람들을 <strong>‘퍼레니얼(다년생 식물처럼 지속되는 사람들)’</strong>이라 부른다.</p>
+      <ul>
+        <li>60대에 대학에 입학하고, 20대에 창업하고, 70대에 새로운 기술을 배우는 삶이 어색하지 않은 시대가 되고 있다.</li>
+        <li>놀이·교육·일·은퇴는 더 이상 순서대로 오지 않고, 생애 전반에 걸쳐 반복되고 겹치는 <strong>다단계 인생(Multi-stage life)</strong>으로 바뀌고 있다.</li>
+        <li>핵가족의 해체와 1인 가구의 증가, 여성의 경제적·사회적 지위 상승이 과거의 가부장적·연령 중심 질서를 대체하고 있다.</li>
+        <li>직장에서는 사상 처음으로 <strong>5개 세대가 동시에 협력하는 ‘멀티제너레이션’</strong> 환경이 만들어졌다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>3. 새로운 패러다임을 위한 제언</h2>
+      <table>
+        <tr><th>주체</th><th>필요한 변화</th></tr>
+        <tr><td><strong>개인</strong></td><td>‘나이에 맞는 일’이라는 고정관념에서 벗어나, 탈학습과 재학습으로 이루어지는 <strong>평생 교육(Reskilling)을 삶의 상수</strong>로 받아들인다. 나보다 젊거나 나이 많은 사람들과 유연한 네트워크를 만드는 퍼레니얼적 사고가 필요하다.</td></tr>
+        <tr><td><strong>기업</strong></td><td><strong>연공서열 중심의 인사 제도를 버려야</strong> 한다. 다양한 세대가 섞여 일할 때 창의성이 발휘된다는 점을 인지하고, 유연 근무제와 생애 주기별 맞춤형 복지로 숙련된 고령 인력과 혁신적인 젊은 인력의 협력을 이끌어낸다.</td></tr>
+        <tr><td><strong>정부</strong></td><td>연금 수령 시기 조정, 연령 차별 금지법 강화 등 제도를 뒷받침한다. 특히 청소년기에 모든 것이 결정되는 ‘단판 승부’식 교육이 아니라, <strong>전 생애에 걸쳐 언제든 돌아올 수 있는 개방형 구조</strong>로 교육을 재설계해야 한다.</td></tr>
+      </table>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>나이라는 유통기한을 삭제하라</h2>
+      <p>『멀티제너레이션』의 메시지는 명확하다. 인류 역사상 가장 긴 수명을 누리게 된 우리는 이제 <strong>‘나이’라는 낡은 잣대로 서로를 가두는 일</strong>을 멈춰야 한다.</p>
+      <blockquote><p>퍼레니얼 모델을 체득하는 것은 단순히 오래 사는 것에 대한 대비가 아니라, <strong>우리 사회의 창의성과 역동성을 회복하기 위한 가장 강력한 전략</strong>이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

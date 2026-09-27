@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>브레이크넥 (Breakneck) 독서 노트 | 강동인</title>
+<meta name="description" content="댄 왕, 『브레이크넥』 독서 노트 — 중국은 공학자의 나라, 미국은 변호사의 나라. 두 강대국을 이념이 아니라 ‘누가 권력을 잡고 문제를 어떻게 다루는가’로 새롭게 읽어낸 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901299365.jpg" alt="『브레이크넥』 표지">
+        <div>
+          <h1>브레이크넥 (Breakneck)</h1>
+          <p class="byline">댄 왕 지음</p>
+          <div class="meta-row">
+            <span class="tag">Society</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>424쪽</span>
+            <span>2026.07 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000219128202" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">중국은 공학자의 나라, 미국은 변호사의 나라. 두 강대국을 이념이 아니라 ‘누가 권력을 잡고 문제를 어떻게 다루는가’로 새롭게 읽어낸 책.</p>
+
+      <h2>1. 핵심 프레임 — 변호사의 나라 vs 공학자의 나라</h2>
+      <p>이 책의 출발점은 하나의 선명한 대비다. <strong>중국은 공학자의 나라이고, 미국은 변호사의 나라</strong>라는 것. 약 6년간 중국에 거주하며 기술 애널리스트로 활동한 저자 댄 왕은, 두 나라의 차이를 이념이나 체제가 아니라 이 두 직업의 사고방식으로 설명한다.</p>
+      <table>
+        <tr><th></th><th>미국 — 변호사의 나라</th><th>중국 — 공학자의 나라</th></tr>
+        <tr><td>기원</td><td>독립선언서 자체가 영국을 상대로 한 소장처럼 쓰였고, 초기 대통령 16명 중 13명이 변호사 출신. 민주당은 1980~2024년 모든 대선 후보가 로스쿨 졸업</td><td>덩샤오핑이 마오쩌둥 시대의 혼란을 수습하려 의도적으로 공학자를 지도부에 기용. 2002년 정치국 상무위원 9명 전원이 공학·이공계 학위 보유</td></tr>
+        <tr><td>사고방식</td><td>막고, 절차를 따지고, 이의를 제기하는 데 최적화</td><td>설계하고, 최적화하고, 빠르게 짓는 데 최적화</td></tr>
+        <tr><td>결과</td><td>좋은 것도 나쁜 것도 모두 막는 <strong>‘소송 거부권 사회(litigious vetocracy)’</strong>. 인프라 사업은 환경 문제, 님비, 소송으로 계획과 다른 형태가 되거나 한참 늦어진다</td><td>거대한 다리, 고속철도, 공장 단지를 놀라운 속도로 건설. 지방 소도시조차 미국 대도시보다 최신 인프라를 누린다</td></tr>
+      </table>
+
+      <hr>
+
+      <h2>2. 공학 국가 중국이 만들어낸 것들</h2>
+      <p>책의 첫 장면은 저자가 구이양에서 충칭까지 자전거로 횡단한 경험이다. 5일간 가파른 산악 구간을 달리며 그가 목격한 것은 ‘중국 특색 사회주의’의 실제 풍경이었다. 깎아지른 산을 가로지르는 거대한 다리, 외딴 마을을 잇는 고속도로, 빠르게 개발된 도시들.</p>
+      <p>저자는 상하이, 충칭, 선전 같은 대도시뿐 아니라 크고 작은 도시를 발로 걸으며 공학 국가가 가져온 <strong>낙관주의와 활기</strong>를 기록한다. 물리적 인프라는 단순한 편의의 문제가 아니라, <strong>사람들이 미래에 대한 기대를 품게 만드는 심리적 동력</strong>이기도 했다. 미국의 많은 도시가 과거 산업 문명의 잔재처럼 보이는 것과 달리, 중국의 도시들은 끊임없이 새로운 무언가를 짓고 있었다.</p>
+
+      <hr>
+
+      <h2>3. 공학 국가의 그림자 — 소셜 엔지니어링의 재앙</h2>
+      <p>그러나 저자가 가장 공을 들이는 부분은 성취가 아니라 그 어두운 이면이다. 구조물을 짓는 논리 — 설계하고, 최적화하고, 장애물을 제거하는 방식 — 를 <strong>사람과 사회에 그대로 적용할 때</strong> 무슨 일이 벌어지는가. 저자는 이를 <strong>‘소셜 엔지니어링(사회공학)’</strong>이라 부르며, 공산당이 이 방향으로 나아갈 때마다 비극이 반복되었다고 말한다.</p>
+      <ul>
+        <li><strong>한 자녀 정책</strong> — 늘어나는 인구를 ‘문제’로 규정하고 ‘해결’하려 한 결과, 수억 명에게서 출산이라는 가장 기본적인 자유를 박탈했다. 그 인구 구조의 왜곡과 개인의 상처는 지금도 남아 있다.</li>
+        <li><strong>제로 코로나 정책</strong> — 바이러스를 ‘제거해야 할 공학적 문제’로 다루며 수년간 국민 전체의 이동의 자유를 박탈했다. 공학 국가가 얼마나 쉽게 개인의 권리를 시스템의 논리 앞에 희생시키는지 드러났다.</li>
+        <li><strong>소수민족 감시와 정치적 억압</strong> 역시 같은 맥락에서 이해해야 한다.</li>
+      </ul>
+      <p>저자가 공산당을 ‘레닌주의적 기술관료제’라 부르면서도 <strong>“거창한 오페라의 특성을 가진”</strong>이라는 수식어를 붙이는 이유다. 실용적이다가도 어느 순간 황당한 방향으로 폭주한다는 뜻이다.</p>
+
+      <hr>
+
+      <h2>4. 서로에게서 배울 수 있는 것</h2>
+      <p>저자는 어느 쪽이 옳다는 결론을 내리지 않는다. 두 나라가 근본적으로 비슷한 사람들로 이루어져 있다는 전제에서, <strong>각자의 강점을 상대가 받아들이면 두 사회 모두 나아질 수 있다</strong>는 제안을 건넨다.</p>
+      <ul>
+        <li><strong>미국에 필요한 것 — 공학적 태도.</strong> 더 많은 사람을 위한 더 나은 결과를 만들려면 모든 것을 막아버리는 지금의 방식을 바꿔야 한다. 참고할 모델은 중국이 아니라 유럽과 일본이다. 고품질의 지하철·고속철도·도시 인프라를 갖추면서도 개인의 권리를 함부로 침해하지 않았다. 저자는 미국이 <strong>20% 정도만 더 공학적</strong>이 되어도 충분하다고 말한다.</li>
+        <li><strong>중국에 필요한 것 — 변호사적 태도.</strong> 독립적인 사법부, 개인의 권리에 대한 존중, 국가 권력에 대한 실질적인 견제. 공학 국가의 폭주를 멈출 수 있는 것은 결국 이런 제도뿐이다. 중국은 <strong>80% 정도 더 변호사적</strong>이 되어야 한다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <p>이 책은 미국 편도, 중국 편도 아니다. 두 나라를 사상이나 이념이 아니라 <strong>‘어떤 사람들이 권력을 잡고 어떻게 문제를 다루는가’</strong>라는 시각으로 새롭게 읽어낸 책이다.</p>
+      <p>공학자는 짓는다. 빠르고 효율적으로. 하지만 사람을 문제로 보는 순간 그 논리는 재앙이 된다. 변호사는 막는다. 나쁜 것을 걸러내기 위해. 하지만 모든 것을 막는 순간 사회는 앞으로 나아가지 못한다. 미국과 중국은 각자 한쪽 극단에 서서, 겪지 않아도 될 고통을 자초하고 있다.</p>
+      <p>댄 왕의 메시지는 결국, 경쟁 상대라고 여기는 나라에서도 배울 것이 있다는 것이다. 그리고 그 배움은 상대를 모방하는 것이 아니라 <strong>자신의 단점을 직시하는 데서</strong> 시작된다.</p>
+      <blockquote><p>짓는 것만으로는 부족하고, 막는 것만으로는 무너진다. 진짜 강한 사회는 둘 다 할 줄 아는 사회다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

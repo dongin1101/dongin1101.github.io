@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>엔비디아 젠슨 황, 생각하는 기계 (The Thinking Machine) 독서 노트 | 강동인</title>
+<meta name="description" content="스티븐 위트, 『엔비디아 젠슨 황, 생각하는 기계』 독서 노트 — 데니스 식당 구석 자리에서 시작한 그래픽 칩 회사가 AI 시대의 유일한 무기상이 되기까지. 미래를 예측하기보다 끊임없이 학습하며 준비한 젠슨 황의 기록.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788925573762.jpg" alt="『엔비디아 젠슨 황, 생각하는 기계』 표지">
+        <div>
+          <h1>엔비디아 젠슨 황, 생각하는 기계 (The Thinking Machine)</h1>
+          <p class="byline">스티븐 위트 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>491쪽</span>
+            <span>2026.07 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000216465663" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">데니스 식당 구석 자리에서 시작한 그래픽 칩 회사가 AI 시대의 유일한 무기상이 되기까지. 미래를 예측하기보다 끊임없이 학습하며 준비한 젠슨 황의 기록.</p>
+
+      <h2>1. 데니스의 구석 자리와 아파트 실험실</h2>
+      <p>오늘날 시가총액 세계 정상을 다투는 엔비디아의 출발점은 화려한 실리콘밸리 연구소가 아니었다. 젠슨 황과 공동 창업자 크리스 말라초스키, 커티스 프리엠이 머리를 맞댄 곳은 24시간 식당 <strong>‘데니스(Denny’s)’의 구석 자리</strong>, 그리고 프리엠의 좁은 아파트였다. 각자의 회사에서 이루지 못한 꿈과 <strong>“3D 그래픽이 PC 시장을 지배할 것”</strong>이라는 확신 하나로 시작된 도전은, 철저히 게이머를 위한 하드웨어 제조사로서의 여정이었다.</p>
+      <p>이 여정에서 드러나는 젠슨 황의 성격은 <strong>지독한 생존 본능과 타협 없는 완벽주의</strong>다.</p>
+      <ul>
+        <li>부도 위기에서 <strong>“우리에게 남은 시간은 30일뿐”</strong>이라며 배수의 진을 치던 일화는 그의 회복탄력성을 보여준다.</li>
+        <li>관료주의를 혐오해 <strong>40명이 넘는 직속 부하</strong>와 수평적으로 소통했다.</li>
+        <li>화려한 조명보다 기술 최전선 과학자들의 목소리에 먼저 귀를 기울였다.</li>
+      </ul>
+      <p>지독한 공부벌레이자 본질만 파고드는 리더십이 지금의 엔비디아를 만든 셈이다.</p>
+
+      <hr>
+
+      <h2>2. 알렉스넷이라는 특이점 — 쿠다의 암흑기와 숨은 주역들</h2>
+      <p>게임용 하드웨어 기업이 ‘AI 제국’으로 진화한 결정적 변곡점은 <strong>2006년의 쿠다(CUDA)</strong>와 <strong>2012년의 알렉스넷(AlexNet)</strong>이다. 단, 이 전환은 젠슨 황 한 사람만의 작품은 아니다.</p>
+      <h3>쿠다의 암흑기</h3>
+      <p>매년 수십억 달러가 들어가는 쿠다 투자를 두고 월가와 투자자들은 거세게 비난했고 주가는 폭락했다. 책에 따르면 엔비디아가 쿠다로 노린 고객은 프로그래머가 아니라, 언젠가 등장할 <strong>의사·천문학자·지질학자 같은 비전공 과학자들</strong>이었다. 숙련된 코더가 아니면 다루기 어려운 병렬 프로그래밍의 진입장벽을 허무는 것이 쿠다의 역할이었다. 이언 벅(Ian Buck)처럼 사내에서 GPU 범용 연산(GPGPU)의 가능성을 먼저 포착한 엔지니어들이 이 기반을 닦았다.</p>
+      <h3>알렉스넷, 그리고 전면 전환</h3>
+      <p>2012년, 토론토 대학 제프리 힌턴 연구실의 알렉스 크리제프스키와 일리야 수츠케버가 <strong>엔비디아 그래픽 카드 단 2대</strong>로 만든 알렉스넷이 이미지 인식 대회를 압도했다. 이 소식을 접한 젠슨 황은 회사의 모든 자원과 비전을 딥러닝으로 돌렸다.</p>
+      <blockquote><p>“이제 우리는 모든 것을 딥러닝에 집중한다. 더 이상 그래픽 회사가 아니다.”</p></blockquote>
+      <p>흥미로운 건, 이 전환을 결심하던 시점에도 그는 AI 자체에 대해 아는 바가 많지 않았다는 점이다. 그는 <strong>예측이 아니라 끊임없는 학습</strong>을 통해, 쿠다와 병렬 처리를 선점하며 다가올 AI 시장에 대비하고 있었다.</p>
+
+      <hr>
+
+      <h2>3. 골드러시의 유일한 청바지 판매상</h2>
+      <p>AI라는 거대한 골드러시에서 가장 확실하게 부를 거머쥔 곳은 금을 캐는 구글, 아마존, MS가 아니라 <strong>그들에게 곡괭이와 청바지를 독점 공급하는 엔비디아</strong>다.</p>
+      <p>LLM 훈련에는 수만 대의 서버를 하나의 거대한 두뇌처럼 움직이게 하는 병렬 컴퓨팅이 필수다. 빅테크들이 자체 칩으로 의존도를 줄이겠다고 선언하지만, 하드웨어는 흉내 낼 수 있어도 <strong>20년간 쌓아온 쿠다 생태계의 벽</strong>은 넘지 못하고 있다. 하드웨어와 소프트웨어가 유기적으로 묶인 엔비디아의 생태계는 이제 AI 인프라의 글로벌 표준이다.</p>
+      <blockquote><p>“AI 분야에서 전쟁이 벌어지고 있는데, 엔비디아는 유일한 무기상이다.” — 한 월가 애널리스트</p></blockquote>
+
+      <hr>
+
+      <h2>4. 무한 경쟁과 보틀넥</h2>
+      <h3>비전으로 미래를 당기는 자 vs 현실에서 미래를 쌓는 자</h3>
+      <p>책 곳곳에 배치된 흥미로운 대조가 일론 머스크와 젠슨 황이다. 머스크가 거대한 비전과 선언으로 미래를 강제로 끌어당기는 <strong>혁명가형</strong>이라면, 젠슨 황은 현실의 물리적 한계를 계산하며 한 단계씩 미래를 구축하는 <strong>설계자형</strong>이다. 컴퓨팅 자원을 한 대라도 더 확보하려는 xAI·테슬라와, 공급망을 쥐고 호흡을 조율하는 엔비디아의 관계는 이 시대 가장 첨예한 대목 중 하나다.</p>
+      <h3>넘어야 할 현실의 벽</h3>
+      <ul>
+        <li><strong>TSMC·HBM에 종속된 공급망</strong> — 팹리스 기업인 엔비디아는 TSMC의 미세 공정 생산 능력과 한국 메모리 기업들의 고대역폭 메모리(HBM) 공급에 생명줄이 걸려 있다.</li>
+        <li><strong>물리적인 전력 대란</strong> — AI 데이터센터의 전력 소모는 이미 한 나라의 전력 소비를 위협하는 수준이다. 전력 효율을 혁신하지 못하면 AI 발전은 물리적 한계에 부딪힌다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>기계가 생각하기 전, 인간은 끊임없이 학습했다</h2>
+      <p>이 책의 가장 큰 울림은 젠슨 황이 처음부터 미래를 꿰뚫어 본 예언자가 아니었다는 사실에 있다. 그는 미래를 잘 예측해서 성공한 것이 아니라, <strong>사내 엔지니어와 연구자들의 혜안을 알아보고, 매번 마주한 현실의 문제를 지독하게 학습하며 준비해온</strong> 인물이다. 모두가 범용 칩의 가능성을 비웃을 때 묵묵히 밑바닥을 다져왔기에, AI라는 거대한 물줄기가 터졌을 때 정확히 그 길목을 선점할 수 있었다.</p>
+      <p>실패를 혁신의 당연한 과정으로 받아들이는 독한 조직 문화, 그리고 그 정점에 선 검은 가죽 재킷의 리더. AI가 지배할 미래의 지도를 읽고 싶다면, 기계가 스스로 생각하기 전부터 자신의 뇌를 풀가동해 현실의 벽을 깨부순 젠슨 황의 철학에 주목해야 한다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

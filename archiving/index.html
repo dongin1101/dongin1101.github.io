@@ -90,10 +90,18 @@
     font: inherit; font-size: 14px; font-weight: 400; color: var(--ink); background: var(--paper);
     border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 132px;
   }
-  .result-bar { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; font-size: 14px; color: var(--ink-soft); }
+  .result-bar { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; font-size: 14px; color: var(--ink-soft); scroll-margin-top: 80px; }
   .reset { font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
   #no-result { margin-top: 24px; }
   #no-result .reset { margin-top: 12px; }
+  .pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 32px; }
+  .pager button {
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); cursor: pointer;
+    min-width: 36px; height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px;
+  }
+  .pager button:hover:not(:disabled) { border-color: var(--marigold-deep); }
+  .pager button[aria-current="page"] { background: var(--marigold); border-color: var(--marigold); color: #1E3326; font-weight: 600; }
+  .pager button:disabled { opacity: .4; cursor: default; }
 
   .archive-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 24px; }
   .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
@@ -247,6 +255,105 @@
             </div>
           </a>
         </li>
+        <li data-date="2026-09" data-field="Technology" data-rating="4">
+          <a href="/archiving/generation-ai/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791130677620.jpg" alt="『제너레이션 AI』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.09 · Technology · ⭐⭐⭐⭐</div>
+              <h3>제너레이션 AI (Generation AI)</h3>
+              <p>맷 브리턴 지음 — AI와 함께 자란 알파세대가 주역이 될 미래를, 과거 기술 혁신의 패턴 속에서 균형 있게 조망한 책. 일, 조직, 교육의 변화와 AI의 위험까지 다룬다.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-07" data-field="Society" data-rating="4">
+          <a href="/archiving/breakneck/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901299365.jpg" alt="『브레이크넥』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.07 · Society · ⭐⭐⭐⭐</div>
+              <h3>브레이크넥 (Breakneck)</h3>
+              <p>댄 왕 지음 — 중국은 공학자의 나라, 미국은 변호사의 나라. 두 강대국을 이념이 아니라 ‘누가 권력을 잡고 문제를 어떻게 다루는가’로 새롭게 읽어낸 책.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-07" data-field="Organization" data-rating="4">
+          <a href="/archiving/thinking-machine/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788925573762.jpg" alt="『엔비디아 젠슨 황, 생각하는 기계』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.07 · Organization · ⭐⭐⭐⭐</div>
+              <h3>엔비디아 젠슨 황, 생각하는 기계 (The Thinking Machine)</h3>
+              <p>스티븐 위트 지음 — 데니스 식당 구석 자리에서 시작한 그래픽 칩 회사가 AI 시대의 유일한 무기상이 되기까지. 미래를 예측하기보다 끊임없이 학습하며 준비한 젠슨 황의 기록.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-03" data-field="Organization" data-rating="4">
+          <a href="/archiving/loonshots/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788965963790.jpg" alt="『룬샷』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.03 · Organization · ⭐⭐⭐⭐</div>
+              <h3>룬샷 (Loonshots)</h3>
+              <p>사피 바칼 지음 — 미친 소리 취급받는 아이디어가 세상을 바꾼다. 혁신은 문화가 아니라 구조의 문제라는 것을 물리학의 ‘상전이’로 설명하는 조직 설계서.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-02" data-field="Organization" data-rating="4">
+          <a href="/archiving/exponential/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788935214488.jpg" alt="『2040 위대한 격차의 시작』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.02 · Organization · ⭐⭐⭐⭐</div>
+              <h3>2040 위대한 격차의 시작 (Exponential)</h3>
+              <p>아짐 아자르 지음 — 기하급수적으로 발전하는 기술과 선형적으로 변하는 사회 사이의 ‘기하급수적 격차’. 우리가 느끼는 막연한 불안의 실체를 짚고 격차를 줄일 방법을 모색한다.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-02" data-field="Novel" data-rating="4">
+          <a href="/archiving/utopia/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191174595.jpg" alt="『유토피아』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.02 · Novel · ⭐⭐⭐⭐</div>
+              <h3>유토피아 (Utopia)</h3>
+              <p>토마스 모어 지음 — 사유 재산도 화폐도 없고 하루 6시간만 일하는 섬나라. 500년 전 모어가 그린 이상 사회에서, 노동이 사라진 AI 시대에 삶을 무엇으로 채울지를 다시 묻는다.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-01" data-field="Society" data-rating="4">
+          <a href="/archiving/perennials/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901277509.jpg" alt="『멀티제너레이션, 대전환의 시작』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.01 · Society · ⭐⭐⭐⭐</div>
+              <h3>멀티제너레이션, 대전환의 시작 (The Perennials)</h3>
+              <p>마우로 기옌 지음 — ‘교육-일-은퇴’라는 순차적 인생 모형은 끝났다. 나이에 갇히지 않고 평생 배우고 일하는 ‘퍼레니얼’의 시대를 위해 개인, 기업, 정부가 바뀌어야 할 것들.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-01" data-field="Society" data-rating="3">
+          <a href="/archiving/future-arrived-first/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788962626605.jpg" alt="『먼저 온 미래』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.01 · Society · ⭐⭐⭐</div>
+              <h3>먼저 온 미래</h3>
+              <p>장강명 지음 — 알파고 이후 AI가 가장 먼저 도착한 바둑계. 그곳 사람들이 겪은 좌절과 적응을 통해, 곧 모든 업계가 마주할 질문을 미리 보여주는 논픽션.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+        <li data-date="2026-01" data-field="Novel" data-rating="4">
+          <a href="/archiving/13-67/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160078572.jpg" alt="『13.67』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.01 · Novel · ⭐⭐⭐⭐</div>
+              <h3>13.67</h3>
+              <p>찬호께이 지음 — 홍콩 경찰의 전설 관전둬의 인생을 2013년부터 1967년까지 거꾸로 거슬러 오르며, 그가 해결한 사건들과 함께 홍콩이라는 도시의 변천사를 역순으로 보여주는 추리소설.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
       </ul>
 
       <div class="empty" id="no-result" hidden>
@@ -255,6 +362,8 @@
         <p>다른 분야나 시기를 선택해 보세요.</p>
         <button type="button" class="reset" data-reset>필터 초기화</button>
       </div>
+
+      <nav class="pager" id="pager" aria-label="페이지" hidden></nav>
 
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
@@ -278,7 +387,9 @@
   var countEl = document.getElementById('result-count');
   var resetBtn = document.getElementById('reset');
   var noResult = document.getElementById('no-result');
-  var state = { field: '' };
+  var pager = document.getElementById('pager');
+  var PER_PAGE = 10;
+  var state = { field: '', page: 1 };
 
   function tally(key) {
     var m = {};
@@ -309,40 +420,73 @@
     ratingSel.add(new Option('⭐'.repeat(+r) + ' (' + ratings[r] + ')', r));
   });
 
-  function apply() {
-    var shown = 0;
-    items.forEach(function (li) {
-      var ok = (!state.field || li.dataset.field === state.field)
-        && (!yearSel.value || year(li) === yearSel.value)
-        && (!ratingSel.value || li.dataset.rating === ratingSel.value);
-      li.hidden = !ok;
-      if (ok) shown++;
-    });
+  function pageButton(label, page, opts) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = label; b.dataset.page = page;
+    if (opts.current) b.setAttribute('aria-current', 'page');
+    if (opts.disabled) b.disabled = true;
+    if (opts.aria) b.setAttribute('aria-label', opts.aria);
+    pager.appendChild(b);
+  }
 
+  function apply() {
     var s = sortSel.value;
-    items.slice().sort(function (a, b) {
+    var sorted = items.slice().sort(function (a, b) {
       var d = a.dataset.date.localeCompare(b.dataset.date);
       if (s === 'rating-desc') return (b.dataset.rating - a.dataset.rating) || -d;
       return s === 'date-asc' ? d : -d;
-    }).forEach(function (li) { list.appendChild(li); });
+    });
+    sorted.forEach(function (li) { list.appendChild(li); });
 
+    var matched = sorted.filter(function (li) {
+      return (!state.field || li.dataset.field === state.field)
+        && (!yearSel.value || year(li) === yearSel.value)
+        && (!ratingSel.value || li.dataset.rating === ratingSel.value);
+    });
+    var pages = Math.max(1, Math.ceil(matched.length / PER_PAGE));
+    state.page = Math.min(Math.max(1, state.page), pages);
+    var start = (state.page - 1) * PER_PAGE;
+    var onPage = matched.slice(start, start + PER_PAGE);
+    items.forEach(function (li) { li.hidden = onPage.indexOf(li) < 0; });
+
+    var shown = matched.length;
     var filtered = state.field || yearSel.value || ratingSel.value;
-    countEl.textContent = filtered ? shown + '권 / 전체 ' + items.length + '권' : '전체 ' + items.length + '권';
+    var range = pages > 1 ? ' · ' + (start + 1) + '–' + (start + onPage.length) + '번째' : '';
+    countEl.textContent = (filtered ? shown + '권 / 전체 ' + items.length + '권' : '전체 ' + items.length + '권') + range;
     resetBtn.hidden = !filtered;
     noResult.hidden = shown > 0;
     Array.prototype.forEach.call(chipsEl.children, function (c) {
       c.setAttribute('aria-pressed', c.dataset.value === state.field ? 'true' : 'false');
     });
+
+    pager.innerHTML = '';
+    pager.hidden = pages <= 1;
+    if (pages > 1) {
+      pageButton('←', state.page - 1, { disabled: state.page === 1, aria: '이전 페이지' });
+      for (var p = 1; p <= pages; p++) pageButton(String(p), p, { current: p === state.page, aria: p + '페이지' });
+      pageButton('→', state.page + 1, { disabled: state.page === pages, aria: '다음 페이지' });
+    }
   }
+
+  // 필터·정렬이 바뀌면 1페이지부터
+  function refilter() { state.page = 1; apply(); }
+
+  pager.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b || b.disabled) return;
+    state.page = +b.dataset.page;
+    apply();
+    document.getElementById('result-bar').scrollIntoView({ block: 'start', behavior: 'smooth' });
+  });
 
   chipsEl.addEventListener('click', function (e) {
     var c = e.target.closest('.chip');
     if (!c) return;
     state.field = c.dataset.value;
-    apply();
+    refilter();
   });
-  [yearSel, ratingSel, sortSel].forEach(function (el) { el.addEventListener('change', apply); });
-  function reset() { state.field = ''; yearSel.value = ''; ratingSel.value = ''; apply(); }
+  [yearSel, ratingSel, sortSel].forEach(function (el) { el.addEventListener('change', refilter); });
+  function reset() { state.field = ''; yearSel.value = ''; ratingSel.value = ''; refilter(); }
   resetBtn.addEventListener('click', reset);
   noResult.querySelector('[data-reset]').addEventListener('click', reset);
 

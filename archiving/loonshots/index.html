@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>룬샷 (Loonshots) 독서 노트 | 강동인</title>
+<meta name="description" content="사피 바칼, 『룬샷』 독서 노트 — 미친 소리 취급받는 아이디어가 세상을 바꾼다. 혁신은 문화가 아니라 구조의 문제라는 것을 물리학의 ‘상전이’로 설명하는 조직 설계서.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788965963790.jpg" alt="『룬샷』 표지">
+        <div>
+          <h1>룬샷 (Loonshots)</h1>
+          <p class="byline">사피 바칼 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>468쪽</span>
+            <span>2026.03 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000001029370" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">미친 소리 취급받는 아이디어가 세상을 바꾼다. 혁신은 문화가 아니라 구조의 문제라는 것을 물리학의 ‘상전이’로 설명하는 조직 설계서.</p>
+
+      <h2>1. 혁신의 설계자들</h2>
+      <p>사피 바칼의 『룬샷』은 혁신이라는 추상적인 개념을 물리학의 <strong>‘상전이(phase transition)’</strong>라는 색다른 원리로 바라본 책이다. 단순히 창의적인 <strong>조직 문화</strong>를 추구하기보다, 혁신이 자연스럽게 만들어질 수 있는 <strong>조직 구조</strong>를 설계하는 것이 더 중요하다고 강조하며, 그 방법으로 <strong>상분리와 동적 평형</strong>을 제시한다.</p>
+
+      <hr>
+
+      <h2>2. 문샷 vs 룬샷</h2>
+      <table>
+        <tr><th>문샷(Moonshot)</th><th>룬샷(Loonshot)</th></tr>
+        <tr><td>누구나 중요성을 인정하고 자원을 투입하는 원대한 목표. 결과가 뻔히 보이지만 도달하기 어려운 과제</td><td>제안자가 미친 취급을 받을 정도로 무모해 보이고, 대부분이 무시하거나 비웃는 아이디어</td></tr>
+      </table>
+      <p>하지만 바로 이 <strong>룬샷이야말로 전쟁의 승패를 가르고 산업의 지형을 뒤바꾸는 혁신의 씨앗</strong>이다.</p>
+
+      <hr>
+
+      <h2>3. 상전이의 원리</h2>
+      <p>이 책이 다른 경영서와 가장 다른 점은 조직의 변화를 물리학의 상전이 현상으로 설명한다는 것이다.</p>
+      <p>물은 0도에서 액체에서 고체로 변한다. 물 분자의 성질이 변해서가 아니라, <strong>온도라는 제어 변수</strong>가 바뀌며 분자 간의 결합 방식이 변하기 때문이다. 조직도 마찬가지다.</p>
+      <ul>
+        <li><strong>소규모 조직</strong> — 구성원 개개인이 혁신의 성공에 따른 보상(성과급, 동료의 인정 등)을 크게 체감하므로, 조직의 성공을 위해 유연하게 움직인다. <strong>액체 상태.</strong></li>
+        <li><strong>대규모 조직</strong> — 성과보다 사내 정치나 승진에 집중하는 것이 개인에게 더 유리해진다. 조직은 <strong>경직된 얼음 상태</strong>가 되어 룬샷을 배제하고 기존 프랜차이즈에만 집중한다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>4. 제품형 룬샷 vs 전략형 룬샷</h2>
+      <ul>
+        <li><strong>제품형 룬샷(P-type)</strong> — 주변의 의구심을 받는 획기적인 제품. 폴라로이드 카메라, 팬암의 제트 여객기가 대표적이다.</li>
+        <li><strong>전략형 룬샷(S-type)</strong> — 제품보다 비즈니스 모델이나 방식의 변화. 월마트의 물류 혁신, 구글의 검색 광고 모델이 대표적이다.</li>
+      </ul>
+      <p>사람들은 눈에 보이는 제품형 룬샷에 열광하지만, 역사적으로 더 큰 파괴력을 가진 것은 <strong>전략형 룬샷</strong>인 경우가 많다. 제트 여객기를 처음 도입한 팬 아메리칸 항공은 전략형 룬샷을 경시한 끝에 1978년 항공 규제 완화 이후 서서히 역사 속으로 사라졌다. 반면 스티브 잡스는 두 유형을 적절히 섞어 시장을 장악했다. <strong>진정한 혁신가는 두 유형을 모두 이해하고 관리해야 한다.</strong></p>
+
+      <hr>
+
+      <h2>5. 조직 적용 방법 — 부시-베일 법칙</h2>
+      <p>조직이 얼음이 되지 않고 액체의 유연함을 유지하며 룬샷을 성공시키는 방법론이다. 2차 세계대전 당시 미국의 과학 혁신을 이끈 <strong>바네바 부시</strong>와, 그 이전 세대에 벨 연구소의 기반을 닦은 AT&amp;T의 <strong>시어도어 베일</strong>의 방식에서 이름을 따왔다.</p>
+      <ul>
+        <li><strong>상분리</strong> — 혁신적인 아이디어를 만드는 <strong>예술가 집단</strong>과, 이를 실행하고 수익화하는 <strong>병사 집단</strong>을 철저히 분리한다.</li>
+        <li><strong>동적 평형</strong> — 분리하되 양쪽이 끊임없이 소통하게 하고, 리더는 두 집단을 똑같이 사랑해야 한다. 부시는 과학자와 군인 사이에서 서로를 존중하게 하며 갈등을 조율했고, 그 과정에서 잠들어 있던 레이더 기술을 찾아내 독일군을 격퇴하는 데 크게 기여했다.</li>
+        <li><strong>매직 넘버 150</strong> — 사내 정치가 혁신을 압도하는 임계점은 보통 조직 규모 150명 전후다. 이를 인지하고 인센티브 구조, 직급에 따른 연봉 상승률 등을 조정해 상전이 지점을 관리해야 한다.</li>
+      </ul>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>구조가 문화를 결정한다</h2>
+      <p>룬샷의 핵심은 <strong>조직 구조가 문화보다 먼저</strong>라는 사실이다. 아무리 혁신적인 문화를 만들려고 다양한 프로그램을 진행해도, 보상 체계와 시스템이 사내 정치를 장려하는 쪽으로 치우쳐 있다면 조직 혁신은 결국 일어나지 않는다.</p>
+      <p>세상을 바꾼 레이더, 제트 여객기, 매킨토시, 그리고 수많은 기술은 모두 한때 버려져 있던 룬샷이었다. 우리는 룬샷을 장려하는 시스템을 설계해, <strong>‘우리 안의 엉뚱한 아이디어를 위대한 승리로 바꾸는’</strong> 방법을 고민해야 한다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
