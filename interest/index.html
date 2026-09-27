@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HR 뉴스 아카이브 | 강동인</title>
-<meta name="description" content="HR 매니저 강동인이 매주 정리하는 HR·채용 트렌드 뉴스 아카이브">
+<title>관심사 | 강동인</title>
+<meta name="description" content="HR 매니저 강동인이 한 달에 한 번씩 정리하는 AI·기술·사회 인사이트 아카이브">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,18 +66,15 @@
 
   main section { padding: 64px 0; }
 
-  .empty {
-    border: 1px dashed var(--line); border-radius: 16px; padding: 48px 32px;
-    text-align: center; color: var(--ink-soft); background: var(--leaf-tint);
-  }
-  .empty .icon { font-size: 32px; margin-bottom: 12px; }
-  .empty h2 { font-family: var(--serif); color: var(--ink); font-size: 22px; margin: 0 0 8px; }
-  .empty p { margin: 0; }
-
-  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 20px; }
-  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .archive-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .archive-list a { display: block; text-decoration: none; color: inherit; }
   .archive-list .meta { font-size: 14px; color: var(--ink-soft); }
-  .archive-list h3 { font-size: 18px; margin: 4px 0 6px; }
+  .archive-list h3 { font-size: 19px; margin: 4px 0 8px; line-height: 1.4; }
+  .archive-list p { margin: 0 0 6px; color: var(--ink-soft); }
+  .archive-list .more { font-weight: 600; font-size: 14px; }
+  .archive-list a:hover h3 { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
 
   .back { display: inline-block; margin-top: 32px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
   .back:hover { color: var(--ink); }
@@ -94,9 +91,9 @@
     <a class="brand" href="/">🍀 강동인</a>
     <nav class="nav" aria-label="사이트 메뉴">
       <a href="/">포트폴리오</a>
-      <a href="/hr/" aria-current="page">HR 뉴스 아카이브</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
       <a href="/archiving/">독서 아카이브</a>
-      <a href="/interest/">관심사</a>
+      <a href="/interest/" aria-current="page">관심사</a>
     </nav>
   </div>
 </header>
@@ -104,29 +101,31 @@
 <main>
   <div class="page-head">
     <div class="wrap">
-      <h1>HR 뉴스 아카이브</h1>
-      <p>매주 정리한 HR·채용·조직 관련 트렌드 뉴스를 모아두는 공간입니다.</p>
+      <h1>관심사</h1>
+      <p>한 달에 한 번, AI·기술·사회 전반에서 눈여겨본 글과 인사이트를 정리하는 공간입니다.</p>
     </div>
   </div>
 
   <section>
     <div class="wrap">
-      <div class="empty">
-        <div class="icon">🍀</div>
-        <h2>콘텐츠 준비 중</h2>
-        <p>아카이브 내용을 정리해 곧 채울 예정입니다.</p>
-      </div>
-
-      <!--
-        아카이브 항목 추가 예시:
-        <ul class="archive-list">
-          <li>
-            <div class="meta">2026.09.20 · 채용 트렌드</div>
-            <h3>기사 제목</h3>
-            <p>한 줄 요약이나 코멘트를 적습니다.</p>
-          </li>
-        </ul>
-      -->
+      <ul class="archive-list">
+        <li>
+          <a href="/interest/turbulent-ai-era/">
+            <div class="meta"><span class="tag">AI</span> · 2026.09 아카이빙</div>
+            <h3>격동의 AI 시대가 도래했습니다. 지금 우리가 내리는 선택은 매우 중요합니다.</h3>
+            <p>정부, 기업, 시민사회가 함께 참여하여 AI 전환기의 규칙을 정하고 준비해야만 AI의 긍정적 이점을 극대화할 수 있음을 강조하는 빌 게이츠의 글.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="/interest/human-machine-partnership/">
+            <div class="meta"><span class="tag">AI</span> · 2026.08 아카이빙</div>
+            <h3>인간과 머신의 새로운 파트너십 (The Next Era of Human-Machine Partnerships)</h3>
+            <p>인간과 인공지능(AI)·머신이 어떻게 협력하여 새로운 가치와 생산성을 창출할 것인가에 대한 리포트 정리.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+      </ul>
 
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
