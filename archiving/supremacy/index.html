@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>패권 (Supremacy) 독서 노트 | 강동인</title>
+<meta name="description" content="파미 올슨, 『패권』 독서 노트 — 샘 올트먼과 데미스 허사비스, 두 이상주의자가 빅테크 자본에 흡수되어 간 10년의 기록">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791141610227.jpg" alt="『패권』 표지">
+        <div>
+          <h1>패권 (Supremacy)</h1>
+          <p class="byline">파미 올슨 지음</p>
+          <div class="meta-row">
+            <span class="tag">Technology</span>
+            <span>⭐⭐⭐⭐⭐</span>
+            <span>410쪽</span>
+            <span>2026.08 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000216866308" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">AGI로 인류를 구하겠다던 두 이상주의자(샘 올트먼·데미스 허사비스)가, 그 이상을 실현하는 데 필요한 자본을 구하는 과정에서 결국 빅테크의 하청 구조 안으로 흡수되어 간 10년의 기록.</p>
+
+      <h2>1. 책의 구조 — 두 사람, 두 개의 게임</h2>
+      <p>이 책은 AI 업계에서 가장 영향력이 큰 두 인물을 축으로, AI 경쟁이 어떻게 흘러왔는지를 보여준다. 흥미로운 것은 두 사람이 <strong>어린 시절 다른 게임을 통해 세상을 배웠다</strong>는 점이다.</p>
+
+      <h3>샘 올트먼 — 포커</h3>
+      <ul>
+        <li>어릴 적 <strong>포커</strong>를 통해 인간의 심리와 비즈니스를 학습</li>
+        <li>성소수자였으며 고등학교 때 커밍아웃</li>
+        <li>대학 시절 AI·머신러닝에 관심을 가지며 GPS 기반 위치 확인 앱 <strong>루프트(Loopt)</strong> 창업 → 실패</li>
+        <li>그럼에도 실리콘밸리 네트워크 깊숙이 진입해 과감한 투자를 이어감</li>
+        <li>스탠퍼드 AI 연구소 시절부터 품고 있던 목표: <strong>인류를 멸종 위기에서 구하고, 인류에게 지금껏 경험하지 못한 부를 안기겠다</strong></li>
+      </ul>
+      <blockquote><p>포커의 교훈: 패는 중요하지 않다. 판돈을 키우고, 상대를 읽고, 언제 올인할지 아는 것이 중요하다.</p></blockquote>
+
+      <h3>데미스 허사비스 — 체스</h3>
+      <ul>
+        <li><strong>체스</strong>를 통해 최종 목표를 염두에 두고 전략을 세우는 법을 학습</li>
+        <li>11살 대회 패배 후, 좌절보다 "내 재능을 체스에 쓰는 건 아깝다"고 느끼며 <strong>더 중요한 문제 해결에 쓰겠다</strong>고 결심</li>
+        <li>10대에 시뮬레이션 게임 『테마파크』 제작 → 게임을 AI 개발의 도구로 삼는 커리어의 출발점</li>
+        <li>20대 초반 <strong>엘릭서 스튜디오</strong> 창업, 당대 AI 기술로 현실을 반영한 '갓 게임'들을 제작
+          <ul>
+            <li>기술적으로는 훌륭했으나 <strong>"재미가 없다"</strong>는 혹평 → 첫 실패</li>
+            <li>여기서 "AI의 마법을 세상에 보여주려면 게임을 활용해 더 뛰어난 AI를 만들어야 한다"고 재차 다짐</li>
+          </ul>
+        </li>
+        <li>이후 딥마인드 창립</li>
+      </ul>
+      <blockquote><p>체스의 교훈: 최종 국면을 먼저 그리고, 거기서부터 수순을 역산한다.</p></blockquote>
+
+      <hr>
+
+      <h2>2. 두 개의 조직</h2>
+      <h3>2-1. 딥마인드 (2010)</h3>
+      <p>허사비스는 뇌 연구를 위해 2005년 엘릭서 스튜디오 매각 후 <strong>신경과학 박사과정</strong>에 진학했고, 졸업 후 AI와 신경과학을 결합한 대규모 프로젝트를 위해 셰인 레그·무스타파 술레이만과 함께 창업했다.</p>
+      <p><strong>창업 3인방의 AGI 관(觀) 차이 — 훗날 균열의 씨앗</strong></p>
+      <table>
+        <tr><th>인물</th><th>배경</th><th>AGI로 이루려는 것</th></tr>
+        <tr><td><strong>셰인 레그</strong></td><td>기계 초지능·특이점 신봉, 'AGI'라는 용어를 처음 사용</td><td>많은 사람의 의식을 컴퓨터에 업로드한 뒤 AGI와 통합</td></tr>
+        <tr><td><strong>데미스 허사비스</strong></td><td>체스 신동 → 게임 개발자 → 신경과학 박사</td><td>모든 문제를 해결하고 우주의 모든 비밀을 푸는 것</td></tr>
+        <tr><td><strong>무스타파 술레이만</strong></td><td>허사비스 동생 조지의 친구, 컴퓨터 과학보다 사회정책·철학 전공</td><td>질병·가난·불평등 등 현실의 사회 문제 해결</td></tr>
+      </table>
+      <ul>
+        <li>레그에게 AGI란 계산·예측·이미지 인식·계획 수립·상상 등 <strong>인간이 하는 모든 것을 하는 인간 유사 존재</strong></li>
+        <li>술레이만은 나머지 두 사람과 AI를 바라보는 시각이 근본적으로 달랐음</li>
+      </ul>
+
+      <h3>2-2. 오픈AI (2015)</h3>
+      <ul>
+        <li>머스크·피터 틸·아마존 등의 후원을 받아 샘 올트먼이 <strong>비영리</strong> 기업으로 설립</li>
+        <li>일리야 수츠케버 등 <strong>딥마인드 출신 연구자·엔지니어를 스카웃</strong>해 정면 경쟁 시작</li>
+        <li>올트먼은 루프트 매각 후 YC(와이컴비네이터)에서 본격적인 투자자의 삶을 살며, 삶에 근본적 혁신을 주는 기업(AI, 생명 연장, 무해한 청정에너지(핵융합 등))에 적극 투자</li>
+        <li>투자 제안자에게 "M(백만)을 B(십억)로 바꾸라"고 조언할 만큼 매사에 전력투구하는 삶을 추구</li>
+        <li>"컴퓨터가 인지 능력을 갖고 인간과 통합되면 그 이후의 삶은 어떻게 될까"를 자주 고민</li>
+      </ul>
+
+      <hr>
+
+      <h2>3. 딥마인드 — 자율성을 팔다</h2>
+      <h3>투자와 인수 시도의 연쇄</h3>
+      <ol>
+        <li><strong>초기 투자</strong> — 셰인 레그의 도움으로 피터 틸이 투자. 이어 AI의 위험을 경계하던 얀 탈린, 일론 머스크 등이 합류
+          <ul><li>자금 사정은 나아졌지만, <strong>투자자들의 AI에 대한 부정적 인식</strong>이 오히려 딥마인드의 걸림돌이 됨</li></ul>
+        </li>
+        <li><strong>저커버그(페이스북)</strong> — 광고 매출 상승을 위해 인수 시도 → 딥마인드가 <strong>AI 윤리 이사회 설립</strong>을 조건으로 걸며 결렬</li>
+        <li><strong>알렉스넷 충격</strong> — 비슷한 시기 딥러닝 열풍 시작. 딥러닝 전문가는 극소수였고 <strong>그중 다수가 딥마인드에 있었음</strong> → 빅테크의 인재 스카웃 경쟁 가속</li>
+        <li><strong>머스크</strong> — 인수 제안했으나 그의 괴팍한 사업 방식 때문에 딥마인드가 거절</li>
+        <li><strong>구글</strong> — 최종 인수 성사. 딥마인드는 원하는 것을 다 얻진 못했지만, <strong>알파벳의 자회사가 되면 법적 자율성을 확보할 수 있다</strong>는 판단으로 협상 완료
+          <ul><li>조건: 부분적 스핀아웃, 기술의 독점적 라이선스, <strong>외부 인사로 구성된 윤리위원회</strong>, 자금 지원 약속</li></ul>
+        </li>
+      </ol>
+
+      <h3>그리고 자율성의 소멸</h3>
+      <ul>
+        <li><strong>2015~16년, 그들이 원하던 자회사 구조는 흐지부지됨</strong></li>
+        <li>그러나 딥마인드는 이를 신경 쓸 겨를이 없었음 — 멀리 샌프란시스코에서 <strong>똑같은 목표(AGI)를 내건 오픈AI</strong>가 등장했기 때문</li>
+      </ul>
+
+      <h3>정점의 순간들</h3>
+      <ul>
+        <li><strong>알파고 vs 이세돌</strong>, <strong>알파고 제로 vs 커제</strong> → 딥마인드의 기술력이 세계적으로 공인됨</li>
+        <li>동시에 AI 윤리에 대한 고민도 커짐. 그러나
+          <ul>
+            <li>허사비스와 술레이만의 <strong>인식 차이는 더욱 심화</strong></li>
+            <li>딥마인드 내 윤리 담당 직원은 <strong>1,000명 중 12명 남짓</strong> → 다양한 의견이 나올 수 없는 구조</li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>4. 오픈AI — 비영리라는 족쇄</h2>
+      <h3>머스크의 이탈 (2018)</h3>
+      <ul>
+        <li>딥마인드와의 격차는 여전히 컸고, 이는 최대 투자자 머스크를 불안하게 만듦</li>
+        <li>머스크가 <strong>테슬라의 오픈AI 인수</strong>를 제안 → 올트먼 거절 → 머스크 이탈</li>
+        <li>최대 투자자를 잃고 재정 악화를 우려한 올트먼은 <strong>비영리라는 구조 자체를 수정하기 시작</strong></li>
+      </ul>
+
+      <h3>마이크로소프트 파트너십</h3>
+      <ul>
+        <li>리드 호프먼의 주선으로 올트먼과 <strong>사티아 나델라</strong> MS CEO 회동</li>
+        <li>비슷한 시기 MS는 자체 챗봇 테이(Tay)의 인종차별 논란으로 서비스를 폐기한 상태 → AI 재진입이 절실</li>
+        <li>수차례 대화 끝에, 주변의 반대에도 불구하고 전략적 파트너십 체결
+          <ul>
+            <li><strong>오픈AI</strong>: AGI 달성 전까지 MS에 기술 라이선스 제공</li>
+            <li><strong>MS</strong>: 클라우드 크레딧 포함 <strong>10억 달러</strong> 투자</li>
+          </ul>
+        </li>
+        <li>결과: 재정 압박에서는 벗어났으나, <strong>'인류 전체의 이익'이라는 목표에서 멀어지고 영리 기업의 이미지를 갖게 됨</strong></li>
+      </ul>
+
+      <h3>앤스로픽의 분사</h3>
+      <ul>
+        <li>이를 지켜본 오픈AI 직원 <strong>다리오 아모데이</strong>는
+          <ul>
+            <li>오픈AI의 사업 목적이 훼손되었다고 판단</li>
+            <li>동시에 AI 생태계에 <strong>추가적인 사업 방식과 투자처</strong>가 존재함을 발견</li>
+          </ul>
+        </li>
+        <li>퇴사 후 여동생과 함께 <strong>'인류(anthropic)'라는 철학적 의미를 사명으로 삼은 회사</strong>를 설립</li>
+      </ul>
+
+      <hr>
+
+      <h2>5. 구글의 딜레마 — 트랜스포머를 발명하고도</h2>
+      <p>2017년, 아시시 바스와니를 중심으로 일리야 폴로수킨·야코프 우스코라이트·노엄 샤지르 등이 「Attention is All You Need」를 발표하며 현재 생성형 AI의 핵심 기술인 <strong>트랜스포머</strong>를 세상에 내놓았다.</p>
+      <p>그러나 구글 내부에서는 이 기술의 채택이 늦어졌다.</p>
+      <ul>
+        <li>당시 구글의 <strong>보수적인 경영진과 조직문화</strong>에 반하는 시도였음</li>
+        <li>이 발견이 <strong>1,000조 원 이상 규모의 구글 광고 시장</strong>에 영향을 줄 수 있다고 판단</li>
+      </ul>
+      <blockquote><p><strong>혁신가의 딜레마 그 자체.</strong> 세계를 바꿀 기술을 누구보다 먼저 내부에서 발견하고도, 기존 검색 광고 사업 모델에 종속되어 혁신을 수용하지 못했다. 결국 경쟁자들의 추격을 확인한 뒤 <strong>2022년에야 급하게 사업 전략을 수정</strong>하게 된다.</p></blockquote>
+      <p>그리고 그 기술을 접한 <strong>오픈AI는 구글보다 몇 년 앞서 트랜스포머 기술을 채택해</strong> AI 개발을 시작했다.</p>
+
+      <hr>
+
+      <h2>6. AI 윤리 진영의 반격</h2>
+      <p>기술 경쟁의 이면에서, AI가 실제로 무엇을 학습하고 있는지를 묻는 목소리가 커졌다.</p>
+      <h3>팀닛 게브루 · 마거릿 미첼의 문제 제기</h3>
+      <ul>
+        <li>AI가 <strong>흑인 남성을 고릴라로 분류</strong>하는 사건</li>
+        <li><strong>백인 남성 중심으로 만들어진 AI</strong>가 유색인종·여성·장애인을 이상하게 판단하는 문제</li>
+        <li>흑인이 백인 대비 <strong>범죄 재범률이 높다고 판단</strong>하는 알고리즘</li>
+        <li>AI는 데이터를 통해 학습된 "확률적 앵무새(stochastic parrot)"에 불과하며, 핵심 AI 인력이 백인 성인 남성이기에 흑인·여성 등의 삶을 전혀 반영하지 못한다는 비판</li>
+      </ul>
+      <p>→ 구글은 이들을 <strong>퇴사(사실상 해고)</strong> 시킴</p>
+      <h3>그 밖의 윤리 이슈</h3>
+      <ul>
+        <li><strong>술레이만의 환자 데이터 논란</strong> — 딥마인드에서 AI로 질병 치료를 연구하던 술레이만이 영국 내 <strong>100만 건 이상의 환자 데이터</strong>를 활용하다가, "구글이 환자 데이터를 쓰고 있다"는 비판을 받으며 연구 중단</li>
+        <li><strong>학습 데이터의 저작권 문제</strong> 발생</li>
+      </ul>
+
+      <hr>
+
+      <h2>7. 2022년 이후 — 챗GPT와 과점의 완성</h2>
+      <p>이런 문제점에도 불구하고 AI 발전은 <strong>지수함수처럼</strong> 가속화되었다.</p>
+      <ul>
+        <li><strong>2022년, 오픈AI</strong>: DALL·E 2 출시 → 11월 30일 <strong>챗GPT</strong> 출시, 두 달 만에 폭발적 이용자 증가</li>
+        <li><strong>MS</strong>: 깃허브 코파일럿 출시로 개발자의 코딩 속도 향상</li>
+        <li><strong>알파벳</strong>: 순다르 피차이가 기존 AI 조직인 <strong>구글 브레인과 딥마인드를 통합해 '구글 딥마인드' 창립</strong>, 허사비스를 CEO에 임명
+          <ul><li>딥마인드는 2018·2020년 CASP 대회에서 <strong>알파폴드</strong>로 단백질 접힘 문제를 해결하며 우승했지만</li>
+          <li>오픈AI와의 기술력 격차에 위기감을 느끼고 자체 LLM 모델 <strong>제미나이</strong> 출시</li></ul>
+        </li>
+      </ul>
+      <h3>시장 구조</h3>
+      <blockquote><p>딥마인드를 인수한 <strong>알파벳</strong>, 오픈AI와 파트너십을 맺은 <strong>MS</strong>, 앤스로픽에 투자한 <strong>구글·아마존</strong>. 2022년경 전체 AI 시장에서 <strong>거대 빅테크가 갖는 영향력은 90% 이상</strong>에 달했다.</p></blockquote>
+      <p>AI 안정성(Safety) 진영과 AI 윤리(Ethics) 진영 간의 갈등, 성 편향성·인종 편향성, 할루시네이션 등의 문제가 발생했지만 2026년 현재에도 AI의 발전은 가속화되고 있다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>8-1. 왜 제목이 '패권(Supremacy)'인가</h2>
+      <p>이 책의 제목은 중의적이다.</p>
+      <p>첫째, 표면적으로는 <strong>오픈AI와 딥마인드 사이의 기술 패권 경쟁</strong>을 가리킨다. 누가 먼저 AGI에 도달하는가의 레이스.</p>
+      <p>둘째, 그러나 책을 끝까지 읽고 나면 진짜 승자는 두 연구소 중 어느 쪽도 아니라는 사실이 드러난다. <strong>패권을 쥔 것은 마이크로소프트, 알파벳, 아마존. 즉 컴퓨팅 자원과 자본, 유통 채널을 소유한 빅테크</strong>다. 올트먼과 허사비스는 각자 인류를 위한 AGI를 만들겠다고 출발했지만, 10년 후 두 사람이 도달한 자리는 <strong>각각 MS와 알파벳의 우산 아래</strong>였다.</p>
+      <p>셋째, 가장 불편한 층위에서 이 제목은 "누가 인류의 미래를 결정할 권한을 갖는가"를 묻는다. 그리고 책이 제시하는 답은, 그 권한이 민주적 절차나 공적 논의가 아니라 <strong>소수의 창업자와 그들에게 자본을 댄 몇 개 기업의 사적 판단</strong>에 넘어갔다는 것이다.</p>
+
+      <h2>8-2. 핵심 통찰 — '사명 표류(Mission Drift)'는 사고가 아니라 구조다</h2>
+      <p>이 책에서 가장 반복적으로 나타나는 패턴은, 두 조직이 <strong>똑같은 3단계 경로</strong>를 밟았다는 점이다.</p>
+      <table>
+        <tr><th>단계</th><th>딥마인드</th><th>오픈AI</th></tr>
+        <tr><td><strong>① 이상을 구조로 지키려 함</strong></td><td>페이스북 인수 거절, AI 윤리 이사회 요구, 알파벳 자회사로서의 법적 자율성</td><td>비영리 법인, 인류 전체의 이익이라는 정관</td></tr>
+        <tr><td><strong>② 자본이 요구됨</strong></td><td>딥러닝 인재 경쟁, 대규모 연구 비용</td><td>머스크 이탈, 컴퓨팅 비용 폭증</td></tr>
+        <tr><td><strong>③ 구조가 수정됨</strong></td><td>자회사 구조 흐지부지(2015~16), 윤리위원회 유명무실, 결국 구글 브레인과 통합 흡수</td><td>비영리 구조 수정, MS와 10억 달러 파트너십, 라이선스 제공</td></tr>
+      </table>
+      <p>여기서 주목할 점은 <strong>이상이 폐기된 것이 아니라 '보존된 채로 무력화'되었다</strong>는 것이다. 윤리위원회는 만들어졌지만 실질적 권한이 없었고, 오픈AI의 비영리 모회사는 존속했지만 자본 구조는 이미 영리로 재편되었다. 딥마인드의 윤리 담당자가 1,000명 중 12명이었다는 숫자는 이를 상징적으로 보여준다. <strong>간판은 남고 기능은 사라진다.</strong></p>
+      <p>왜 이런 일이 반복되는가. 근본 원인은 <strong>AI가 본질적으로 자본집약 산업</strong>이라는 데 있다. 뛰어난 아이디어만으로 충분했던 초기와 달리, 스케일링이 성능을 결정하는 순간부터 연구소는 컴퓨팅을 소유한 쪽에 종속될 수밖에 없다. <strong>이상주의자가 자본을 유치하는 순간, 그는 자신이 통제하려던 것에 통제당하기 시작한다.</strong></p>
+
+      <h2>8-3. 포커 대 체스 — 왜 포커가 앞섰는가</h2>
+      <p>책의 인물 구성이 탁월한 이유는, 두 사람의 유년기 게임이 그대로 경영 스타일이 되었기 때문이다.</p>
+      <ul>
+        <li><strong>허사비스(체스)</strong>: 완전정보 게임. 최종 국면을 그리고 최적수를 찾는다. 단백질 접힘, 알파고 — "제대로 풀어낸다"가 목표. 그래서 신중하게 접근하고, 준비되지 않은 것은 시장에 내놓지 않는다.</li>
+        <li><strong>올트먼(포커)</strong>: 불완전정보 게임. 패보다 판돈과 심리가 중요하다. "M을 B로 바꾸라"는 조언, 완성되지 않은 챗GPT를 리서치 프리뷰로 던진 결정 — 먼저 판을 벌이고 상황을 만든다.</li>
+      </ul>
+      <p>2022년 11월, 승부를 가른 것은 기술력이 아니라 <strong>출시 결정</strong>이었다. 구글은 트랜스포머를 먼저 발명하고도 광고 매출을 지키느라 내놓지 못했고, 딥마인드는 완성도를 기다렸다. 올트먼은 <strong>불완전한 채로 세상에 내놓았고, 그 순간 판이 뒤집혔다.</strong></p>
+      <p>다만 이것을 단순히 "과감함이 이긴다"로 읽으면 안 된다. 책이 던지는 질문은 오히려 그 반대다. <strong>안전성이 확보되지 않은 기술을 먼저 출시한 쪽이 시장을 가져가는 구조라면, 그 구조 자체가 모두를 위험한 방향으로 밀어붙이지 않는가.</strong> 경쟁은 속도를 높였지만, 그 속도의 비용은 사회가 지불한다.</p>
+
+      <h2>8-4. 두 개의 위험, 그리고 분열의 대가</h2>
+      <p>이 책은 AI 위험 담론이 <strong>두 진영으로 쪼개져 있다</strong>는 점을 중요하게 다룬다.</p>
+      <table>
+        <tr><th></th><th>AI 안전(Safety) 진영</th><th>AI 윤리(Ethics) 진영</th></tr>
+        <tr><td>대표 인물</td><td>셰인 레그, 얀 탈린, 초기 머스크</td><td>팀닛 게브루, 마거릿 미첼</td></tr>
+        <tr><td>걱정하는 위험</td><td><strong>미래</strong>의 초지능이 인류를 멸종시킬 가능성</td><td><strong>현재</strong> 작동 중인 시스템의 편향·차별·착취</td></tr>
+        <tr><td>해결 방식</td><td>정렬(alignment) 연구, 통제 가능한 AGI</td><td>데이터 감사, 다양성 확보, 배포 중단</td></tr>
+        <tr><td>결과</td><td>빅테크로부터 자금 지원을 받음</td><td><strong>구글에서 해고당함</strong></td></tr>
+      </table>
+      <p>이 대비가 이 책의 가장 날카로운 부분이다. <strong>먼 미래의 실존적 위험을 말하는 사람은 투자를 받았고, 지금 당장의 피해를 말하는 사람은 해고당했다.</strong></p>
+      <p>그리고 이 분열은 결과적으로 <strong>누구에게 유리했는가</strong>. 두 진영이 서로를 "SF적 망상" 혹은 "기술 발전의 발목잡기"로 비난하는 동안, 실질적 규제는 지연되었고 개발 속도는 유지되었다. 위험을 경고하는 목소리가 둘로 나뉘어 서로를 소진할 때, 이득을 보는 것은 규제받지 않는 쪽이다.</p>
+      <p>특히 눈여겨볼 대목은 <strong>AI가 유색인종·여성·장애인을 제대로 판단하지 못한다</strong>는 지적이다. 이것은 미래의 가정이 아니라 채용·대출·형사사법에서 이미 작동하고 있는 현실이며, 피해는 <strong>기술 개발 과정에서 대표되지 못한 집단에 집중된다.</strong></p>
+
+      <h2>8-5. 남는 질문들</h2>
+      <ol>
+        <li><strong>자본 없이 이상을 실현할 수 있는가?</strong> 두 조직 모두 자본을 거부했다면 애초에 아무것도 만들지 못했을 것이다. 그렇다면 문제는 자본 유치 자체가 아니라, 자본이 들어온 뒤에도 사명을 지킬 수 있는 거버넌스가 존재하는가이다. 그리고 이 책의 답은 회의적이다 — 두 조직의 시도가 모두 실패했다.</li>
+        <li><strong>"인류를 위한다"는 선언은 검증 가능한가?</strong> 올트먼도 허사비스도 진심이었다고 보는 것이 타당해 보인다. 그러나 진심은 결과를 보장하지 않는다. 선한 동기와 좋은 결과 사이에는 구조가 있고, 구조를 설계하지 못하면 동기는 무력하다.</li>
+        <li><strong>AGI가 도달점이라면, 그 이후의 권한은 누구에게 있는가?</strong> 오픈AI가 MS와 맺은 계약의 조건이 "AGI 달성 전까지"라는 사실은 의미심장하다. 그 판정을 누가 하는지, 그 이후에 무슨 일이 벌어지는지에 대해 공적으로 합의된 절차는 없다.</li>
+        <li><strong>경쟁을 늦출 방법은 있는가?</strong> 한 회사가 속도를 줄이면 다른 회사가 앞서는 구조에서, 개별 행위자의 선의로는 해결되지 않는다. 이것은 전형적인 집단행동 문제이며, 따라서 개별 기업 윤리가 아니라 제도의 문제로 다뤄져야 한다.</li>
+      </ol>
+
+      <h2>8-6. 나에게 주는 시사점</h2>
+      <ul>
+        <li><strong>채용·매칭 영역에서 AI 편향은 남의 문제가 아니다.</strong> 게브루가 지적한 "학습 데이터에 없는 집단은 제대로 판단되지 않는다"는 명제는, 장애인 고용처럼 데이터 자체가 희소하고 비정형적인 도메인에서 가장 크게 작동한다. 과거 채용 데이터로 학습한 매칭 모델은 과거의 배제 패턴을 그대로 재생산할 위험이 있다. 모델 성능 지표만이 아니라 집단별 성능 격차를 별도로 측정해야 하는 이유다.</li>
+        <li><strong>"확률적 앵무새" 비판은 AI 무용론이 아니라 사용 설명서다.</strong> AI가 데이터의 분포를 재현한다는 사실을 인정하면, 어디에 써야 하고 어디에 쓰면 안 되는지가 명확해진다. 문서 정리·초안 작성은 전자, 사람에 대한 최종 판단은 후자다.</li>
+        <li><strong>거버넌스는 나중에 붙일 수 없다.</strong> 딥마인드의 윤리위원회, 오픈AI의 비영리 구조는 모두 "나중에 지키면 되는 것"으로 취급되다가 무력화됐다. 어떤 시스템이든 설계 단계에서 권한과 절차를 못 박아 두지 않으면 실행 단계에서 반드시 밀린다.</li>
+        <li><strong>속도와 완성도의 트레이드오프.</strong> 올트먼의 선택은 "충분히 좋은 것을 먼저 내놓고 개선한다"였다. 이것은 많은 업무에 적용 가능한 원칙이지만, 되돌릴 수 없는 결과가 걸린 영역에서는 정반대로 적용해야 한다. 구분 기준은 리스크의 가역성이다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>부록 A. 연표</h2>
+      <table>
+        <tr><th>시기</th><th>사건</th></tr>
+        <tr><td>2005</td><td>허사비스, 엘릭서 스튜디오 매각 후 신경과학 박사과정 진학</td></tr>
+        <tr><td>2010</td><td>딥마인드 창업 (허사비스·레그·술레이만)</td></tr>
+        <tr><td>2012</td><td>알렉스넷 → 딥러닝 열풍 시작</td></tr>
+        <tr><td>2013</td><td>페이스북(저커버그) 인수 시도 → 결렬</td></tr>
+        <tr><td>2014</td><td><strong>구글, 딥마인드 인수</strong></td></tr>
+        <tr><td>2015</td><td><strong>오픈AI 설립</strong> (비영리)</td></tr>
+        <tr><td>2016</td><td>알파고 vs 이세돌 / 딥마인드 자회사 구조 유명무실화</td></tr>
+        <tr><td>2017</td><td>「Attention is All You Need」 발표 / 알파고 vs 커제</td></tr>
+        <tr><td>2018</td><td>머스크, 오픈AI 이탈 / 알파폴드 CASP13 우승</td></tr>
+        <tr><td>2019</td><td><strong>MS–오픈AI 파트너십 (10억 달러)</strong></td></tr>
+        <tr><td>2020</td><td>알파폴드2 CASP14 우승 / 게브루 구글 퇴사</td></tr>
+        <tr><td>2021</td><td>앤스로픽 설립 (다리오·다니엘라 아모데이)</td></tr>
+        <tr><td>2022</td><td>DALL·E 2 (4월) → <strong>챗GPT 출시 (11/30)</strong></td></tr>
+        <tr><td>2023</td><td>구글 브레인 + 딥마인드 → <strong>구글 딥마인드</strong> 통합, 제미나이 출시</td></tr>
+      </table>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

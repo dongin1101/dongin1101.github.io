@@ -74,10 +74,15 @@
   .empty h2 { font-family: var(--serif); color: var(--ink); font-size: 22px; margin: 0 0 8px; }
   .empty p { margin: 0; }
 
-  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 20px; }
-  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 24px; }
+  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .archive-list a { display: flex; gap: 20px; text-decoration: none; color: inherit; }
+  .archive-list .cover { width: 64px; height: 92px; object-fit: cover; border-radius: 6px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
   .archive-list .meta { font-size: 14px; color: var(--ink-soft); }
   .archive-list h3 { font-size: 18px; margin: 4px 0 6px; }
+  .archive-list p { margin: 0 0 6px; color: var(--ink-soft); }
+  .archive-list .more { font-weight: 600; font-size: 14px; }
+  .archive-list a:hover h3 { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
 
   .back { display: inline-block; margin-top: 32px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
   .back:hover { color: var(--ink); }
@@ -111,22 +116,19 @@
 
   <section>
     <div class="wrap">
-      <div class="empty">
-        <div class="icon">🍀</div>
-        <h2>콘텐츠 준비 중</h2>
-        <p>읽은 책 목록과 기록을 정리해 곧 채울 예정입니다.</p>
-      </div>
-
-      <!--
-        아카이브 항목 추가 예시:
-        <ul class="archive-list">
-          <li>
-            <div class="meta">2026.09 · 경영</div>
-            <h3>책 제목</h3>
-            <p>한 줄 요약이나 코멘트를 적습니다.</p>
-          </li>
-        </ul>
-      -->
+      <ul class="archive-list">
+        <li>
+          <a href="/archiving/supremacy/">
+            <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791141610227.jpg" alt="『패권』 표지" loading="lazy">
+            <div>
+              <div class="meta">2026.08 · Technology · ⭐⭐⭐⭐⭐</div>
+              <h3>패권 (Supremacy)</h3>
+              <p>파미 올슨 지음 — AGI로 인류를 구하겠다던 두 이상주의자(샘 올트먼·데미스 허사비스)가, 자본을 구하는 과정에서 결국 빅테크의 하청 구조 안으로 흡수되어 간 10년의 기록.</p>
+              <span class="more">전체 노트 보기 →</span>
+            </div>
+          </a>
+        </li>
+      </ul>
 
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
