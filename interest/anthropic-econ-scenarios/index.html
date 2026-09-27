@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anthropic 2030 경제 시나리오 모델 | 강동인</title>
+<meta name="description" content="Anthropic의 2030년 AI 경제 시나리오 모델(Econ Scenario Explorer) 정리 — 세 가지 시나리오와 HR·고용 관점의 시사점">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+  .insight-head .source { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .callout {
+    margin: 16px 0; padding: 18px 22px; background: var(--leaf-tint); border-radius: 12px;
+  }
+  article .callout ul { margin-bottom: 0; }
+  article .callout > .callout-title { font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .table-scroll { overflow-x: auto; margin: 8px 0 20px; }
+  article .table-scroll table { margin: 0; min-width: 560px; }
+  article .sources a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/">독서 아카이브</a>
+      <a href="/interest/" aria-current="page">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/interest/">← 관심사</a>
+      <h1>Anthropic 2030 경제 시나리오 모델 정리</h1>
+      <div class="meta-row">
+        <span class="tag">AI</span>
+        <span>2026.09 아카이빙</span>
+      </div>
+      <a class="source" href="https://www.anthropic.com/institute/econ-scenarios" target="_blank" rel="noopener">원문 보기 (anthropic.com) ↗</a>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">AI가 2030년 미국 경제에 줄 영향을 세 가지 시나리오로 모델링했다. 성장률이 평소의 2배 수준까지는 실업·임금이 역사적 범위에 머물지만, 역사상 유례없는 성장 시나리오에서는 지식노동자의 임금과 일자리가 크게 흔들린다.</p>
+
+      <h2>1. 기본 정보</h2>
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>제목</td><td>Scenarios for our Economic Future (Econ Scenario Explorer v1.0)</td></tr>
+        <tr><td>발표</td><td>Anthropic Economics 팀, 2026년 9월 9일</td></tr>
+        <tr><td>형식</td><td>인터랙티브 웹페이지 (직접 가정을 입력해 2030년 경제를 계산)</td></tr>
+        <tr><td>근거 보고서</td><td>Economic Scenarios for Transformative AI (Korinek et al., 2026)</td></tr>
+        <tr><td>모델 개발</td><td>Anton Korinek, Chad Jones, Szymon Sacher, Tess Cotter, Peter McCrory</td></tr>
+        <tr><td>대상</td><td>미국 경제, 2026~2030년</td></tr>
+      </table>
+      <p><strong>Economic Index</strong>가 지금 AI가 어떻게 쓰이는지 측정한다면, 이 모델은 <strong>앞으로를 전망하는 도구</strong>다.</p>
+
+      <h2>2. 모델 구조 — 경제는 ‘업무(task)’의 묶음</h2>
+      <p>모든 직업을 <strong>업무의 묶음</strong>으로 보고, AI가 각 업무에 어떤 영향을 주는지 합산해 경제 전체를 계산한다. 업무 분류는 미국 노동부 O*NET 기준이며, 미국 경제는 지난 1년간 약 30조 달러 규모다.</p>
+      <h3>AI가 업무에 미치는 네 가지 영향 (간호사 예시)</h3>
+      <ul>
+        <li><strong>변화 없음</strong> — 환자 목욕처럼 사람만 할 수 있는 일</li>
+        <li><strong>보조(augment)</strong> — 퇴원 안내문 작성, 원격 모니터링, 근무 일정 계획을 AI가 도와 더 빠르게 처리</li>
+        <li><strong>자동화(automate)</strong> — 활력징후 기록, 병동 물품 주문을 AI가 대신 수행</li>
+        <li><strong>새 업무 생성</strong> — AI의 환자 분류 결과 점검, AI가 제안한 간호 계획 검토</li>
+      </ul>
+      <p>결과적으로 직무가 바뀌고, 간호사는 환자와 대화하는 데 더 많은 시간을 쓰게 되며 생산성이 오른다.</p>
+      <h3>직접 조정하는 다섯 가지 변수</h3>
+      <table>
+        <tr><th>변수</th><th>질문</th></tr>
+        <tr><td><strong>역량</strong> (Capabilities)</td><td>AI가 어떤 업무를 숙련된 전문가만큼 할 수 있는가</td></tr>
+        <tr><td><strong>도입</strong> (Adoption)</td><td>사람들이 AI를 얼마나 널리 쓰는가</td></tr>
+        <tr><td><strong>자율성</strong> (Autonomy)</td><td>AI가 스스로 처리하는 비중은 얼마인가 (보조 vs 자동화)</td></tr>
+        <tr><td><strong>생산성</strong> (Productivity)</td><td>AI가 사람을 몇 배 더 생산적으로 만드는가 (1배~10배 이상)</td></tr>
+        <tr><td><strong>적응</strong> (Adjustment)</td><td>실직자가 새 직업을 찾는 데 얼마나 걸리는가 (1~2개월~3년 이상)</td></tr>
+      </table>
+      <p>직종은 <strong>지식노동</strong>(인지 직종: 관리·전문·영업·사무직)과 <strong>그 외 직종</strong> 두 그룹으로 나눈다. 2026년 기준 지식노동자는 전체의 62.2%, 그 외는 37.8%다.</p>
+
+      <h2>3. 세 가지 시나리오</h2>
+      <p>세 시나리오 모두 GDP는 늘지만, <strong>충격이 클수록 몫이 자본으로 쏠리고 지식노동자의 임금·고용이 악화</strong>된다. 수치는 모두 2030년 기준, ‘AI가 없었을 경우’ 대비다.</p>
+      <div class="table-scroll">
+      <table>
+        <tr><th>항목</th><th>Modest (완만)</th><th>Substantial (상당)</th><th>Extreme (극단)</th></tr>
+        <tr><td>비유</td><td>인터넷 수준</td><td>인터넷·전기가 동시에 온 수준</td><td>역사상 전례 없음</td></tr>
+        <tr><td>AI 역량</td><td>기존 신기술 범위 내</td><td>지식노동의 절반 수행 가능, 대부분 자율적 (단, 실제 도입은 일부)</td><td>대부분의 지식노동에서 인간보다 생산적, 거의 전부 자율 수행</td></tr>
+        <tr><td>GDP (2025년 가격)</td><td>+1.6% ($34.1조)</td><td>+8.3% ($36.3조)</td><td>+32.4% ($44.4조)</td></tr>
+        <tr><td>성장률</td><td>역사적 범위 내</td><td>평소의 약 2배, 2030년 연 5.4%</td><td>연 15%, 4.5년마다 경제 규모 2배</td></tr>
+        <tr><td>지식노동자 실업률</td><td>역사적 범위 내</td><td>2.9% → 4.5%</td><td><strong>17.9%</strong></td></tr>
+        <tr><td>전체 실업률</td><td>역사적 범위 내</td><td>역사적 범위 내</td><td><strong>11.9%</strong> (통상 경기침체 수준 초과)</td></tr>
+        <tr><td>지식노동자 임금</td><td>보합~소폭 상승</td><td>−0.3% (사실상 정체)</td><td><strong>−11.5%</strong></td></tr>
+        <tr><td>그 외 직종 임금</td><td>보합~소폭 상승</td><td>+5.9%</td><td>+33.6%</td></tr>
+        <tr><td>노동 몫 / 자본 몫</td><td>59.4% / 40.6%</td><td>56.1% / 43.9%</td><td>45.2% / 54.8%</td></tr>
+      </table>
+      </div>
+      <h3>네 가지 핵심 결론</h3>
+      <ol>
+        <li><strong>GDP 성장</strong> — 모든 시나리오에서 경제는 커지지만 규모 차이가 매우 크다.</li>
+        <li><strong>직업 이동</strong> — 충격이 클수록 더 많은 사람이 직종을 바꿔야 한다. 코더·콜센터 상담원이 전기기사·간호사처럼 AI 노출이 적은 직업으로 옮겨야 하는데, 새 기술 습득과 재취업에 시간이 걸려 그 사이 실업이 늘어난다.</li>
+        <li><strong>임금</strong> — 평균 임금은 오르지만 상승분은 지식노동 밖에 집중된다. 예컨대 설계·인허가가 빨라지면 건설 프로젝트가 늘어 건설 노동자 수요와 임금이 오른다.</li>
+        <li><strong>노동 vs 자본</strong> — 현재는 1달러당 약 60센트가 노동, 40센트가 자본으로 간다. 자동화가 늘면 임금이 올라도 자본의 몫이 커진다. 극단 시나리오에서는 노동소득 총액이 2030년까지 거의 변하지 않는다.</li>
+      </ol>
+      <div class="callout">
+        <div class="callout-title">💡 극단 시나리오의 비용</div>
+        극단 시나리오에서 지식노동자 소득을 AI 이전 수준으로 유지하려면 <strong>GDP의 약 9%</strong>(미국 사회보장+메디케어 합계 규모)의 이전지출이 필요하며, 기술 변화 대응으로 이런 규모의 전례는 없다(Unite.AI 요약 기준). 극단 시나리오는 재귀적 자기개선 AI와 빠른 도입이 전제다.
+      </div>
+
+      <h2>4. 대중 설문조사</h2>
+      <p>일반 미국인의 평균적인 예상은 <strong>‘Substantial’ 시나리오에 가깝다.</strong> 2030년 GDP가 AI 없는 경우보다 약 10% 높고, 전체 실업률은 약 5%로 오른다. 응답자의 약 10%는 Extreme 시나리오에 가까운 견해를 가졌다.</p>
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>조사 기관</td><td>Morning Consult</td></tr>
+        <tr><td>기간</td><td>2026년 8월 11~23일</td></tr>
+        <tr><td>표본</td><td>미국 성인 대표 표본 10,980명 + 사이트 방문자 29,516명 (페이지 기준 집계)</td></tr>
+        <tr><td>질문</td><td>모델의 다섯 가지 변수(역량·도입·자율성·생산성·재취업 기간)에 대한 예상</td></tr>
+      </table>
+      <p>탐색기에서 자기 예상을 입력하면 일반 응답자들과 비교해 볼 수 있다.</p>
+
+      <h2>5. 한계와 외부 반응</h2>
+      <p>Anthropic은 어느 시나리오가 더 가능성이 높은지 밝히지 않으며, 이 모델을 <strong>‘생각하는 도구’</strong>로 봐 달라고 한다. 실제 결과는 크게 다를 수 있다.</p>
+      <h3>Anthropic이 밝힌 한계 (v1.0)</h3>
+      <ul>
+        <li>정책 대응, 경기 순환, 총수요·금융시장 충격, 재앙적 위험을 반영하지 않음</li>
+        <li>고성능 로봇이 등장하는 시나리오는 포함하지 않음</li>
+        <li>개별 노동자를 추적하지 않아 실직 비용은 매우 거칠게만 보여줌</li>
+        <li>데이터센터 건설에 따른 총수요 효과 미포함</li>
+      </ul>
+      <h3>검토 경제학자들의 지적</h3>
+      <p>Acemoglu, Autor, Moll 등 18명이 검토했다(결론에 동의한 것은 아님).</p>
+      <ul>
+        <li><strong>반영된 의견</strong> — AI가 자본 수익률을 높여 이익이 자본 소유자에게 쏠릴 수 있음, AI 영향이 큰 직종과 작은 직종의 임금이 벌어질 수 있음</li>
+        <li><strong>남은 쟁점</strong> — AI 노출 직종이 실제로 줄어들지 오히려 커질지 불확실, 극단 시나리오는 시나리오라기보다 사고실험, 완만 시나리오는 이미 데이터에 보이는 변화를 과소평가, AI가 기술 발전 자체를 가속하는 효과를 과소평가</li>
+      </ul>
+      <h3>언론·학계 반응</h3>
+      <ul>
+        <li><strong>Fortune</strong> — 모델이 GDP를 공급 측면으로만 계산해, 생산된 것을 사줄 수요가 있는지는 고려하지 않는다고 지적. 경제학자 Ben Moll과 Alex Imas는 향후 10년 두 자릿수 성장 전망에 회의적이며, AI 성장 폭발에는 빠른 확산·지속적 소비·충분한 수요·대형 사이버 사고 부재·AI의 자기개선이 모두 맞아떨어져야 한다고 봄</li>
+        <li><strong>Axios</strong> — 완만 시나리오는 인터넷, 상당 시나리오는 인터넷과 전기가 동시에 온 수준, 극단 시나리오는 역사적 선례가 없다고 정리</li>
+        <li><strong>배경</strong> — 2026년 7월 Stiglitz, Krugman, Acemoglu 등 200명 이상이 AI의 경제 영향 연구를 우선하라는 공개서한에 서명</li>
+      </ul>
+
+      <h2>6. HR·고용 관점에서 볼 점</h2>
+      <p>이 모델의 핵심 메시지는 <strong>‘일자리 총량’보다 ‘직종 간 이동의 속도와 비용’</strong>이 관건이라는 것이다.</p>
+      <ul>
+        <li><strong>사무·관리직 채용 수요</strong> — 영향이 가장 큰 그룹이 관리·전문·영업·사무직이다. 사무직 중심의 채용·파견·아웃소싱 수요가 어떻게 바뀌는지 지켜볼 지표가 된다.</li>
+        <li><strong>직무 재설계</strong> — 직업을 업무 묶음으로 보는 관점은 JD 작성과 직무 분석에 그대로 쓸 수 있다. 업무별로 ‘변화 없음 / 보조 / 자동화 / 새 업무’를 나눠보는 방식.</li>
+        <li><strong>전직·재취업 지원</strong> — 재취업 기간이 길어질수록 실업이 커진다는 구조라, 재교육과 매칭 속도가 정책·서비스의 핵심 레버가 된다.</li>
+        <li><strong>AI 기반 매칭의 역할</strong> — 직종 전환이 늘어나는 상황에서 기존 경력과 새 직무를 연결하는 매칭 기술의 가치가 커진다.</li>
+        <li><strong>한국 적용 시 주의</strong> — 미국 경제 기준 모델이라 산업 구조, 노동시장 유연성, 사회안전망이 다른 한국에 그대로 옮기기는 어렵다.</li>
+      </ul>
+
+      <h2>7. 출처</h2>
+      <ul class="sources">
+        <li><a href="https://www.anthropic.com/institute/econ-scenarios" target="_blank" rel="noopener">Scenarios for our Economic Future – Anthropic</a> (원문, 인터랙티브 탐색기)</li>
+        <li><a href="https://www-cdn.anthropic.com/files/4zrzovbb/website/cf58f84d46a4a76bf5a5b039ac695fba6b80041c.pdf" target="_blank" rel="noopener">Economic Scenarios for Transformative AI – 기술 보고서 PDF</a></li>
+        <li><a href="https://www-cdn.anthropic.com/files/4zrzovbb/website/9ea607a5dd67c168093829b701f3a0a6d21156d5.pdf" target="_blank" rel="noopener">Anthropic 정책 제안 PDF</a></li>
+        <li><a href="https://www.anthropic.com/economic-index" target="_blank" rel="noopener">Anthropic Economic Index</a></li>
+        <li><a href="https://www.unite.ai/anthropic-releases-interactive-model-of-ais-possible-economic-futures/" target="_blank" rel="noopener">Unite.AI – Anthropic Releases Interactive Model of AI’s Possible Economic Futures</a></li>
+        <li><a href="https://fortune.com/2026/09/10/anthropics-new-research-maps-three-wildly-different-futures-for-the-ai-economyand-the-future-of-knowledge-work/" target="_blank" rel="noopener">Fortune – Anthropic's new research maps three wildly different futures (2026.9.10)</a></li>
+        <li><a href="https://www.axios.com/2026/09/09/ai-economy-jobs-anthropic" target="_blank" rel="noopener">Axios – New research sketches out how AI might reshape the economy (2026.9.9)</a></li>
+        <li><a href="https://qz.com/anthropic-ai-economy-scenarios-2030-091026" target="_blank" rel="noopener">Quartz – Anthropic releases interactive model of AI economic scenarios</a></li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/interest/">← 관심사로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
