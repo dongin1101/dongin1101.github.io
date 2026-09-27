@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>착각에 빠진 리더들 독서 노트 | 강동인</title>
+<meta name="description" content="팀 엘모어, 『착각에 빠진 리더들』 독서 노트 — 과거의 성공 방정식이 통하지 않는 시대, 리더에게 필요한 것은 정답이 아니라 서로 충돌하는 가치를 동시에 쥐고 나아가는 ‘역설의 리더십’이다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788965965930.jpg" alt="『착각에 빠진 리더들』 표지">
+        <div>
+          <h1>착각에 빠진 리더들</h1>
+          <p class="byline">팀 엘모어 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>320쪽</span>
+            <span>2026.02 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000208894691" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">과거의 성공 방정식이 통하지 않는 시대, 리더에게 필요한 것은 정답이 아니라 서로 충돌하는 가치를 동시에 쥐고 나아가는 ‘역설의 리더십’이다.</p>
+
+      <h2>1. 경험이라는 이름의 함정</h2>
+      <p>오늘날의 리더들은 과거의 성공 방정식이 더 이상 통하지 않는 <strong>‘리더십 격차’</strong>의 시대를 살고 있다. 팀 엘모어는 리더들이 자신의 경험과 직관에만 의존하는 오만, 즉 <strong>‘착각’</strong>에 빠져 있다고 경고한다. 변화무쌍한 시대에 필요한 것은 완벽한 정답이 아니라, 서로 충돌하는 가치를 동시에 쥐고 나아가는 <strong>역설(Paradox)의 리더십</strong>이다.</p>
+      <p>과거에는 리더 혼자 모든 답을 알고 지시하는 ‘해결사’가 중요했다. 이제는 외부와 동료의 아이디어를 경청하고, 명확한 비전 안에서도 기존과 다른 해법을 끌어낼 수 있는 리더가 필요하다. 특히 창의적인 젊은 세대의 역량을 살리려면 리더가 권위를 내려놓고 유연해져야 한다.</p>
+
+      <hr>
+
+      <h2>2. 리더십의 핵심 역설 네 가지</h2>
+
+      <h3>① 비전과 블라인드 스팟 (Vision &amp; Blind Spots)</h3>
+      <p>명확한 목표를 제시하되, <strong>자신이 모르는 영역이 있음을 인정하고</strong> 새로운 아이디어를 받아들이는 것.</p>
+      <p>스팽스(Spanx) 창업자 <strong>세라 블레이클리</strong>는 의류 업계의 관행적인 홍보 루트 대신, 직접 공장을 찾아가고 백화점에서 직접 착용해 보이며 제품을 설명하는 파격적인 방식을 택했다. ‘전국에 팔겠다’는 명확한 비전과, 업계를 몰랐기에 관행에 얽매이지 않은 창의적 접근이 만난 사례다.</p>
+
+      <h3>② 보이는 리더십과 보이지 않는 리더십 (Visible &amp; Invisible)</h3>
+      <p>전면에서 길을 여는 가시성과, <strong>동료가 주인공이 되도록 무대 뒤로 물러나는 헌신</strong>의 조화.</p>
+      <p><strong>마틴 루서 킹 주니어</strong>는 인권 운동 초기에 비폭력 평화주의를 앞장서 이끌며 대중의 관심을 모았다. 그러면서도 결정적인 순간에는 동료들에게 스포트라이트를 돌려 그들이 성장할 환경을 만들었다. 리더는 본보기를 보인 뒤, 동료의 성장을 위해 기꺼이 무대 뒤로 물러날 줄 알아야 한다.</p>
+
+      <h3>③ 지도자와 학습자 (Instructor &amp; Learner)</h3>
+      <p>전문성을 가진 스승이면서도 <strong>누구에게나 배울 준비가 된 학생</strong>의 자세를 유지하는 것.</p>
+      <p>버버리 CEO였던 <strong>안젤라 아렌츠</strong>는 25세 전후의 젊은 직원들에게 중요한 업무를 맡기고 그들에게서 트렌드를 배웠다. 리더는 리버스 멘토링 등을 통해 조직 전체가 정기적으로 통찰을 나누며 함께 배우는 문화를 만들어야 한다.</p>
+
+      <h3>④ 엄격함과 너그러움 (High Standards &amp; High Grace)</h3>
+      <p>목표를 향한 기준은 엄격하게 유지하되, <strong>실패와 두려움에는 너그러움</strong>을 보이는 것.</p>
+      <p><strong>해리엇 터브먼</strong>은 노예 탈출 도중 공포에 질려 돌아가려는 동료에게 총을 겨누며 엄격하게 독려하면서도, 동시에 따뜻한 위로로 공감했다. 리더는 높은 기준을 제시하되, 실패해도 괜찮다는 <strong>심리적 안전망</strong>을 함께 만들어야 한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>리더십은 ‘완성’이 아니라 ‘균형’의 예술</h2>
+      <p>리더십은 정지된 상태가 아니라, 상황에 맞춰 끊임없이 무게 중심을 옮기는 <strong>동적인 균형 잡기</strong>다. 명확한 비전으로 집중하게 하고, 블라인드 스팟을 인정해 전혀 다른 아이디어를 끌어내는 과정은 조직의 생존에 필수적이다. 리더가 직접 모범을 보인 뒤(Visible), 동료가 목표를 명확히 알 때 권한을 넘기는(Invisible) 판단력이 조직의 성장을 결정한다.</p>
+      <blockquote><p>진정한 리더는 “나는 다 안다”는 착각을 버리고, 부족함을 인정하며 끊임없이 배우는 사람이다. <strong>엄격함으로 성과를 내고 너그러움으로 사람을 얻는</strong> 역설의 지혜를 실천할 때, 조직은 위기를 넘어 도전하는 문화를 갖추게 된다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

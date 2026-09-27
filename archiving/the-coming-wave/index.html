@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>더 커밍 웨이브 (The Coming Wave) 독서 노트 | 강동인</title>
+<meta name="description" content="무스타파 술레이만, 『더 커밍 웨이브』 독서 노트 — 딥마인드 공동 창업자가 경고하는 AI와 합성생물학의 물결. 기술을 멈출 수 없다면, 인류는 어떻게 파국을 막을 것인가에 대한 ‘기술 억제’의 청사진.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160079982.jpg" alt="『더 커밍 웨이브』 표지">
+        <div>
+          <h1>더 커밍 웨이브 (The Coming Wave)</h1>
+          <p class="byline">무스타파 술레이만 지음</p>
+          <div class="meta-row">
+            <span class="tag">Technology</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>512쪽</span>
+            <span>2025.09 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000211812703" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">딥마인드 공동 창업자가 경고하는 AI와 합성생물학의 물결. 기술을 멈출 수 없다면, 인류는 어떻게 파국을 막을 것인가에 대한 ‘기술 억제’의 청사진.</p>
+
+      <blockquote><p>AI, 합성생물학, 로봇공학의 발전은 인류에게 상상할 수 없을 만큼의 번영을 가져다줄 잠재력이 있다. 하지만 이 기술들이 테러 단체 같은 악의적 행위자의 손에 들어가거나 권위주의적 목적에 쓰인다면, 인류는 이전과는 차원이 다른 재앙을 맞이할 수 있다.</p></blockquote>
+
+      <h2>1. 이번 물결은 무엇이 다른가</h2>
+      <p>저자는 이번 기술 물결이 과거의 기술 혁명과 근본적으로 다르다고 진단한다. 그 결과 인류는 스스로 만든 도구에 압도당해, <strong>통제할 수 없는 속도로 기술이 확산될 위험</strong>에 처해 있다. 책은 하나의 질문에 답한다.</p>
+      <blockquote><p><strong>“기술 개발을 멈출 수 없다면, 우리는 어떻게 파국을 막을 것인가?”</strong></p></blockquote>
+      <p>답은 <strong>기술 억제(Containment)</strong>다. 술레이만은 기술 발전을 완전히 막자는 것이 아니라, <strong>인류가 안전하게 통제하고 적응할 수 있는 속도로 조절해야 한다</strong>고 말하며, 이를 위한 10단계 전략을 제시한다.</p>
+
+      <h3>인류의 기술 혁명과 AI</h3>
+      <ul>
+        <li>인류는 농업 혁명, 인쇄 혁명, 산업 혁명, 인터넷 혁명을 거쳐 지금 AI 혁명을 맞이하고 있다.</li>
+        <li>AI라는 개념은 1950년대부터 있었지만, 더딘 발전 탓에 오랫동안 변방의 연구로 취급받았다.</li>
+        <li>2012년 알렉스넷의 이미지 인식 돌파, 2016년 알파고와 이세돌 9단의 대결, 2022년 챗GPT 열풍을 거치며 AI는 급성장했다.</li>
+        <li>딥러닝, LLM, GPU, 데이터센터의 발전이 이를 가능하게 했고, AI를 계기로 합성생물학, 양자 컴퓨팅, 로봇공학, 에너지 전환도 빠르게 발전하고 있다.</li>
+      </ul>
+
+      <hr>
+
+      <h2>2. 다가오는 기술의 네 가지 특징</h2>
+      <table>
+        <tr><th>특징</th><th>의미</th></tr>
+        <tr><td><strong>비대칭성</strong></td><td>소수의 개인이나 집단이 막대한 기술력을 가질 수 있어, 권력과 영향력이 급격히 집중된다.</td></tr>
+        <tr><td><strong>초진화</strong></td><td>발전 속도가 기하급수적으로 빨라져 인류가 적응하기 어려운 수준에 이른다.</td></tr>
+        <tr><td><strong>범용성(Omni-use)</strong></td><td>한 번 개발된 기술이 국방, 산업, 일상 등 모든 분야에 쓰인다.</td></tr>
+        <tr><td><strong>자율성</strong></td><td>스스로 학습하고 판단하고 실행하는 기술이 등장해 인간의 개입이 줄어든다.</td></tr>
+      </table>
+      <p>그런데도 억제가 어려운 이유는 국가와 기업의 경제적 이익, 자존심, 그리고 자유에 대한 인류의 열망 때문이다.</p>
+
+      <hr>
+
+      <h2>3. 대합의(Grand Bargain)의 위기</h2>
+      <ul>
+        <li><strong>과거</strong> — 국민이 국가에 권한을 위임하고, 국가는 그 권한과 신뢰를 바탕으로 운영되는 근대 국민국가 체제가 작동했다.</li>
+        <li><strong>현재</strong> — 부의 불평등, 인구 감소, 민족주의의 확산, 국제 협력의 약화로 이 대합의가 흔들리고 있다.</li>
+        <li><strong>신기술이 가속할 위험</strong> — 권력의 분산과 중앙 권위의 약화, 소수 집단의 테러와 딥페이크 공격, 자동화로 인한 일자리 불균형, 부익부 빈익빈의 심화.</li>
+      </ul>
+      <p>대합의가 깨지면 소수 대기업의 부와 권력 독점, 권위주의 통치의 강화와 개인 자유의 축소, 국가에 맞먹는 거대 개인·기업의 등장 같은 시나리오가 펼쳐질 수 있다. <strong>기술 억제에 실패하면 테크노 디스토피아나 사회 붕괴</strong>의 위험이 있다.</p>
+
+      <hr>
+
+      <h2>4. 기술 억제를 위한 10단계</h2>
+      <ol>
+        <li><strong>Safety</strong> — 기술 안전성 확보와 책임 있는 배치</li>
+        <li><strong>Audits</strong> — 감사, 검증, 투명성 강화</li>
+        <li><strong>Choke Points</strong> — 확산 속도를 조절할 수 있는 병목 지점 활용</li>
+        <li><strong>Makers &amp; Critics</strong> — 기술자와 비평가의 협력</li>
+        <li><strong>Businesses</strong> — 이윤과 함께 윤리와 공공선 고려</li>
+        <li><strong>Governments</strong> — 규제, 개혁, 적응 역량 강화</li>
+        <li><strong>Alliances</strong> — 국제 협력과 조약을 통한 규제 조화</li>
+        <li><strong>Culture</strong> — 기술에 대한 책임과 윤리 문화 확산</li>
+        <li><strong>Movements</strong> — 시민사회와 대중의 참여 확대</li>
+        <li><strong>Coherence</strong> — 이 모두를 아우르는 통합적 전략</li>
+      </ol>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>5-1. 속도의 격차</h2>
+      <p>기술은 언제나 인류의 진보를 이끌어왔지만, 이 책은 지금의 변화 속도가 과거와 다르다고 지적한다. 20년 넘게 기술 최전선에 있었던 저자는 AI와 합성생물학이 인간이 통제할 수 있는 한계를 넘어서는 속도로 발전하는 것을 직접 느꼈을 것이다. 과거에는 제도와 규범이 따라잡을 수 있을 만큼의 간극을 두고 기술이 발전했지만, 이제는 <strong>기술과 규범의 격차가 기하급수적으로 벌어져 인류가 스스로 만든 도구에 압도당할 가능성</strong>이 커지고 있다.</p>
+      <h2>5-2. 현실이 될 수 있는 위협</h2>
+      <p>AI는 경제와 사회 구조를 송두리째 바꿀 수 있고, 악용되면 정보 조작, 사이버 공격, 테러의 무기가 될 수 있다. 합성생물학도 질병 치료와 생명 연장의 가능성을 여는 동시에, 통제되지 않으면 팬데믹의 씨앗이 될 수 있다. 저자는 이것이 이론적 위험이 아니라, <strong>지금 이 순간에도 누군가 준비하고 있을 수 있는 현실적인 위협</strong>이라고 강조한다.</p>
+      <h2>5-3. 여전히 국가가 중심이 되어야 한다</h2>
+      <p>이 위협에 맞설 수 있는 주체는 여전히 <strong>국민국가</strong>다. 그러나 역설적으로 세계화와 디지털 네트워크는 국가의 권위를 약화시키고 있다. 이 모순 속에서도 <strong>국가가 중심이 되어 규제와 거버넌스를 정비하고 국제 협력 체계를 마련해야 한다.</strong> 기술을 안전하게 활용하면서 파국적 위험을 최소화하기 위한 장치를 만드는 것, 그것이 이 책이 던지는 가장 본질적인 과제다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

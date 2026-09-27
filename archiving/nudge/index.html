@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>넛지: 파이널 에디션 (Nudge: The Final Edition) 독서 노트 | 강동인</title>
+<meta name="description" content="리처드 탈러·캐스 선스타인, 『넛지: 파이널 에디션』 독서 노트 — 인간은 합리적인 ‘이콘’이 아니다. 강제하지 않고 선택 설계로 더 나은 선택을 부드럽게 이끄는 넛지, 그리고 그 반대인 슬러지를 걷어내는 법.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788901260679.jpg" alt="『넛지: 파이널 에디션』 표지">
+        <div>
+          <h1>넛지: 파이널 에디션 (Nudge: The Final Edition)</h1>
+          <p class="byline">리처드 탈러·캐스 선스타인 지음</p>
+          <div class="meta-row">
+            <span class="tag">Psychology</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>430쪽</span>
+            <span>2025.11 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000061350430" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">인간은 합리적인 ‘이콘’이 아니다. 강제하지 않고 선택 설계로 더 나은 선택을 부드럽게 이끄는 넛지, 그리고 그 반대인 슬러지를 걷어내는 법.</p>
+
+      <h2>1. 인간과 이콘 — 우리는 천재인 동시에 바보다</h2>
+      <p>이 책은 이성적인 존재로 가정되는 <strong>‘이콘(호모 이코노미쿠스)’</strong>과, 현실 속의 불완전한 <strong>‘인간(호모 사피엔스)’</strong>을 대비하며 시작한다.</p>
+      <h3>두 가지 사고 시스템</h3>
+      <table>
+        <tr><th>자동 시스템</th><th>숙고 시스템</th></tr>
+        <tr><td>빠르고, 무의식적이며, 직관적. 노력이 거의 들지 않고 반사적 반응과 습관적 행동을 담당</td><td>느리고, 의식적이며, 노력이 필요. 복잡한 문제 해결과 장기 계획을 담당하는, 우리가 ‘이성’이라 부르는 부분</td></tr>
+      </table>
+      <p>대니얼 카너먼이 『생각에 관한 생각』에서 제시한 이 구분처럼, 인간의 사고는 대부분 자동 시스템에 의존한다. 그래서 어림짐작, 손실 기피, 현상 유지 편향, 프레이밍 같은 편향에 빠지고, <strong>예측 가능하고 체계적인 실수</strong>를 반복한다.</p>
+      <h3>계획하는 자아 vs 행동하는 자아</h3>
+      <p>자제력 문제는 두 자아의 갈등으로 설명된다. <strong>계획하는 자아</strong>는 장기적이고 합리적인 목표를 세우지만, <strong>행동하는 자아</strong>는 눈앞의 유혹에 순간적인 만족을 좇는다. 이콘은 두 자아가 일치해 늘 최선을 선택하지만, 인간은 두 자아가 자주 충돌해 비합리적인 결정을 내린다.</p>
+      <h3>사회적 영향력</h3>
+      <p>사람들은 남들 하는 대로 따라 하는 <strong>동조 편향</strong>을 가진다. 적절해 보이는 선택지도 다른 사람들이 틀렸다고 하면 흔들린다. 덕분에 전통이 생기고 집단의 의견이 쉽게 모이지만, 개인의 의견이 묵살되고 자칫 나치즘 같은 잘못된 사상에 빠지기 쉬워지는 위험도 있다.</p>
+      <p>이런 인간의 불완전성을 인정하고, <strong>강제하지 않으면서 선택 설계를 통해 더 나은 선택으로 부드럽게 이끄는 것</strong>이 넛지의 핵심이다.</p>
+
+      <hr>
+
+      <h2>2. 선택 설계자의 도구들</h2>
+      <p>주의력이 흐트러지거나 낯선 상황에 있을 때 우리는 터무니없는 실수를 한다. 이럴 때는 알림, 실행 의도 상기, 체크리스트 같은 도구가 도움이 된다.</p>
+      <h3>넛지는 쉽고, 재미있어야 한다</h3>
+      <p>넛지의 핵심은 <strong>바람직한 행동을 쉽게 할 수 있도록</strong> 만드는 것이고, 그러려면 재미있어야 한다.</p>
+      <ul>
+        <li>신베이시는 반려견 배설물을 쓰레기통에 버리는 사람에게 추첨으로 금 제품을 주었다.</li>
+        <li>런던 교외 윈저 구역은 재활용 무게에 따라 마일리지를 주어 재활용률을 높였다.</li>
+      </ul>
+      <h3>스마트 공개</h3>
+      <p>휴대폰 약정서, 대출 계약서, 부동산 계약서는 전문 용어와 이상한 단위로 가득해 정작 필요한 정보가 가려진다. 단위를 통일하고 서류 양식을 표준화해 <strong>정보를 투명하게 공개</strong>하는 것도 대표적인 넛지다.</p>
+      <h3>슬러지 — 넛지의 반대</h3>
+      <p><strong>슬러지(sludge)</strong>는 사람들이 원하는 결과를 얻기 어렵게 만드는 선택 설계다.</p>
+      <ul>
+        <li><strong>구독 함정</strong> — 가입은 쉽지만 해지는 복잡하다.</li>
+        <li><strong>리베이트</strong> — 환불받는 절차가 번거롭다.</li>
+        <li><strong>감추어진 속성</strong> — 표시된 가격 뒤에 추가 금액이 숨어 있다.</li>
+      </ul>
+      <p>슬러지는 정부, 대학, 공기업, 대기업 등 사람에게 영향을 주는 곳이면 어디에나 있다. 한 번에 없앨 수는 없어도 조금씩 걷어내야 한다. <strong>넛지를 즐겁게 만들고 슬러지를 줄이는 것</strong>이 책임 있는 선택 설계자의 역할이다.</p>
+
+      <hr>
+
+      <h2>3. 돈 — 넛지가 우리를 부유하게 한다</h2>
+      <h3>은퇴 저축: 자동 가입과 자동 상향</h3>
+      <p>사람들이 은퇴 자금을 고민하기 시작한 지는 200년도 채 되지 않았다. 20세기 중반까지 연금은 대부분 확정급여형이었고, 1980년대 이후 확정기여형이 표준이 되었다. 하지만 확정기여형은 가입률과 납입률이 낮다는 문제가 있었다.</p>
+      <p>해법은 <strong>옵트아웃(자동 가입)</strong>으로 입사와 동시에 가입되게 하고, 임금이 오를 때마다 납입률도 자동으로 올리는 것이다. 영국의 <strong>NEST</strong>는 퇴직연금이 없던 고용주가 직원을 자동 가입시키고, 고용주와 직원이 함께 납입하며, 임금 상승에 따라 납입률을 높이는 방식으로 이를 구현했다.</p>
+      <h3>넛지는 영원히 지속될까? — 스웨덴의 사례</h3>
+      <p>2000년에 시작된 스웨덴의 연금 제도는 가입이 의무라 자동 가입 넛지가 필요 없었다. 저자들이 주목한 것은 <strong>선택지의 수와 기본 설정 펀드의 설계</strong>다.</p>
+      <ul>
+        <li>제도 초기, 정부는 가입자들이 기본 펀드 대신 스스로 포트폴리오를 짜도록 유도했고, 2/3 이상이 직접 선택했다.</li>
+        <li>이 능동적 선택자들은 당시의 주식 열풍과 펀드 광고에 넛지되어, 기본 펀드보다 수수료가 높고 주식 비중이 높은 펀드를 골랐다.</li>
+        <li>열풍이 가라앉고 광고가 줄면서 이후 가입자들은 기본 펀드를 택하는 것이 일반적이 되었다.</li>
+        <li>중요한 것은, <strong>초기 선택을 나중에 바꾸는 사람은 거의 없었다</strong>는 점이다. 한 번의 넛지가 20년 넘게 지속되었다.</li>
+      </ul>
+      <p>복잡하고 정보가 부족한 금융 분야일수록 <strong>잘 설계된 기본값</strong>이 강력한 도구가 된다.</p>
+      <h3>주택담보대출과 신용카드</h3>
+      <p>사람들은 과거보다 훨씬 쉽게 자신의 지급 능력을 넘는 것을 사고 대출을 받는다. 주택담보대출은 고정·변동 금리, 다양한 만기, 초기 1~2년만 금리가 낮은 티저 금리 상품 등으로 복잡해졌다. 전문가의 도움을 받으면 좋지만 그들도 이해관계에서 자유롭지 않다.</p>
+      <p>저자들은 <strong>스마트 공개, 계약 조건의 표준화, 그리고 알고리즘의 도움</strong>을 제안한다. 표준 계약 3~4가지만 만들어도 선택자의 불리함은 크게 줄어든다. 평균 4장의 카드를 가진 사람이 카드마다 다른 이자를 계산해 상환하기는 어려우므로, 알고리즘이 가장 유리한 상환 방법을 알려주도록 넛지해야 한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>7-1. 강제가 아닌 부드러운 유도</h2>
+      <p>『넛지』는 인간이 이성적인 존재가 아니라 자동 시스템과 편향에 의해 체계적인 실수를 반복하는 존재라는 관찰에서 출발한다. 이콘이 아닌 인간에게 필요한 것은 <strong>강제가 아닌 부드러운 유도</strong>다. 연금의 자동 가입·자동 상향, 스마트 공개, 잘 설계된 기본값이 금융 의사결정을 개선하고 사회 전체의 후생을 높인 사례들은, 선택 설계가 작은 심리적 개입을 넘어 거대한 사회적 변화를 만들 수 있음을 보여준다. 넛지가 자유를 침해하지 않으면서 더 나은 결과로 이끄는 <strong>‘자유주의적 개입주의’</strong>라는 저자들의 핵심 개념에 깊이 공감했다.</p>
+
+      <h2>7-2. HR에 주는 시사점</h2>
+      <ul>
+        <li><strong>바람직한 행동을 쉽게</strong> — 교육 참여, 경력 개발, 건강관리 프로그램처럼 조직이 장기적으로 바라는 행동에 간단한 넛지를 더해 구성원이 스스로 선택하기 쉽게 설계할 수 있다. 휴가 사용 자동화, 간단한 피드백 플랫폼, 직관적인 평가 방식도 넛지다.</li>
+        <li><strong>기본값의 힘</strong> — 온보딩에서 정보량을 줄이고 핵심 선택을 먼저 안내하거나, 복지 제도의 기본 옵션을 설정하면 정보 격차로 인한 불공정을 줄일 수 있다.</li>
+        <li><strong>조직 내 슬러지 제거</strong> — 복잡한 승인 절차, 숨겨진 조건, 과도한 보고 체계는 조직의 슬러지다. 지속적으로 점검하고 걷어내야 한다.</li>
+      </ul>
+      <blockquote><p>사람을 이성적인 존재로 가정하고 잘못된 선택을 ‘개인의 문제’로 돌리기보다, <strong>자연스럽게 더 나은 행동을 선택할 수 있도록 환경을 설계하는 것.</strong> 그것이 개인의 삶의 질을 높이고, 조직의 효율을 높이며, 사회 전체의 선순환을 이끄는 출발점이다.</p></blockquote>
+      <p>이 책을 통해 사람을 더 깊이 이해하고 제도를 더 따뜻하게 설계하는 관점을 얻었고, HR 전문가로 성장하는 과정에서 계속 참고할 나침반이 될 것이다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

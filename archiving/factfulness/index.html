@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>팩트풀니스 (Factfulness) 독서 노트 | 강동인</title>
+<meta name="description" content="한스 로슬링 외, 『팩트풀니스』 독서 노트 — 세상은 생각보다 나아지고 있다. 우리가 세상을 극적으로, 그리고 잘못 이해하게 만드는 10가지 본능을 데이터로 해부하는 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788934933878.jpg" alt="『팩트풀니스』 표지">
+        <div>
+          <h1>팩트풀니스 (Factfulness)</h1>
+          <p class="byline">한스 로슬링 외 지음</p>
+          <div class="meta-row">
+            <span class="tag">Society</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>484쪽</span>
+            <span>2025.09 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000214078939" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">세상은 생각보다 나아지고 있다. 우리가 세상을 극적으로, 그리고 잘못 이해하게 만드는 10가지 본능을 데이터로 해부하는 책.</p>
+
+      <h2>1. 우리의 세계관은 ‘팩트’에 기반하고 있을까?</h2>
+      <p>우리는 SNS, 유튜브, 검색을 통해 세상의 변화를 거의 실시간으로 접한다. 그런데 그럴수록 <strong>세상이 점점 나빠지고 있다</strong>는 생각이 든다. 나 역시 이 책을 읽기 전에는 끝없는 분쟁, 정치적 갈등, 기아 같은 소식들을 보며 그런 감정을 자주 느꼈다.</p>
+      <p>한스 로슬링은 전 세계 사람들에게 세계 현안에 관한 13개의 질문을 던졌다. 결과는 놀라웠다. 사람들의 평균 정답률은 약 16%로, <strong>침팬지가 무작위로 고를 때의 확률(33%)보다 낮았다.</strong> 일부 문제에서는 교육 수준이 높은 유럽과 북미의 정답률이 특히 낮았다.</p>
+      <p>왜 똑똑한 사람들이 세상의 참모습을 모를까? 저자는 우리가 세상을 극적으로, 그리고 잘못 이해하게 만드는 <strong>10가지 비합리적 본능</strong>을 해부하고, 데이터와 통계로 세상이 실제로는 나아지고 있음을 증명한다.</p>
+
+      <hr>
+
+      <h2>2. 세상을 오해하게 만드는 본능들</h2>
+      <p>로슬링은 우리가 사실(Fact)이 아니라 <strong>느낌(본능)</strong>에 근거해 세상을 판단한다고 말한다. 그중 대표적인 세 가지를 정리한다.</p>
+
+      <h3>① 간극 본능 — 극단이 아니라 다수를 보라</h3>
+      <p>우리는 세상을 ‘선진국/개발도상국’, ‘부유층/빈곤층’처럼 <strong>두 극단으로 나눠 생각</strong>하는 경향이 있다. 선진국 사람이 아니면 모두 가난하고 우리처럼 살 수 없다고 여긴다. 하지만 이런 구분은 현실을 반영하지 못한다.</p>
+      <p>로슬링은 <strong>소득 4단계 분류법</strong>으로 인류의 대다수가 두 극단 사이의 중간 소득 수준에서 살고 있음을 보여준다. 평균끼리의 비교, 극단끼리의 비교, 위에서 내려다보는 시각을 경계해야 한다.</p>
+
+      <h3>② 부정 본능 — 나쁜 소식만 있는 것은 아니다</h3>
+      <p>언론은 부정적인 사건을 위주로 보도하기 때문에 우리는 세상이 나빠지고 있다고 느낀다. 하지만 데이터는 <strong>평균 수명 증가, 영아 사망률 감소</strong> 등 느리지만 꾸준한 진보를 보여준다.</p>
+      <blockquote><p>나쁜 일은 여전히 일어난다. 그러나 <strong>세상은 동시에 점점 나아지고 있다.</strong></p></blockquote>
+
+      <h3>③ 직선 본능 — 변화의 형태는 다양하다</h3>
+      <p>지난 100년간의 세계 인구 그래프를 보면 사람들은 인구가 계속 직선으로 늘 것이라 예측한다. 하지만 로슬링은 인구 증가율이 둔화되어 <strong>어느 시점에 안정화될 것</strong>이라는 데이터를 제시한다. 대부분의 추세는 직선이 아니다. 곡선, S자 곡선 등 다양한 형태가 있음을 알아야 한다.</p>
+
+      <p>이 밖에도 <strong>공포 본능, 크기 본능, 일반화 본능, 운명 본능</strong> 등 총 10가지 본능이 우리의 합리적 사고를 방해한다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">결론</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>우리가 ‘팩트풀니스’를 가져야 하는 이유</h2>
+      <p>팩트풀니스는 세상에 대한 막연한 불안과 편견을 걷어내고 진짜 모습을 보게 돕는다. 세상은 나아지고 있으며, 우리는 세상을 왜곡해서 보게 만드는 본능을 극복하고 <strong>세상을 정확하게 보는 능력</strong>을 계속 길러야 한다.</p>
+      <p>이 책은 단순히 통계를 보여주는 책이 아니라, <strong>세상을 바라보는 관점을 근본적으로 바꾸는 안내서</strong>다. 세상을 더 정확히 이해하고, 더 낙관적으로 미래를 준비하며, 더 현실에 맞는 토론을 하고 싶다면 꼭 읽어볼 만한 책이다.</p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

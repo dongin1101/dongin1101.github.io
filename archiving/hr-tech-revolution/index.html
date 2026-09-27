@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HR 테크 혁명 - 생성형 AI 편 독서 노트 | 강동인</title>
+<meta name="description" content="김영애, 『HR 테크 혁명 - 생성형 AI 편』 독서 노트 — 채용, 교육, 성과 관리, 직원 경험까지. 생성형 AI가 HR 실무를 어떻게 바꾸고 있는지, 그리고 HR이 스킬 기반 조직으로 가기 위해 무엇을 준비해야 하는지 정리한 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스 아카이브</a>
+      <a href="/archiving/" aria-current="page">독서 아카이브</a>
+      <a href="/#contact">연락하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788976331403.jpg" alt="『HR 테크 혁명 - 생성형 AI 편』 표지">
+        <div>
+          <h1>HR 테크 혁명 - 생성형 AI 편</h1>
+          <p class="byline">김영애 지음</p>
+          <div class="meta-row">
+            <span class="tag">Organization</span>
+            <span>⭐⭐⭐</span>
+            <span>380쪽</span>
+            <span>2025.12 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000216525071" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">채용, 교육, 성과 관리, 직원 경험까지. 생성형 AI가 HR 실무를 어떻게 바꾸고 있는지, 그리고 HR이 스킬 기반 조직으로 가기 위해 무엇을 준비해야 하는지 정리한 책.</p>
+
+      <h2>1. HR은 왜 생성형 AI에 주목해야 하는가</h2>
+      <h3>전통적 AI와 생성형 AI의 결정적 차이</h3>
+      <p>지금까지의 AI는 데이터 속 패턴을 찾아 <strong>‘예측’</strong>하는 데 그쳤다. 퇴사자의 행동을 학습해 이직 가능성을 점치는 식이다. 생성형 AI는 사용자의 요구에 따라 새로운 텍스트, 이미지, 코드를 직접 <strong>‘창작’</strong>한다는 점에서 결정적으로 다르다.</p>
+      <ul>
+        <li><strong>누구나 쓸 수 있다</strong> — 복잡한 알고리즘을 몰라도 자연어로 대화하며 전문가 수준의 결과물을 얻는다.</li>
+        <li><strong>맥락을 이해한다</strong> — 앞선 대화를 기억하고 질문의 숨은 의도까지 파악한다.</li>
+        <li><strong>프롬프트의 힘</strong> — 얼마나 정교하게 요청하느냐에 따라 결과물의 질이 천차만별로 달라진다.</li>
+      </ul>
+      <h3>금지에서 공존으로</h3>
+      <p>초기에는 데이터 유출 우려로 많은 기업, 특히 금융권이 AI 사용을 금지했다. 하지만 맥킨지 조사(2023.04)에 따르면 이미 근로자의 79%가 업무에 AI를 쓰고 있었다. 모건스탠리는 자산 상담용 AI 어시스턴트를 개발했고, 월마트·맥킨지·PwC는 사내 전용 생성형 AI로 생산성 혁신을 꾀하고 있다. 이제 AI를 쓰지 않는 기업은 <strong>혁신의 발판을 잃은 것</strong>으로 간주된다.</p>
+      <h3>일자리의 위협인가, 질적 향상인가</h3>
+      <p>IBM을 필두로 AI에 의한 구조조정 소식이 들려오며 두려움이 커진 것도 사실이다. 그러나 세계경제포럼(WEF) 보고서에서 AI로 일자리가 줄 것이라 답한 기업은 25%, 오히려 늘 것이라 답한 기업은 50%였다. 중요한 것은 <strong>‘대체’가 아니라 ‘보완’</strong>이며, 인간만이 할 수 있는 고차원적 판단과 공감의 가치는 더 커지고 있다.</p>
+
+      <hr>
+
+      <h2>2. 생성형 AI는 HR 실무를 어떻게 바꾸고 있는가</h2>
+      <table>
+        <tr><th>영역</th><th>변화</th></tr>
+        <tr><td><strong>채용</strong><br>(AI 도입이 가장 활발한 영역)</td><td><strong>구직자</strong>는 AI와 대화하며 자신의 기술에 맞는 직무를 추천받고 경력 로드맵을 설계한다. <strong>채용 담당자</strong>는 완성도 높은 직무기술서를 순식간에 작성하고, 다양성과 포용성을 높이는 데 AI의 도움을 받는다.<br><em>단, 학습 데이터에 내재된 편향이 있으므로 최종 결정은 항상 사람이 검증해야 한다.</em></td></tr>
+        <tr><td><strong>교육(L&amp;D)</strong></td><td>기업 교육은 늘 비용과 효과의 상충관계에 갇혀 있었다. 대규모 온라인 강의는 효율적이지만 몰입도가 낮고, 오프라인은 그 반대였다. 생성형 AI는 직원의 역량과 선호를 분석해 <strong>개인별 학습 경로를 실시간으로 추천</strong>하고, 텍스트만으로 이미지와 교육 영상을 만들어 몰입형 학습을 가능하게 한다.</td></tr>
+        <tr><td><strong>성과 관리</strong></td><td>리더들은 연평균 210시간을 성과 관리에 쓰지만 직원 만족도는 낮다. AI는 KPI 설정 제안부터 실시간 피드백 작성까지 리더의 부담을 덜고, <strong>데이터 기반의 공정한 평가</strong>를 돕는다.</td></tr>
+        <tr><td><strong>직원 경험(EX)</strong></td><td>24시간 가능한 AI 심리 상담, 세대별 복지 수요 분석 등으로 직원이 조직에 온전히 몰입할 수 있는 환경을 만든다.</td></tr>
+      </table>
+
+      <hr>
+
+      <h2>3. 생성형 AI 시대, HR은 무엇을 준비해야 하는가</h2>
+      <p>HR의 역할은 이제 <strong>‘운영’에서 ‘역량 재편’</strong>으로 옮겨가야 한다.</p>
+      <h3>업스킬링과 리스킬링의 생활화</h3>
+      <p>향후 5년 안에 지금 보유한 핵심 기술의 상당수가 자동화될 것이다. HR은 조직 내 모든 직무를 분석해 어떤 부분이 AI로 대체되고 어디서 새로운 직무가 생길지 판단해야 한다.</p>
+      <ul>
+        <li><strong>리스킬링(Reskilling)</strong> — AI 도입으로 사라지는 직무의 인력을 새로운 성장 분야로 재배치하기 위한 교육</li>
+        <li><strong>업스킬링(Upskilling)</strong> — 기존 업무에 AI를 활용해 생산성을 극대화하도록 기술 수준을 높이는 교육</li>
+      </ul>
+      <h3>스킬 기반 조직으로의 전환</h3>
+      <p>학벌이나 과거의 타이틀보다 <strong>‘지금 어떤 스킬을 가지고 있는가’</strong>가 더 중요해진다. HR은 직원의 기술 격차를 상시 모니터링하고, 평생학습이 가능한 문화를 만들어야 한다.</p>
+      <blockquote><p>AI는 단순한 도구를 넘어, <strong>조직의 근육을 키우는 트레이너</strong>가 될 것이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
