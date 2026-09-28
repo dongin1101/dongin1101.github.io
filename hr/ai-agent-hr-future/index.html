@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 에이전트가 초래할 인사관리의 미래 | 강동인</title>
+<meta name="description" content="채용·성과관리·L&D 전반에 들어오는 AI 에이전트와 넓어지는 HR의 책임, 2026년 대비 HR 액션 플랜 5가지 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .source-line { font-size: 14.5px; }
+  article .source-line a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스 아카이브</a>
+      <a href="/archiving/">독서 아카이브</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>AI 에이전트가 초래할 인사관리의 미래</h1>
+      <div class="meta-row">
+        <span class="tag">AI에이전트</span>
+        <span>2026.07.25 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <h2>왜 AI 에이전트인가</h2>
+      <ul>
+        <li>기업의 80%가 생성형 AI를 도입했지만 수익 개선 효과는 미미했다는 'AI 패러독스' (HRD Connect, 2025)</li>
+        <li>생성형 AI는 프롬프트에 반응하는 수동적 도구, AI 에이전트는 목표를 향해 스스로 문제를 정의하고 정보를 찾아 실행하는 '디지털 동료'</li>
+      </ul>
+
+      <h2>HR 분야에 가져올 3가지 변화</h2>
+      <ol>
+        <li><strong>채용:</strong> 단계별로 전문 에이전트가 나뉨(데이터 수집 → 점수화·순위 → 연락·면접 일정 조율)하고, 총괄 에이전트가 전체를 감독 → HR 담당자는 후보자 관계와 문화 적합성 평가에 집중</li>
+        <li><strong>성과관리·코칭:</strong> 콜센터·영업 통화 같은 고객 응대를 실시간으로 분석해 기준에 따라 점수화하고 즉시 피드백 → 대규모 개인화 코칭 가능</li>
+        <li><strong>L&D(학습 컨시어지):</strong> 판매 실적·오류율·고객 피드백 데이터로 개인별 스킬 갭을 진단하고, 온디맨드 튜터·멘토처럼 커리어 여정 전반을 설계·동반</li>
+      </ol>
+
+      <h2>HR의 확장되는 책임</h2>
+      <ul>
+        <li><strong>업무 재설계:</strong> 직무를 작업 단위로 쪼개 사람·AI·협업 중 누가 맡을지 다시 정의</li>
+        <li><strong>윤리 거버넌스:</strong> AI가 채용·보상 결정에 관여할 때의 편향성·투명성·공정성 감시</li>
+        <li><strong>변화 관리:</strong> 대체에 대한 불안을 줄이고 심리적 안전을 보장, AI 시대의 새 역할 제시</li>
+      </ul>
+
+      <h2>2026년 대비 HR 액션 플랜 5가지</h2>
+      <ol>
+        <li><strong>AI 리터러시 강화</strong> — HR 본인과 팀부터, 그리고 전 직급 대상 교육</li>
+        <li><strong>IT팀과 조기 파트너십</strong> — AI 에이전트의 '채용'·온보딩·성과관리 프로세스를 함께 구축</li>
+        <li><strong>워크플로·조직 설계 재구상</strong> — 단순 자동화가 아니라 백지에서 인간-에이전트 팀 구조 설계</li>
+        <li><strong>선제적 리스킬링</strong> — 대량 해고보다 역할 재구성 가능성이 높으므로, 공감·창의성·윤리 판단 같은 인간 고유 역량으로 전환 지원</li>
+        <li><strong>AI 협업 문화 조성</strong> — AI를 위협이 아닌 동료로 받아들이도록 명확한 '변화 스토리' 제시</li>
+      </ol>
+      <p class="source-line">원문: <a href="https://www.speak.com/ko/b2b-blog/ai-agent-hr-trends-2026" target="_blank" rel="noopener">speak.com ↗</a></p>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

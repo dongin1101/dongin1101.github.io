@@ -74,14 +74,36 @@
   .empty h2 { font-family: var(--serif); color: var(--ink); font-size: 22px; margin: 0 0 8px; }
   .empty p { margin: 0; }
 
-  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 24px; }
+  .filters { display: grid; gap: 16px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--leaf-tint); }
+  .filter-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); cursor: pointer;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; line-height: 1.6;
+  }
+  .chip:hover { border-color: var(--marigold-deep); }
+  .chip[aria-pressed="true"] { background: var(--marigold); border-color: var(--marigold); color: #1E3326; font-weight: 600; }
+  .chip .n { opacity: .65; margin-left: 4px; font-size: 12px; }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+  .filter-row label { font-size: 13px; font-weight: 600; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; }
+  .filter-row select {
+    font: inherit; font-size: 14px; font-weight: 400; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 132px;
+  }
+  .result-bar { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; font-size: 14px; color: var(--ink-soft); }
+  .reset { font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+  #no-result { margin-top: 24px; }
+  #no-result .reset { margin-top: 12px; }
+
+  .archive-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 24px; }
   .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
   .archive-list a { display: block; text-decoration: none; color: inherit; }
-  .archive-list .meta { font-size: 14px; color: var(--ink-soft); }
+  .archive-list .meta { font-size: 14px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
   .archive-list h3 { font-size: 19px; margin: 4px 0 8px; line-height: 1.4; }
   .archive-list p { margin: 0 0 6px; color: var(--ink-soft); }
   .archive-list .more { font-weight: 600; font-size: 14px; }
   .archive-list a:hover h3 { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
 
   .back { display: inline-block; margin-top: 32px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
   .back:hover { color: var(--ink); }
@@ -115,24 +137,74 @@
 
   <section>
     <div class="wrap">
-      <ul class="archive-list">
-        <li>
-          <a href="/hr/2026h2-labor-hiring-trends/">
-            <div class="meta">2026.08.01 아카이빙</div>
-            <h3>2026 하반기 노동 규제 변화와 채용 트렌드</h3>
-            <p>2026년 하반기 노동 규제 3대 변화(정년 연장·근로자 지위 추정제·포괄임금제 제한)와 AI 에이전트·스킬 기반 채용·예산 재편 등 하반기 채용 트렌드를 정리했다.</p>
+      <div class="filters" id="filters" hidden>
+        <div>
+          <span class="filter-label" id="category-label">카테고리</span>
+          <div class="chips" id="category-chips" role="group" aria-labelledby="category-label"></div>
+        </div>
+        <div class="filter-row">
+          <label>정렬<select id="sort">
+            <option value="date-desc">최신순</option>
+            <option value="date-asc">오래된순</option>
+          </select></label>
+        </div>
+      </div>
+
+      <div class="result-bar" id="result-bar" hidden>
+        <span id="result-count" aria-live="polite"></span>
+        <button type="button" class="reset" id="reset" hidden>필터 초기화</button>
+      </div>
+
+      <!-- 기사 추가: <li>에 data-date(YYYY-MM-DD), data-category(쉼표 구분 가능: AI에이전트/채용트렌드/노동법·제도/조직문화·재직)를 넣으면 필터에 자동 반영된다 -->
+      <ul class="archive-list" id="archive-list">
+        <li data-date="2026-08-01" data-category="노동법·제도">
+          <a href="/hr/labor-law-2026h2/">
+            <div class="meta"><span class="tag">노동법·제도</span> · 2026.08.01 아카이빙</div>
+            <h3>2026년 하반기 노동 규제 3대 변화</h3>
+            <p>정년 연장(65세 상향), 근로자 지위 추정제 도입, 포괄임금제 제한 — 아웃소싱·인력사무소가 지금 점검해야 할 대응책까지 정리했다.</p>
             <span class="more">전체 노트 보기 →</span>
           </a>
         </li>
-        <li>
-          <a href="/hr/job-hugging-ai-agent-hr/">
-            <div class="meta">2026.07.25 아카이빙</div>
-            <h3>잡 허깅 · 중고 신입 선호 · AI 에이전트가 바꿀 인사관리</h3>
-            <p>현 직장에 머무는 '잡 허깅' 현상, 중고 신입 선호 현상, AI 에이전트가 가져올 인사관리 변화를 정리했다.</p>
+        <li data-date="2026-08-01" data-category="AI에이전트,채용트렌드">
+          <a href="/hr/hiring-trends-2026h2/">
+            <div class="meta"><span class="tag">AI에이전트</span><span class="tag">채용트렌드</span> · 2026.08.01 아카이빙</div>
+            <h3>2026 하반기 채용 트렌드: AI 에이전트 · 스킬 기반 채용 · 예산 재편</h3>
+            <p>채용 실무에 들어온 AI 에이전트, 학력·연차보다 역량을 보는 스킬 기반 채용, 인력보다 기술에 쏠리는 채용 예산 구조 변화를 정리했다.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+        <li data-date="2026-07-25" data-category="조직문화·재직">
+          <a href="/hr/job-hugging/">
+            <div class="meta"><span class="tag">조직문화·재직</span> · 2026.07.25 아카이빙</div>
+            <h3>잡 허깅 (Job Hugging)</h3>
+            <p>경제적 불확실성 속에 현 직장에 매달리는 '잡 허깅' 현상이 오히려 몰입도와 생산성을 떨어뜨린다는 MetLife 조사 결과를 정리했다.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+        <li data-date="2026-07-25" data-category="채용트렌드">
+          <a href="/hr/experienced-rookie-preference/">
+            <div class="meta"><span class="tag">채용트렌드</span> · 2026.07.25 아카이빙</div>
+            <h3>중고 신입 선호 현상</h3>
+            <p>인크루트 설문으로 본 2026 HR 시장 이슈 TOP 5 — 1위는 경력 있는 '중고 신입' 선호 현상 강화였다.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+        <li data-date="2026-07-25" data-category="AI에이전트">
+          <a href="/hr/ai-agent-hr-future/">
+            <div class="meta"><span class="tag">AI에이전트</span> · 2026.07.25 아카이빙</div>
+            <h3>AI 에이전트가 초래할 인사관리의 미래</h3>
+            <p>채용·성과관리·L&D 전반에 AI 에이전트가 들어오며 넓어지는 HR의 책임과, 2026년을 대비한 HR 액션 플랜 5가지를 정리했다.</p>
             <span class="more">전체 노트 보기 →</span>
           </a>
         </li>
       </ul>
+
+      <div class="empty" id="no-result" hidden>
+        <div class="icon">🍀</div>
+        <h2>조건에 맞는 기사가 없어요</h2>
+        <p>다른 카테고리를 선택해 보세요.</p>
+        <button type="button" class="reset" data-reset>필터 초기화</button>
+      </div>
 
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
@@ -142,6 +214,76 @@
 <footer>
   <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
 </footer>
+
+<script>
+(function () {
+  var list = document.getElementById('archive-list');
+  var items = Array.prototype.slice.call(list.children);
+  if (!items.length) return;
+
+  var chipsEl = document.getElementById('category-chips');
+  var sortSel = document.getElementById('sort');
+  var countEl = document.getElementById('result-count');
+  var resetBtn = document.getElementById('reset');
+  var noResult = document.getElementById('no-result');
+  var state = { category: '' };
+
+  function categories(li) { return (li.dataset.category || '').split(',').filter(Boolean); }
+
+  var counts = {};
+  items.forEach(function (li) {
+    categories(li).forEach(function (c) { counts[c] = (counts[c] || 0) + 1; });
+  });
+
+  function addChip(value, label, n) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.value = value;
+    b.setAttribute('aria-pressed', value === state.category ? 'true' : 'false');
+    b.innerHTML = label + '<span class="n">' + n + '</span>';
+    chipsEl.appendChild(b);
+  }
+  addChip('', '전체', items.length);
+  Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); })
+    .forEach(function (c) { addChip(c, c, counts[c]); });
+
+  function apply() {
+    var s = sortSel.value;
+    var sorted = items.slice().sort(function (a, b) {
+      var d = a.dataset.date.localeCompare(b.dataset.date);
+      return s === 'date-asc' ? d : -d;
+    });
+    sorted.forEach(function (li) { list.appendChild(li); });
+
+    var matched = sorted.filter(function (li) {
+      return !state.category || categories(li).indexOf(state.category) !== -1;
+    });
+    items.forEach(function (li) { li.hidden = matched.indexOf(li) < 0; });
+
+    var shown = matched.length;
+    countEl.textContent = state.category ? shown + '건 / 전체 ' + items.length + '건' : '전체 ' + items.length + '건';
+    resetBtn.hidden = !state.category;
+    noResult.hidden = shown > 0;
+    Array.prototype.forEach.call(chipsEl.children, function (c) {
+      c.setAttribute('aria-pressed', c.dataset.value === state.category ? 'true' : 'false');
+    });
+  }
+
+  chipsEl.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip');
+    if (!c) return;
+    state.category = c.dataset.value;
+    apply();
+  });
+  sortSel.addEventListener('change', apply);
+  function reset() { state.category = ''; apply(); }
+  resetBtn.addEventListener('click', reset);
+  noResult.querySelector('[data-reset]').addEventListener('click', reset);
+
+  document.getElementById('filters').hidden = false;
+  document.getElementById('result-bar').hidden = false;
+  apply();
+})();
+</script>
 
 </body>
 </html>
