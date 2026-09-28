@@ -74,10 +74,14 @@
   .empty h2 { font-family: var(--serif); color: var(--ink); font-size: 22px; margin: 0 0 8px; }
   .empty p { margin: 0; }
 
-  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 20px; }
-  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .archive-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 24px; }
+  .archive-list li { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .archive-list a { display: block; text-decoration: none; color: inherit; }
   .archive-list .meta { font-size: 14px; color: var(--ink-soft); }
-  .archive-list h3 { font-size: 18px; margin: 4px 0 6px; }
+  .archive-list h3 { font-size: 19px; margin: 4px 0 8px; line-height: 1.4; }
+  .archive-list p { margin: 0 0 6px; color: var(--ink-soft); }
+  .archive-list .more { font-weight: 600; font-size: 14px; }
+  .archive-list a:hover h3 { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
 
   .back { display: inline-block; margin-top: 32px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
   .back:hover { color: var(--ink); }
@@ -111,22 +115,24 @@
 
   <section>
     <div class="wrap">
-      <div class="empty">
-        <div class="icon">🍀</div>
-        <h2>콘텐츠 준비 중</h2>
-        <p>아카이브 내용을 정리해 곧 채울 예정입니다.</p>
-      </div>
-
-      <!--
-        아카이브 항목 추가 예시:
-        <ul class="archive-list">
-          <li>
-            <div class="meta">2026.09.20 · 채용 트렌드</div>
-            <h3>기사 제목</h3>
-            <p>한 줄 요약이나 코멘트를 적습니다.</p>
-          </li>
-        </ul>
-      -->
+      <ul class="archive-list">
+        <li>
+          <a href="/hr/2026h2-labor-hiring-trends/">
+            <div class="meta">2026.08.01 아카이빙</div>
+            <h3>2026 하반기 노동 규제 변화와 채용 트렌드</h3>
+            <p>2026년 하반기 노동 규제 3대 변화(정년 연장·근로자 지위 추정제·포괄임금제 제한)와 AI 에이전트·스킬 기반 채용·예산 재편 등 하반기 채용 트렌드를 정리했다.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="/hr/job-hugging-ai-agent-hr/">
+            <div class="meta">2026.07.25 아카이빙</div>
+            <h3>잡 허깅 · 중고 신입 선호 · AI 에이전트가 바꿀 인사관리</h3>
+            <p>현 직장에 머무는 '잡 허깅' 현상, 중고 신입 선호 현상, AI 에이전트가 가져올 인사관리 변화를 정리했다.</p>
+            <span class="more">전체 노트 보기 →</span>
+          </a>
+        </li>
+      </ul>
 
       <a class="back" href="/">← 포트폴리오로 돌아가기</a>
     </div>
