@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>7월 미국 고용 동향 보고서 | 강동인</title>
+<meta name="description" content="2026년 7월 미국 고용 동향 보고서 — 비농업 고용 감소, 업종별 동향, 임금·노동시장 지표와 시사점 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스 아카이브</a>
+      <a href="/archiving/">독서 아카이브</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>7월 미국 고용 동향 보고서</h1>
+      <div class="meta-row">
+        <span class="tag">HR산업·해외사례</span>
+        <span>2026.08.15 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <h2>핵심 요약 (Headline Figures)</h2>
+      <ul>
+        <li><strong>비농업 부문 고용(Nonfarm Payrolls):</strong> 7월 중 비농업 일자리는 <strong>약 22,900개 감소</strong>(역성장)하며 시장 예상치를 크게 하회했습니다.</li>
+        <li><strong>실업률(Unemployment Rate):</strong> 4.1%로 전월 대비 소폭 하강 또는 유지세를 보였습니다.</li>
+        <li><strong>이전 수치 하향 조정(Revisions):</strong>
+          <ul>
+            <li>5월 비농업 고용: 기존 발표 대비 <strong>66,000개</strong> 하향 조정</li>
+            <li>6월 비농업 고용: 기존 발표 대비 <strong>37,000개</strong> 하향 조정 (5~6월 합산 <strong>103,000개</strong> 수정)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>업종별 고용 동향</h2>
+      <h3>주요 감소 업종</h3>
+      <ul>
+        <li><strong>정부 부문(Government):</strong> 약 50,000개 이상 감소하며 감소폭 주도</li>
+        <li><strong>레저 및 숙박업(Leisure &amp; Hospitality):</strong> 약 40,000개 감소</li>
+      </ul>
+      <h3>증가/방어 업종</h3>
+      <ul>
+        <li><strong>보건의료 및 사회복지(Health Care &amp; Social Assistance):</strong> 견조한 고용 증가세 지속</li>
+        <li><strong>건설업(Construction) 및 개인/전문 서비스:</strong> 소폭의 일자리 증가 기록</li>
+      </ul>
+
+      <h2>임금 및 노동시장 주요 지표</h2>
+      <ul>
+        <li><strong>임금 상승률:</strong> 평균 주당 임금(Average Weekly Wages)은 전년 동기 대비 <strong>3.5% 증가</strong>하며 물가 대비 안정적인 흐름을 유지했습니다.</li>
+        <li><strong>투잡(N-잡) 근로자 비중:</strong> 이중 취업자 비율이 5.4%로 상승하여, 경제적 불확실성 속 생계 유지를 위한 추가 소득 활동이 늘어났음을 반영했습니다.</li>
+        <li><strong>핵심 연령층 경제활동참여율:</strong> 25~54세(Prime-age) 노동시장 참여율은 83.4%로 견조한 수준을 유지했습니다.</li>
+      </ul>
+
+      <h2>주요 시사점</h2>
+      <ol>
+        <li><strong>고용 시장의 냉각 및 불확실성:</strong> 대이직 시대가 끝나고 기업들이 신규 채용을 대폭 축소하거나 인원을 감축하면서 노동시장이 확연한 둔화세에 진입했습니다.</li>
+        <li><strong>연준(Fed)의 통화정책 고충:</strong> 인플레이션이 여전히 연준의 목표치(2.0%)를 상회하는 상황에서 고용 지표마저 둔화세를 보임에 따라 금리 정책 결정(금리 인하 여부)을 둘러싼 복잡성이 증가했습니다.</li>
+      </ol>
+    </div>
+  </article>
+</article>
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
