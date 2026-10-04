@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>잡코리아 &quot;상반기 신입 채용 공고, 전년보다 13% 늘어&quot; | 강동인</title>
+<meta name="description" content="잡코리아 분석 결과 올 상반기 신입 채용 공고가 전년 대비 13% 증가 — 공고 증가폭이 큰 5대 업종과 채용 대응 전략 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .source-line { font-size: 14.5px; }
+  article .source-line a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스 아카이브</a>
+      <a href="/archiving/">독서 아카이브</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>잡코리아 "상반기 신입 채용 공고, 전년보다 13% 늘어"</h1>
+      <div class="meta-row">
+        <span class="tag">채용트렌드</span>
+        <span>2026.08.15 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead"><strong>핵심 메시지:</strong> 잡코리아 플랫폼 분석 결과, 올 상반기 신입직 채용 공고 수가 전년 동기 대비 <strong>13% 증가</strong>하며 채용 시장의 회복세 움직임이 포착되었습니다. 전체 조사 업종의 약 68%에서 공고가 증가했습니다.</p>
+
+      <h2>📊 신입 공고 증가 폭이 큰 주요 5대 업종</h2>
+      <p>수출 및 실적 회복세가 뚜렷한 주요 산업을 중심으로 중장기 인재 확보를 위한 신입 채용문이 열렸으며, 아래 5개 업종이 전체 공고 증가분의 35%를 차지했습니다.</p>
+      <ol>
+        <li><strong>화장품·생활화학:</strong> 전년 대비 +65.0% (2021년 상반기 대비로도 +47% 증가)</li>
+        <li><strong>은행·금융:</strong> 전년 대비 +57.9%</li>
+        <li><strong>반도체·디스플레이:</strong> 전년 대비 +47.2%</li>
+        <li><strong>포털·콘텐츠:</strong> 전년 대비 +46.7%</li>
+        <li><strong>제약·바이오:</strong> 전년 대비 +34.8%</li>
+      </ol>
+
+      <h2>💡 서비스 강화 및 대응 전략</h2>
+      <ul>
+        <li>대규모 정기 공채가 축소되고 부서·직무 단위 수시채용이 일상화되면서, 구직자는 상시채용 공고를 상시 모니터링해야 하는 부담이 커지고 있습니다.</li>
+        <li>기업 인사담당자 역시 채용 예산이 축소되는 추세(300만원 미만 예산 기업 74.3%) 속에서 채용 효율화 전략을 재점검할 필요가 있습니다.</li>
+      </ul>
+      <p class="source-line">원문: <a href="https://www.etnews.com/20260812000218" target="_blank" rel="noopener">etnews.com ↗</a></p>
+    </div>
+  </article>
+
+</article>
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
