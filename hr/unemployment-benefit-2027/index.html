@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2027년 실업급여 변경 내용 | 강동인</title>
+<meta name="description" content="2027년 보험료율 인상과 육아휴직급여 계정 분리 등 고용보험 개편안의 주요 내용과 실무 시사점 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1E3326;
+    --ink-soft: #4F6357;
+    --marigold: #F3B73B;
+    --marigold-deep: #C98A0C;
+    --leaf-tint: #EEF4EE;
+    --line: #DCE4DD;
+    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+      --marigold: #F3B73B; --marigold-deep: #F6C865;
+      --leaf-tint: #1B2C23; --line: #2C3F33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
+    --marigold: #F3B73B; --marigold-deep: #F6C865;
+    --leaf-tint: #1B2C23; --line: #2C3F33;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1040px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+  .nav { display: flex; gap: 22px; font-size: 15px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .source-line { font-size: 14.5px; }
+  article .source-line a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+  @media (max-width: 420px) { .brand { font-size: 16px; } .nav a:nth-child(3) { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스 아카이브</a>
+      <a href="/archiving/">독서 아카이브</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>2027년 실업급여 변경 내용</h1>
+      <div class="meta-row">
+        <span class="tag">노동법·제도</span>
+        <span>2026.09.05 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <h2>한 줄 요약</h2>
+      <p class="lead">고용노동부가 재정이 악화된 실업급여 계정에서 육아휴직급여를 떼어 2028년 별도 계정으로 분리하고, 2027년부터 보험료율을 올리는 고용보험 개편안을 발표했습니다.</p>
+
+      <h2>핵심 포인트</h2>
+      <ol>
+        <li><strong>육아휴직급여 계정 분리</strong>
+          <ul>
+            <li>실업급여 계정에 들어 있는 육아휴직급여 등 모성보호 급여를 2028년에 별도 '일가정 양립 계정'으로 분리합니다.</li>
+            <li>실업급여 보험료율을 노동자와 사업주 각각 0.1%포인트씩 올립니다.</li>
+          </ul>
+        </li>
+        <li><strong>구직급여 지급 방식 개선</strong>
+          <ul>
+            <li>주 7일 기준에서 주 6일(무급휴일 제외) 기준으로 바꿉니다.</li>
+            <li>총 지급액과 지급일수(120~270일)는 유지합니다.</li>
+            <li>상한액은 정액에서 하한액 연동 방식(103%)으로 바꿉니다.</li>
+          </ul>
+        </li>
+        <li><strong>개편 배경: 실업급여 계정 재정 악화</strong>
+          <ul>
+            <li>2025년 수입은 15조 7,000억 원, 지출은 17조 4,000억 원으로 1조 8,000억 원 적자입니다.</li>
+            <li>차입금 7조 7,000억 원을 제외한 실질 적립금은 마이너스 6조 원입니다.</li>
+          </ul>
+        </li>
+        <li><strong>모성보호 급여 급증</strong>
+          <ul>
+            <li>2022년 2조 1,000억 원에서 2025년 4조 3,000억 원으로 105% 늘었습니다.</li>
+            <li>육아휴직급여 수급자는 18만 4,000명으로 전년 대비 39.1% 증가했습니다.</li>
+            <li>남성 수급자는 6만 7,000명으로 60.7% 증가했습니다.</li>
+          </ul>
+        </li>
+        <li><strong>아직 확정되지 않은 사항</strong>
+          <ul>
+            <li>2028년 신설 계정으로 이관할 보험료율 규모는 미정입니다.</li>
+            <li>구직급여 지급 방식 변경에 따른 조기재취업수당 기준 세부 내용은 공개되지 않았습니다.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2>시사점</h2>
+      <ul>
+        <li>2027년부터 보험료율이 올라 노사 모두 부담이 늘어납니다. 사업주는 인건비 계획과 급여 시스템의 보험료 설정을 점검해야 합니다.</li>
+        <li>육아휴직급여 수급이 크게 늘었고 남성 수급자 증가도 두드러져, 육아휴직 사용을 전제로 한 인력 운영과 대체 인력 계획이 필요합니다.</li>
+        <li>단기 육아휴직 기사와 함께 보면, 일·가정 양립 제도가 확대되고 재원 체계도 따로 마련되는 흐름으로 정리할 수 있습니다.</li>
+        <li>구직급여를 주 6일 기준으로 계산하는 방식 변화는 퇴직자 수급 안내와 이직 상담 때 설명이 필요한 부분입니다.</li>
+      </ul>
+    </div>
+  </article>
+
+
+
+</article>
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
