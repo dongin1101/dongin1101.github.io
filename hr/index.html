@@ -11,30 +11,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FFFFFF;
-    --ink: #1E3326;
-    --ink-soft: #4F6357;
-    --marigold: #F3B73B;
-    --marigold-deep: #C98A0C;
-    --leaf-tint: #EEF4EE;
-    --line: #DCE4DD;
+    --paper: #EEF3EE;
+    --card: #FFFFFF;
+    --ink: #1E2B24;
+    --ink-soft: #56655B;
+    --marigold: #1F7A5A;
+    --marigold-deep: #1F7A5A;
+    --leaf-tint: #DDEDE4;
+    --line: #DCE5DC;
     --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
     --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
-      --marigold: #F3B73B; --marigold-deep: #F6C865;
-      --leaf-tint: #1B2C23; --line: #2C3F33;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #13201A; --ink: #E8EFE9; --ink-soft: #A9B8AD;
-    --marigold: #F3B73B; --marigold-deep: #F6C865;
-    --leaf-tint: #1B2C23; --line: #2C3F33;
   }
   *, *::before, *::after { box-sizing: inherit; }
   body {
@@ -56,7 +45,7 @@
   .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
   .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
 
-  .page-head { background: var(--marigold); color: #1E3326; }
+  .page-head { background: var(--leaf-tint); color: var(--ink); }
   .page-head .wrap { padding-top: 72px; padding-bottom: 56px; }
   .page-head h1 {
     font-family: var(--serif); font-weight: 700; margin: 0 0 12px;
@@ -78,16 +67,16 @@
   .filter-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 8px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
-    font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); cursor: pointer;
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--card); cursor: pointer;
     border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; line-height: 1.6;
   }
   .chip:hover { border-color: var(--marigold-deep); }
-  .chip[aria-pressed="true"] { background: var(--marigold); border-color: var(--marigold); color: #1E3326; font-weight: 600; }
+  .chip[aria-pressed="true"] { background: var(--marigold); border-color: var(--marigold); color: #fff; font-weight: 600; }
   .chip .n { opacity: .65; margin-left: 4px; font-size: 12px; }
   .filter-row { display: flex; flex-wrap: wrap; gap: 12px 20px; }
   .filter-row label { font-size: 13px; font-weight: 600; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; }
   .filter-row select {
-    font: inherit; font-size: 14px; font-weight: 400; color: var(--ink); background: var(--paper);
+    font: inherit; font-size: 14px; font-weight: 400; color: var(--ink); background: var(--card);
     border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 132px;
   }
   .result-bar { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; font-size: 14px; color: var(--ink-soft); }
