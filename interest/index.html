@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #EEF3EE;
@@ -19,8 +19,8 @@
     --marigold-deep: #1F7A5A;
     --leaf-tint: #DDEDE4;
     --line: #DCE5DC;
-    --serif: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
-    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --serif: "Noto Sans KR", system-ui, sans-serif;
+    --sans: "Noto Sans KR", system-ui, sans-serif;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -40,9 +40,11 @@
     background: var(--paper); border-bottom: 1px solid var(--line);
   }
   .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
-  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
-  .nav { display: flex; gap: 22px; font-size: 15px; }
-  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; white-space: nowrap; }
+  .nav { display: flex; gap: 22px; font-size: 15px; overflow-x: auto; min-width: 0; }
+  .nav { scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; white-space: nowrap; }
   .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--marigold); }
 
   .page-head { background: var(--leaf-tint); color: var(--ink); }
@@ -91,7 +93,6 @@
   <div class="page-head">
     <div class="wrap">
       <h1>관심사</h1>
-      <p>한 달에 한 번, AI·기술·사회 전반에서 눈여겨본 글과 인사이트를 정리하는 공간입니다.</p>
     </div>
   </div>
 
