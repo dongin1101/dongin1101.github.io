@@ -20,6 +20,7 @@ nav{display:flex;gap:4px;overflow-x:auto}
 nav a{padding:6px 12px;border-radius:99px;font-size:14.5px;color:var(--sub);text-decoration:none;white-space:nowrap}
 nav a.on{background:var(--acc);color:#fff}nav a:hover:not(.on){background:var(--acc-soft);color:var(--ink)}
 section{padding:56px 0 0}
+section.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:56px;padding:56px 0}
 .eyebrow{font-size:14.5px;font-weight:500;color:var(--acc);margin:0 0 8px}
 h2{font-size:26.5px;margin:0 0 20px;line-height:1.35}
 h2 small{font-size:15.5px;font-weight:400;color:var(--sub);margin-left:8px}
@@ -94,8 +95,8 @@ footer{text-align:center;font-size:14px;color:var(--sub);padding:28px 0 36px}
 <header><div class="wrap"><a class="logo" href="#">🍀 강동인</a>
 <nav><a class="on" href="#">포트폴리오</a><a href="https://dongin1101.github.io/hr/">HR 뉴스</a><a href="https://dongin1101.github.io/archiving/">독서</a><a href="https://dongin1101.github.io/interest/">관심사</a></nav></div></header>
 
-<main class="wrap">
-<section class="hero">
+<main>
+<section class="hero"><div class="wrap">
  <div class="hello"><img class="av" src="images/profile.jpg" alt="강동인 프로필 사진">
   <div><p class="eyebrow">HR 매니저 강동인</p><h1>개인과 조직의 성장을<br>함께하는 <span>HR</span>로 나아갑니다</h1></div></div>
  <p class="intro">가천대학교 행정조교와 장애인 채용 플랫폼 나라에이치알에서 일하며, 취업을 준비하는 학생부터 교직원, 장애인 지원자, 고객사 재직자까지 다양한 사람들과 소통해 왔습니다. 채용과 재직자 관리를 맡으면서는 반복되는 업무를 AI와 디지털 도구로 정리하는 방법을 익혔습니다. 일 밖에서도 매주 HR 뉴스를 정리하고, 매달 AI·조직 등 여러 분야의 책을 읽고, 관심사 관련 글을 통해 꾸준히 배우고 있습니다. 다양한 이해관계자와 소통한 경험과 끊임없는 학습을 바탕으로, 개인과 조직이 함께 성장하도록 돕는 HR 담당자가 되고자 합니다.</p>
@@ -104,9 +105,9 @@ footer{text-align:center;font-size:14px;color:var(--sub);padding:28px 0 36px}
   <div class="tagrow"><b class="tl-y">일상</b><div class="tags"><span class="y">매달 독서</span><span class="y">매주 HR 뉴스 정리</span><span class="y">주 4~5회 달리기</span></div></div>
  </div>
  <div class="cta"><a class="btn p" href="#work">주요 성과 보기</a><a class="btn" href="https://dongin1101.github.io/hr/">HR 뉴스 아카이브</a><a class="btn" href="https://dongin1101.github.io/archiving/">독서 아카이브</a></div>
-</section>
+</div></section>
 
-<section id="work"><p class="eyebrow">Key results</p><h2>주요 성과 <small>제목을 누르면 자세히 볼 수 있어요</small></h2>
+<section id="work" class="band"><div class="wrap"><p class="eyebrow">Key results</p><h2>주요 성과 <small>제목을 누르면 자세히 볼 수 있어요</small></h2>
  <div class="acc">
   <details class="card"><summary><span class="t"><span class="gl">AI·디지털 도구로 HR 업무 시스템화</span><b>채용공고 자동 생성기 개발 및 자산화</b></span><span class="m"><strong class="a">−80%</strong><small>공고 수정 시간</small></span><span class="m"><strong>70건</strong><small>4개월간 게시</small></span><span class="chev" aria-hidden="true"></span></summary>
    <div class="steps">
@@ -129,26 +130,26 @@ footer{text-align:center;font-size:14px;color:var(--sub);padding:28px 0 36px}
     <div><p class="wl">가천대학교</p><ul class="dl"><li>학기별 교원 공개채용에서 지원자, 교수, 교내 인사 담당자 간 소통 창구 역할</li><li>학과 프로그램 운영 과정에서 참여 학생, 교수진과 소통하며 원활한 진행 지원</li></ul></div>
    </div></details>
  </div>
-</section>
+</div></section>
 
-<section id="career"><p class="eyebrow">Career</p><h2>경력 <small>총 1년 6개월</small></h2>
+<section id="career"><div class="wrap"><p class="eyebrow">Career</p><h2>경력 <small>총 1년 6개월</small></h2>
  <div class="career">
   <div class="card job"><div class="when"><b>약 6개월</b>2026.03 – 2026.09</div><div><h3>나라에이치알 <span>· 채용관리팀 · 매니저</span></h3>
    <ul><li>장애인/비장애인 전형 채용 프로세스 운영</li><li>채용공고 제작 프로세스 개선</li><li>재직자 대상 HR 커뮤니케이션</li><li>컨설팅사 입/퇴사자 서류 취합, 신규 입사자 채용 진행 및 온보딩 관리</li><li>월별 컨설팅사 업무 보고서 작성</li><li>회사 그룹웨어 운영·관리</li><li>정부 지원 국책과제 운영 지원</li></ul></div></div>
   <div class="card job"><div class="when"><b>약 1년</b>2025.02 – 2026.01</div><div><h3>가천대학교 <span>· 인문대학 학과 사무실 · 학과 행정조교</span></h3>
    <ul><li>학사 행정 데이터 관리, 학과 예산 집행 및 비용 정산</li><li>학과 자체 프로그램 기획 · 운영 총괄</li><li>교원 공개채용 업무 지원</li></ul></div></div>
  </div>
-</section>
+</div></section>
 
-<section id="skills"><p class="eyebrow">Skills</p><h2>자격과 역량</h2>
+<section id="skills" class="band"><div class="wrap"><p class="eyebrow">Skills</p><h2>자격과 역량</h2>
  <div class="skills">
   <div class="card"><h3>HR·직무</h3><div class="sk">SHRM-CP<span>2025.06</span></div><div class="sk">ERP 인사정보관리사 1급<span>2024.02</span></div><div class="sk">코멘토 HR 부트캠프<span>2024.09–10</span></div></div>
   <div class="card"><h3>데이터·OA</h3><div class="sk">데이터분석준전문가(ADsP)<span>2024.02</span></div><div class="sk">ITQ 엑셀·한글<span>2024.10</span></div><div class="sk">구글 워크스페이스, AI 도구 활용<span></span></div></div>
   <div class="card"><h3>학력·어학</h3><div class="sk">가천대학교 동양어문학과 (부전공 경영학)<span>2019.03–2025.02</span></div><div class="sk">TOEIC 875<span>2024.12</span></div><div class="sk">한경 TESAT S등급<span>2025.12</span></div></div>
  </div>
-</section>
+</div></section>
 
-<section id="how"><p class="eyebrow">How I work</p><h2>이렇게 일합니다/생활합니다</h2>
+<section id="how"><div class="wrap"><p class="eyebrow">How I work</p><h2>이렇게 일합니다/생활합니다</h2>
  <div class="pr">
   <div class="card"><span class="n g">01</span>목표 달성만큼, 일하는 과정에서 더 나은 방법을 찾는 걸 좋아합니다.</div>
   <div class="card"><span class="n g">02</span>사람에게 긍정적인 영향을 주는 일에서 가장 큰 동기를 얻습니다.</div>
@@ -158,9 +159,9 @@ footer{text-align:center;font-size:14px;color:var(--sub);padding:28px 0 36px}
   <div class="card"><span class="n y">06</span><span>HR 트렌드 뉴스를 매주 정리해 <a href="https://dongin1101.github.io/hr/">아카이브</a>로 쌓고 있습니다.</span></div>
   <div class="card"><span class="n y">07</span>주 4~5회 달리기를 합니다.</div>
  </div>
-</section>
+</div></section>
 
-<div class="contact"><div><h2>함께 일할 기회를 기다리고 있습니다</h2><p>kdipo123@gmail.com</p></div><a class="btn" href="mailto:kdipo123@gmail.com">메일 보내기</a></div>
+<div class="wrap"><div class="contact"><div><h2>함께 일할 기회를 기다리고 있습니다</h2><p>kdipo123@gmail.com</p></div><a class="btn" href="mailto:kdipo123@gmail.com">메일 보내기</a></div></div>
 </main>
 <footer>© 2026 강동인 · dongin1101.github.io</footer>
 
