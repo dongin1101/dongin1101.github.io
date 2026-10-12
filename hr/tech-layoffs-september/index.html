@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>9월 기술업계 감원 발표 증가…올해 누적 16만 5,925명 | 강동인</title>
+<meta name="description" content="9월 미국 기술업계 감원 발표 증가와 업종별 순위, 해고 사유, 올해 누적 AI 감원 현황 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF3EE;
+    --card: #FFFFFF;
+    --ink: #1E2B24;
+    --ink-soft: #56655B;
+    --marigold: #1F7A5A;
+    --marigold-deep: #1F7A5A;
+    --leaf-tint: #DDEDE4;
+    --line: #DCE5DC;
+    --serif: "Noto Sans KR", system-ui, sans-serif;
+    --sans: "Noto Sans KR", system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: rgba(238,243,238,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1080px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { font-weight: 700; font-size: 16px; color: var(--marigold); text-decoration: none; white-space: nowrap; }
+  .nav { display: flex; gap: 4px; overflow-x: auto; min-width: 0; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { padding: 6px 12px; border-radius: 99px; font-size: 14.5px; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+  .nav a[aria-current="page"] { background: var(--marigold); color: #fff; }
+  .nav a:hover:not([aria-current="page"]) { background: var(--leaf-tint); color: var(--ink); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .source-line { font-size: 14.5px; }
+  article .source-line a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .table-scroll { overflow-x: auto; margin: 8px 0 20px; }
+  article .table-scroll table { margin: 0; min-width: 320px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스</a>
+      <a href="/archiving/">독서</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>9월 기술업계 감원 발표 증가…올해 누적 16만 5,925명</h1>
+      <div class="meta-row">
+        <span class="tag">HR산업·해외사례</span>
+        <span>2026.10.10 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <h2>한 줄 요약</h2>
+      <p class="lead">9월 미국 전체 감원 발표는 줄었는데 기술업계만 크게 늘었고, 감원은 식품, 비영리, 서비스, 운송 등 여러 업종으로 번졌습니다. 9월 한 달의 1위 해고 사유는 AI가 아니라 시장·경제 상황이었지만, 올해 누적으로는 AI가 1위 사유입니다.</p>
+
+      <h2>확인된 수치 (Challenger, Gray &amp; Christmas 집계를 인용한 것으로 보임)</h2>
+      <ol>
+        <li>미국 기업의 9월 감원 발표는 43,281건으로, 8월 52,881건보다 18% 줄었습니다.</li>
+        <li>기술 기업의 감원 발표는 8월 6,103명에서 9월 10,799명으로 약 77% 늘었습니다.</li>
+        <li>9월에 감원한 기업으로 우버, 페이팔, 마이크로소프트가 언급됐습니다.</li>
+      </ol>
+
+      <h2>9월 업종별 감원 순위</h2>
+      <div class="table-scroll">
+        <table>
+          <tr><th>순위</th><th>업종</th><th>감원 수</th></tr>
+          <tr><td>1</td><td>기술</td><td>10,799명</td></tr>
+          <tr><td>2</td><td>식품</td><td>7,326명</td></tr>
+          <tr><td>3</td><td>비영리</td><td>4,742명</td></tr>
+          <tr><td>4</td><td>서비스</td><td>3,306명</td></tr>
+          <tr><td>5</td><td>운송</td><td>2,151명</td></tr>
+          <tr><td>6</td><td>헬스케어·제품</td><td>1,780명</td></tr>
+          <tr><td>7</td><td>미디어·뉴스</td><td>266명</td></tr>
+        </table>
+      </div>
+
+      <h2>9월 해고 사유 순위</h2>
+      <ul>
+        <li>1위: 시장·경제 상황(전체의 20%)</li>
+        <li>2위: 폐업</li>
+        <li>3위: 수요 감소</li>
+        <li>4위: 구조조정</li>
+        <li>5위: AI. 3,961명으로 그달 전체의 약 9%입니다.</li>
+      </ul>
+
+      <h2>올해 누적(1~9월) 사유</h2>
+      <ul>
+        <li>AI를 사유로 든 감원 발표는 120,136건으로 전체의 약 21%이고, 올해 누적 1위 사유입니다.</li>
+        <li>9월 한 달에는 5위였지만 연간으로는 가장 큰 사유입니다.</li>
+      </ul>
+
+      <h2>올해 기술업계 누적 감원</h2>
+      <ul>
+        <li>제목 기준으로 16만 5,925명입니다. 집계 방식에 따라 다른 추적치와 차이가 있습니다(예: Layoffs.fyi 기반 20만 5,832명).</li>
+      </ul>
+
+      <h2>시사점</h2>
+      <ul>
+        <li>감원 원인을 “AI 때문”으로 단순화하기 쉽지만, 9월 데이터는 경기와 시장 상황이 더 큰 사유였습니다. 월간과 누적을 구분해서 말해야 정확합니다.</li>
+        <li>전체 감원은 줄어도 기술업계는 따로 늘 수 있어, 향후 분석 시 업종별로 나눠 봐야 합니다.</li>
+        <li>감원이 기술업계에 그치지 않고 식품, 비영리, 서비스, 운송까지 번졌다는 점은 노동시장 둔화가 업종 전반의 문제임을 보여 줍니다.</li>
+      </ul>
+    </div>
+  </article>
+
+
+
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>

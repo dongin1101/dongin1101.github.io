@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HackerRank의 AI 면접관, 면접의 미래를 엿보게 하다 | 강동인</title>
+<meta name="description" content="HackerRank가 정식 출시한 AI 면접 에이전트 Chakra의 평가 방식, 부정행위·편향·규제 이슈와 실무 시사점 정리">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF3EE;
+    --card: #FFFFFF;
+    --ink: #1E2B24;
+    --ink-soft: #56655B;
+    --marigold: #1F7A5A;
+    --marigold-deep: #1F7A5A;
+    --leaf-tint: #DDEDE4;
+    --line: #DCE5DC;
+    --serif: "Noto Sans KR", system-ui, sans-serif;
+    --sans: "Noto Sans KR", system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: rgba(238,243,238,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1080px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { font-weight: 700; font-size: 16px; color: var(--marigold); text-decoration: none; white-space: nowrap; }
+  .nav { display: flex; gap: 4px; overflow-x: auto; min-width: 0; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { padding: 6px 12px; border-radius: 99px; font-size: 14.5px; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+  .nav a[aria-current="page"] { background: var(--marigold); color: #fff; }
+  .nav a:hover:not([aria-current="page"]) { background: var(--leaf-tint); color: var(--ink); }
+
+  .insight-head { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
+  .insight-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .insight-head .crumb:hover { color: var(--ink); }
+  .insight-head h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); margin: 18px 0 12px; line-height: 1.35; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .insight-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; margin-bottom: 4px; }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 { font-family: var(--serif); font-size: 23px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  article h2:first-child { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article .source-line { font-size: 14.5px; }
+  article .source-line a { text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/" aria-current="page">HR 뉴스</a>
+      <a href="/archiving/">독서</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="insight-head">
+    <div class="wrap">
+      <a class="crumb" href="/hr/">← HR 뉴스 아카이브</a>
+      <h1>HackerRank의 AI 면접관, 면접의 미래를 엿보게 하다</h1>
+      <div class="meta-row">
+        <span class="tag">AI에이전트</span>
+        <span class="tag">채용트렌드</span>
+        <span>2026.10.10 아카이빙</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="source-line">원제: HackerRank’s AI interviewer offers a glimpse into what job interviews could become</p>
+
+      <h2>한 줄 요약</h2>
+      <p class="lead">개발자 채용 플랫폼 HackerRank가 AI 면접 에이전트 ‘Chakra’를 전 고객에게 정식 출시했습니다. 정답 여부보다 사고 과정, 판단력, AI 활용 능력을 평가하고 여러 단계의 채용 절차를 하나로 묶으려는 시도입니다. 편향과 규제 문제는 남아 있습니다.</p>
+
+      <h2>1. 제품 소개 및 출시 / 사용 기업</h2>
+      <ul>
+        <li><strong>출시:</strong> 약 6개월 베타 테스트를 거쳐 전 고객에게 정식 출시했습니다.</li>
+        <li><strong>테스트 규모:</strong> 테스트 기간 중 50만 건 이상의 면접을 진행했습니다.</li>
+        <li><strong>초기 테스터:</strong> Snowflake, Snorkel, Capgemini가 참여했습니다.</li>
+        <li><strong>회사 배경</strong>
+          <ul>
+            <li>2012년 TechCrunch Disrupt에서 소개된 Y Combinator 출신 기업입니다. 고객사는 3,000곳 이상(Amazon, Nvidia, Clay, Replit 등), 개발자 커뮤니티는 3,000만 명 이상입니다.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>2. AI 면접의 특징 + Chakra의 추가 특징</h2>
+      <ul>
+        <li><strong>평가 대상의 변화</strong>
+          <ul>
+            <li>정답 도출 여부뿐 아니라 <strong>비판적 사고, 판단력, ‘AI 활용 능력(AI fluency)’</strong>을 측정합니다.</li>
+          </ul>
+        </li>
+        <li><strong>면접 방식</strong>
+          <ul>
+            <li>후보자는 실제 코드 저장소 기반 과제를 AI 어시스턴트가 있는 작업 공간에서 수행합니다. 단순 코딩 시험보다 실제 업무에 가깝습니다.</li>
+            <li><strong>Chakra는 "왜 이 방식을 택했는지", "새 제약이 생기면 해법이 어떻게 달라지는지" 같은 후속 질문을 던집니다.</strong></li>
+            <li>면접 후 채용 담당자에게 상세 보고서가 제공됩니다.</li>
+          </ul>
+        </li>
+        <li><strong>채용 절차 축소 방안</strong>
+          <ul>
+            <li>기존 세 단계(리크루터 스크리닝, 과제 평가, 엔지니어와의 후속 면접)가 Chakra 면접 하나로 통합된다고 설명합니다.</li>
+          </ul>
+        </li>
+        <li><strong>부정행위</strong>
+          <ul>
+            <li>부정행위 의심 플래그가 기존 HackerRank 평가보다 70~80% 낮았다고 회사는 밝혔습니다. 지역과 경력 수준에 따라 차이가 있었습니다.</li>
+            <li>회사는 AI 사용을 허용하면 몰래 외부 도구를 쓸 유인이 줄어들며 실제 AI를 활용하는 업무 환경과 비슷한 환경에서 후보자를 평가할 수 있다고 주장합니다.</li>
+          </ul>
+        </li>
+        <li><strong>CEO(Vivek Ravisankar)의 답변</strong>
+          <ul>
+            <li>AI로 누구나 결과물을 만들 수 있게 되어, <strong>평가 기준이 '결과물'에서 '사고 과정과 판단'으로 옮겨가야 한다</strong>고 봅니다.</li>
+            <li>기존 제품에서 Chakra로의 전환을 Apple의 iPod에서 iPhone으로의 전환에 비유했습니다.</li>
+            <li>Chakra는 점수만 매기고 최종 채용 결정은 사람이 내립니다.</li>
+            <li>적절히 튜닝된 AI는 모든 후보자에게 같은 기준을 적용할 수 있어 사람보다 편향이 적다고 주장합니다.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>3. AI 면접에서 우려해야 할 점 / 규제 현황</h2>
+      <ul>
+        <li><strong>우려</strong>
+          <ul>
+            <li>같은 기준을 적용한다고 AI가 편향에서 자유로운 것은 아닙니다. 자동화된 채용 도구는 학습 데이터, 모델, 설계 기준에서 편향을 물려받거나 키울 수 있습니다.</li>
+          </ul>
+        </li>
+        <li><strong>규제</strong>
+          <ul>
+            <li>뉴욕시는 특정 자동화 고용 결정 도구를 쓰는 기업에 독립적인 편향 감사와 후보자 사전 고지를 요구합니다.</li>
+            <li>CEO는 채용이 규제 대상 영역임을 인정하고, 요건을 충족하는 기능을 구축해 왔다고 밝혔습니다.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>4. 시사점</h2>
+      <ul>
+        <li>채용 평가의 초점이 결과물에서 AI를 활용한 문제해결 과정으로 옮겨가고 있습니다. 앞서 정리한 대기업 ‘AI 활용 문제해결 능력’ 채용 기사와 같은 흐름입니다.</li>
+        <li>AI 면접은 일관성이 장점이지만, 편향 감사와 후보자 고지 같은 규제 대응이 도입 전제 조건이 됩니다.</li>
+        <li>AI는 점수만 매기고 사람이 최종 결정한다는 구조는, 채용 책임을 누가 지는지에 대한 기준으로 쓸 수 있습니다.</li>
+        <li>여러 면접 단계를 하나로 줄이면 채용 기간이 짧아지지만, 후보자 경험과 공정성 검증은 HR이 챙겨야 합니다.</li>
+        <li>기사 내용은 개발자 채용 중심이라 다른 직군에 그대로 적용하기에는 어렵다는 점을 고려해야합니다.</li>
+      </ul>
+      <p class="source-line">원문: <a href="https://techcrunch.com/2026/10/05/hackerranks-ai-interviewer-offers-a-glimpse-into-what-job-interviews-could-become/" target="_blank" rel="noopener">techcrunch.com ↗</a></p>
+    </div>
+  </article>
+
+
+
+
+  <div class="wrap">
+    <a class="back" href="/hr/">← HR 뉴스 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
