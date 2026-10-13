@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>사고외주 독서 노트 | 강동인</title>
+<meta name="description" content="홍진기, 『사고외주』 독서 노트 — 편리함의 대가로 생각까지 AI에 맡기고 있지 않은가. 결과물은 빨라졌지만 과정에서 쌓아야 할 경험과 사고가 사라지는 시대, 나만의 판단을 지키는 법을 묻는 책.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF3EE;
+    --card: #FFFFFF;
+    --ink: #1E2B24;
+    --ink-soft: #56655B;
+    --marigold: #1F7A5A;
+    --marigold-deep: #1F7A5A;
+    --leaf-tint: #DDEDE4;
+    --line: #DCE5DC;
+    --serif: "Noto Sans KR", system-ui, sans-serif;
+    --sans: "Noto Sans KR", system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; word-break: keep-all;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: rgba(238,243,238,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { max-width: 1080px; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { font-weight: 700; font-size: 16px; color: var(--marigold); text-decoration: none; white-space: nowrap; }
+  .nav { display: flex; gap: 4px; overflow-x: auto; min-width: 0; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { padding: 6px 12px; border-radius: 99px; font-size: 14.5px; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+  .nav a[aria-current="page"] { background: var(--marigold); color: #fff; }
+  .nav a:hover:not([aria-current="page"]) { background: var(--leaf-tint); color: var(--ink); }
+
+  .book-head { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .book-head .crumb { font-size: 14px; color: var(--ink-soft); text-decoration: none; }
+  .book-head .crumb:hover { color: var(--ink); }
+  .book-head .top-row { display: flex; gap: 24px; margin-top: 20px; align-items: flex-start; }
+  .book-head .cover { width: 108px; height: 156px; object-fit: cover; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .book-head h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; line-height: 1.3; }
+  .book-head .byline { color: var(--ink-soft); margin: 0 0 10px; }
+  .book-head .meta-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .tag { background: var(--leaf-tint); color: var(--ink); padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .book-head .buy { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--marigold-deep); }
+
+  article { padding: 48px 0 24px; }
+  article > .wrap { max-width: 760px; }
+  article h2 {
+    font-family: var(--serif); font-size: 24px; margin: 52px 0 18px; letter-spacing: -0.01em;
+  }
+  article > .wrap > h2:first-child, article h2:first-of-type { margin-top: 0; }
+  article h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+  article p { margin: 0 0 16px; color: var(--ink-soft); }
+  article p.lead { color: var(--ink); font-size: 17px; }
+  article ul, article ol { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  article li { margin-bottom: 6px; }
+  article li > ul, article li > ol { margin-top: 6px; margin-bottom: 0; }
+  article strong { color: var(--ink); }
+  article blockquote {
+    margin: 20px 0; padding: 14px 20px; background: var(--leaf-tint); color: var(--ink);
+    border-left: 3px solid var(--marigold-deep); border-radius: 0 10px 10px 0; font-family: var(--serif);
+  }
+  article blockquote p { margin: 0; color: var(--ink); }
+  article blockquote .pg { display: block; margin-top: 6px; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); }
+  article hr { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px; }
+  article th, article td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  article th { background: var(--leaf-tint); font-weight: 700; }
+  article .conclusion-title {
+    font-family: var(--serif); font-size: 28px; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  article .conclusion-rule { width: 36px; height: 4px; background: var(--marigold); border-radius: 2px; margin: 0 auto 44px; }
+
+  .back { display: inline-block; margin: 8px 0 40px; text-decoration: none; font-weight: 600; color: var(--ink-soft); }
+  .back:hover { color: var(--ink); }
+
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">🍀 강동인</a>
+    <nav class="nav" aria-label="사이트 메뉴">
+      <a href="/">포트폴리오</a>
+      <a href="/hr/">HR 뉴스</a>
+      <a href="/archiving/" aria-current="page">독서</a>
+      <a href="/interest/">관심사</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="book-head">
+    <div class="wrap">
+      <a class="crumb" href="/archiving/">← 독서 아카이브</a>
+      <div class="top-row">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791167743091.jpg" alt="『사고외주』 표지">
+        <div>
+          <h1>사고외주</h1>
+          <p class="byline">홍진기 지음</p>
+          <div class="meta-row">
+            <span class="tag">Technology</span>
+            <span>⭐⭐⭐⭐</span>
+            <span>150쪽</span>
+            <span>2026.10 완독</span>
+          </div>
+          <a class="buy" href="https://product.kyobobook.co.kr/detail/S000220293112" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <div class="wrap">
+      <p class="lead">편리함의 대가로 생각까지 AI에 맡기고 있지 않은가. 결과물은 빨라졌지만 과정에서 쌓아야 할 경험과 사고가 사라지는 시대, 나만의 판단을 지키는 법을 묻는 책.</p>
+
+      <h2>1. 편리함의 대가로 사고를 외주화하다</h2>
+      <p>우리는 보고서 작성, 발표 자료 생성, 아이디어 제안까지 수시로 AI에게 맡기며 점점 편리함과 효율에 빠져들고 있다. 저자 홍진기 교수조차 <strong>“장문의 글을 접하면 AI에게 요약을 요청하고 싶은 유혹을 느낀다”</strong>고 고백한다.</p>
+      <p>그런 저자가 이 책을 쓰게 된 계기가 있다. 연세대학교 화공생명공학과 교수로 학생들의 리포트를 받던 중, 어느 순간부터 학생들의 글쓰기 실력이 <strong>‘비약적으로 상승한 것처럼’</strong> 보였다. 하지만 리포트 내용을 물어보면 얼버무리거나, 심지어 아무것도 모르는 학생도 있었다. 이런 일은 학교에만 있는 것이 아니다. AI에게 <strong>‘사고외주’</strong>를 맡기는 현상은 조직, 기업, 학술 콘퍼런스에서도 일어나고 있다.</p>
+      <p>저자는 AI를 쓰지 말자고 하지 않는다. AI는 개인의 성장과 교육 불균형 해소에 좋게 쓰일 수 있다. 저자가 경계하는 것은 <strong>AI 때문에 경험이 사라지는 것</strong>이다. 특히 더 많은 실패와 어려움, 그리고 그것을 극복하는 경험으로 삶의 근육을 키우는 것을 우선해야, AI를 통한 진정한 성장의 뿌리를 만들 수 있다고 말한다.</p>
+
+      <hr>
+
+      <h2>2. AI는 우리에게 시간과 경험을 주는가, 빼앗는가</h2>
+      <p>2026년 CES에 나온 거의 모든 제품에는 AI가 기본으로 탑재되어 있었다. AI는 이미 삶의 한 축이 되었다. 저자는 한 전시장에서 자사 제품을 유창하게 설명하던 담당자에게 이렇게 물었다.</p>
+      <blockquote><p>“이 제품은 사용자에게 시간을 주는 제품인가요, 사용자의 시간을 빼앗는 제품인가요?”</p></blockquote>
+      <p>그들은 아무 대답도 하지 못했다. 앞으로 더 많은 영역에서 AI를 쓰게 될 우리도 같은 질문을 던져야 한다. <strong>AI는 우리에게 새로운 성장과 경험을 주는가, 빼앗는가?</strong></p>
+      <p>판단, 분석, 조사를 AI로 진행하며 빠르게 답을 얻는 것이 일상이 되고 있다. 이 과정이 반복되면 문제를 직접 고민하고 해결하는 경험이 줄어든다. <strong>결과물을 만드는 능력은 높아지지만, 그 결과에 이르는 과정에서 쌓아야 할 이해와 숙련은 충분히 자라지 못할 위험</strong>이 있다.</p>
+
+      <hr>
+
+      <h2>3. 정답을 찾는 AI, 책임을 지는 인간</h2>
+      <p>AI가 모든 결정에서 뛰어난 결과를 내는 것은 아니다. 사람마다 우선순위가 다른 일, 맥락을 확인해야 하는 일, 스스로 책임져야 하는 일에서 AI는 <strong>평균적으로 그럴싸한 답</strong>을 내지만 최고의 답을 내지는 못한다. AI가 대체하는 것은 빠르게 답을 내야 하는 과업이지, <strong>오랜 시간 고민해야 하는 일과 책임을 져야 하는 일은 여전히 인간의 몫</strong>이다.</p>
+      <p>같은 문제에도 여러 해법이 나오는 것은, 인간이 저마다의 정체성과 욕망, 사회적 윤리 사이에서 우선순위를 달리하며 선택하고 그 결과에 책임을 지기 때문이다. 그런 선택이 쌓여 고유의 판단이 만들어진다. AI의 연산 결과와는 결이 다른 방식이다.</p>
+
+      <hr>
+
+      <h2>4. 경험이 사고를 만들고, 논리가 세상을 읽는다</h2>
+      <p>AI에 사고를 의존하지 않고 자신만의 판단과 관점을 기르려면 무엇이 필요할까? 저자는 두 가지를 제안한다.</p>
+      <h3>① 많은 경험을 하라</h3>
+      <p>성공과 실패, 그 사이에서 어려움을 극복한 경험, 낯선 현상을 마주한 경험을 지나며 사고는 변한다. 여행이 좋은 예다. 모르는 도시에서 처음 보는 길을 지나고 낯선 사람과 소통하며 어려움을 넘을 때, 세상에 대한 이해와 질문이 새로 만들어진다.</p>
+      <h3>② 현상을 설명할 논리를 갖춰라</h3>
+      <p>세계가 촘촘하게 <strong>‘동기화’</strong>된 지금, 한 사건이 수많은 분야에 연쇄적인 변화를 일으킨다. 미국의 정책 변화가 한국의 자동차·반도체 산업에 영향을 주고, 주가가 움직이고, 한국의 정책도 따라 바뀐다. 이런 시대에 정보를 일일이 쫓다 보면 정작 봐야 할 것을 놓친다. 반면 <strong>핵심을 꿰뚫는 논리</strong>를 가진 사람은 노이즈를 걸러내고, 세상을 이해할 뿐 아니라 앞서 내다볼 수 있다. 여기서 AI는 논리를 강화하는 도구이자 동료로서 사용자의 능력을 키워준다.</p>
+
+      <hr>
+
+      <p class="conclusion-title">나의 생각</p>
+      <div class="conclusion-rule"></div>
+
+      <h2>5-1. AI와 함께 성장한다는 것</h2>
+      <p>이 책은 빠르게 변하는 세상 속에서 <strong>사고를 외주화하지 않고, 자신의 주관을 잃지 않으며 살아가는 것</strong>의 중요성을 강조한다. 편리함과 화려함에 이끌려 AI를 쓰는 과정에서, 정작 중요한 나 자신의 경험과 사고를 잃어가고 있지는 않은지 돌아보게 했다.</p>
+      <h2>5-2. 남는 질문</h2>
+      <p>한편으로 의문도 남는다. 수많은 AI 기술이 일상에 스며든 지금, 우리는 어디까지 자신의 경험과 사고를 지켜낼 수 있을까? AI가 기존의 경험을 대신하는 동시에 새로운 경험의 기회를 만들어 주기도 한다면, 이 변화를 꼭 부정적으로만 봐야 할까? AI로 아낀 시간과 자원을 다른 분야의 학습과 새로운 경험에 쓰는 것도 성장이 아닐까?</p>
+      <p>어쩌면 중요한 것은 AI가 우리의 경험을 얼마나 대체하느냐가 아니라, <strong>AI로 확보한 시간과 가능성을 어디에 쓰느냐</strong>일지도 모른다. AI가 주는 답을 그대로 받아들이지 않고, 스스로 질문을 만들고 경험하며 그 결과를 판단하는 과정이 필요하다.</p>
+      <blockquote><p>AI와 함께 살아가는 시대에 우리가 고민해야 할 것은 AI를 얼마나 잘 활용하느냐가 아니라, <strong>AI를 활용하면서도 어떻게 자신만의 사고와 판단을 키워 나갈 것인가</strong>라는 질문이다.</p></blockquote>
+    </div>
+  </article>
+
+  <div class="wrap">
+    <a class="back" href="/archiving/">← 독서 아카이브로 돌아가기</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 강동인 · dongin1101.github.io</div>
+</footer>
+
+</body>
+</html>
