@@ -67,7 +67,7 @@ const isDetail=currentPath.startsWith('/experience/'),isHome=currentPath==='/'||
 category=isHome||isDetail?'업무 경험':routeCategory;
 render();
 $('.collection').hidden=isHome||isDetail;
-$('#profile').hidden=!isHome;$('#career').hidden=!isHome;$('#experience-page').hidden=!isDetail;
+$('#qualifications').hidden=!isHome;$('#profile').hidden=!isHome;$('#career').hidden=!isHome;$('#experience-page').hidden=!isDetail;
 document.body.classList.toggle('career-detail-view',isDetail);
 if(isHome){renderCareer();document.title='강동인 · 자기소개와 경력기술서'}
 else if(isDetail){const id=decodeURIComponent(currentPath.split('/')[2]||''),n=notes.find(n=>n.id===id&&n.category==='업무 경험');
