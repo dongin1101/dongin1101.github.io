@@ -14,7 +14,7 @@ $('#company-filter').value=companyFilter;
 $('#author-filter-label').hidden=!isReading;$('#rating-filter-label').hidden=!isReading;
 const authors=[...new Set(base.map(n=>n.author).filter(Boolean))].sort();
 $('#author-filter').innerHTML='<option value="">전체 저자</option>'+authors.map(a=>`<option value="${esc(a)}">${esc(a)}</option>`).join('');
-$('#author-filter').value=authorFilter;$('#rating-filter').value=ratingFilter;$('#sort-filter').value=sortBy;
+$('#author-filter').value=authorFilter;$('#rating-filter').value=ratingFilter;
 const q=$('#search').value.toLowerCase(),list=base.filter(n=>(category!=='업무 경험'||!companyFilter||companyName(n)===companyFilter)&&(!tag||n.tags.includes(tag))&&(!isReading||!authorFilter||n.author===authorFilter)&&(!isReading||!ratingFilter||ratingValue(n)===Number(ratingFilter))&&[n.title,n.body,...n.tags].join(' ').toLowerCase().includes(q)).sort((a,b)=>sortBy==='oldest'?a.date.localeCompare(b.date):sortBy==='rating'?(ratingValue(b)-ratingValue(a)||b.date.localeCompare(a.date)):b.date.localeCompare(a.date));
 $('#heading').firstChild.textContent=category+' ';$('#count').textContent=list.length;
 const totalPages=Math.max(1,Math.ceil(list.length/10));page=Math.min(page,totalPages);
@@ -40,7 +40,6 @@ async function readFolder(){const found=[];async function walk(dir,prefix=''){fo
 $('#company-filter').onchange=e=>{companyFilter=e.target.value;page=1;render()};
 $('#author-filter').onchange=e=>{authorFilter=e.target.value;page=1;render()};
 $('#rating-filter').onchange=e=>{ratingFilter=e.target.value;page=1;render()};
-$('#sort-filter').onchange=e=>{sortBy=e.target.value;page=1;render()};
 $('#reset-filters').onclick=()=>{companyFilter='';authorFilter='';ratingFilter='';sortBy='latest';tag='';$('#search').value='';page=1;render()};
 $('#search').oninput=()=>{page=1;render()};document.querySelectorAll('.close').forEach(b=>b.onclick=()=>b.closest('dialog').close());$('#new').onclick=()=>{$('#form').reset();$('#form [name=date]').value=new Date().toLocaleDateString('sv-SE');$('#saveinfo').textContent=root?'연결한 폴더에 Markdown 파일로 저장합니다.':'Markdown 파일을 다운로드합니다. 나의 아카이브의 해당 분류 폴더에 저장하세요.';$('#editor').showModal()};
 $('#form').onsubmit=async e=>{e.preventDefault();const v=Object.fromEntries(new FormData(e.target)),filename=v.date+'-'+v.title.replace(/[<>:"/\\|?*\x00-\x1f]/g,'-').slice(0,90)+'.md',text=`---\ntitle: ${v.title}\ncategory: ${v.category}\ndate: ${v.date}\ntags: ${v.tags}\nurl: ${v.url}\n---\n\n${v.body}\n`;try{if(root){const d=await root.getDirectoryHandle(folders[cats.indexOf(v.category)],{create:true});try{await d.getFileHandle(filename);alert('같은 날짜와 제목의 파일이 있습니다. 제목을 변경해 주세요.');return}catch(err){if(err.name!=='NotFoundError')throw err}const f=await d.getFileHandle(filename,{create:true}),w=await f.createWritable();await w.write(text);await w.close();await readFolder()}else{const u=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);if(example)notes=[];example=false;notes.push(parse(text,filename));render()}$('#editor').close()}catch(err){alert('저장하지 못했습니다: '+err.message)}};
