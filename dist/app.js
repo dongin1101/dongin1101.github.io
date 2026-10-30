@@ -32,7 +32,7 @@ const body=n.body.replace(/\r\n/g,'\n'),headings=[...body.matchAll(/^###\s+(상�
 if(headings.length!==4||headings.map(h=>h[2]).join()!=='Situation,Task,Action,Result')return '';
 const result=body.match(/^\*\*핵심 성과:\*\*\s*([\s\S]*)$/m),end=result?result.index:body.length;
 const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
-const blocks=s=>s.trim().split(/\n\s*\n/).filter(Boolean).map(p=>{const lines=p.split('\n');return lines.every(l=>/^[-*]\s/.test(l))?'<ul>'+lines.map(l=>'<li>'+inline(l.replace(/^[-*]\s+/,''))+'</li>').join('')+'</ul>':'<p>'+inline(p).replace(/\n/g,'<br>')+'</p>'}).join('');
+const blocks=s=>s.trim().split(/\n\s*\n/).filter(Boolean).map(p=>{const lines=p.split('\n');return /^\*\*[①②③].+\*\*$/.test(p)?'<h4 class="action-subheading">'+inline(p)+'</h4>':lines.every(l=>/^[-*]\s/.test(l))?'<ul>'+lines.map(l=>'<li>'+inline(l.replace(/^[-*]\s+/,''))+'</li>').join('')+'</ul>':'<p>'+inline(p).replace(/\n/g,'<br>')+'</p>'}).join('');
 const clean=s=>s.replace(/\n*---\s*$/,'').trim();
 return `<div class="experience-intro">${blocks(body.slice(0,headings[0].index).replace(/^#\s+.+\n/,''))}</div><div class="star-grid">${headings.map((h,i)=>`<section class="star-section"><h3><span>${'STAR'[i]}</span>${h[1]}<small>${h[2]}</small></h3>${blocks(clean(body.slice(h.index+h[0].length,i<3?headings[i+1].index:end)))}</section>`).join('')}</div>${result?`<section class="star-outcome"><h3>핵심 성과</h3>${blocks(result[1])}</section>`:''}`;
 }

@@ -43,3 +43,5 @@
 .experience-card p{display:block;font-size:13px;line-height:1.8;overflow:visible;min-height:0;overflow-wrap:anywhere}
 
 #tags[hidden]{display:none}
+
+.star-section .action-subheading{font-size:14px;line-height:1.9;margin:28px 0 12px}.star-section h3+.action-subheading{margin-top:0}
