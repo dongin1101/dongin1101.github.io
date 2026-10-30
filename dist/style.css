@@ -3,3 +3,5 @@
 
 /* Personal wordmark */
 .brand{font-family:"Noto Sans KR",sans-serif;font-size:25.2px;font-weight:700;letter-spacing:-1.4px;white-space:nowrap}.brand small{letter-spacing:1.5px;font-size:8px}@media(max-width:700px){.brand{font-size:18.9px;letter-spacing:-1px}}
+
+.article-body{white-space:normal;line-height:1.95}.article-body h3{font-size:20px;line-height:1.6;margin:32px 0 16px}.article-body p{margin:0 0 20px}.article-body table{width:100%;border-collapse:collapse;font-size:12px;margin:20px 0}.article-body td{border:1px solid var(--line);padding:10px;vertical-align:top}.article-body tr:first-child{background:#e5ebdf;font-weight:700}.article-body mark{background:#e9edcf;color:inherit}.article-body li{margin-bottom:14px}.article-body ul{padding-left:22px}
