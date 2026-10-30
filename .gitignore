@@ -1,0 +1,10 @@
+.sites-runtime/
+.sites-checkout/
+node_modules/
+.env
+.env.*
+!.env.example
+*.tar.gz
+*.log
+Thumbs.db
+Desktop.ini
