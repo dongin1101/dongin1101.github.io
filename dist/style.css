@@ -23,3 +23,17 @@
 
 /* User typography baseline: same sizes on desktop and mobile. */
 .card .title-line h3{font-size:25px}.card p{font-size:15px}.card .meta,.card .book-rating,.card .title-line .cardtags{font-size:12px}
+/* STAR experience overview */
+#detail.experience-detail{width:min(1440px,96vw)}
+.experience-intro{font-size:13px;line-height:1.9;margin:22px 0;color:var(--muted)}
+.star-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.star-section{min-width:0;padding:22px;background:#fffef9;border:1px solid var(--line);border-radius:8px;overflow-wrap:anywhere}
+.star-section h3{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 18px;font-size:17px}
+.star-section h3>span{display:grid;place-items:center;width:36px;height:36px;background:#dfe7d6;border-radius:50%;font-size:22px;font-family:Georgia,serif}
+.star-section h3 small{width:100%;padding-left:44px;font-size:10px;letter-spacing:1px;color:var(--muted);font-weight:400}
+.star-section p,.star-section li,.star-outcome p{font-size:14px;line-height:1.9;margin:0 0 12px}
+.star-section ul{padding-left:18px;margin:0}.star-section p:last-child,.star-section li:last-child,.star-outcome p:last-child{margin-bottom:0}
+.star-outcome{margin-top:20px;padding:24px 28px;background:#e2e9d9;border-left:4px solid var(--green);border-radius:6px}
+.star-outcome h3{margin:0 0 10px;font-size:18px}
+@media(max-width:1100px){.star-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.star-grid{grid-template-columns:1fr}.star-section{padding:20px}.star-outcome{padding:20px}}
