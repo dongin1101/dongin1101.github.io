@@ -69,11 +69,11 @@ render();
 $('.collection').hidden=isHome||isDetail;
 $('#qualifications').hidden=!isHome;$('#profile').hidden=!isHome;$('#career').hidden=!isHome;$('#experience-page').hidden=!isDetail;
 document.body.classList.toggle('career-detail-view',isDetail);
-if(isHome){renderCareer();document.title='강동인 · 자기소개와 경력기술서'}
+if(isHome){renderCareer();document.title="DONGIN'S PORTFOLIO · 자기소개와 경력기술서"}
 else if(isDetail){const id=decodeURIComponent(currentPath.split('/')[2]||''),n=notes.find(n=>n.id===id&&n.category==='업무 경험');
 $('#experience-page').innerHTML=n?`<div class="experience-page-toolbar"><a href="/#career">← 경력기술서</a><a class="detail-back" href="/#career" aria-label="경력기술서로 돌아가기">×</a></div><div class="experience-page-content"><div class="eyebrow">${esc(profileFor(n).company)} / ${esc(profileFor(n).team)} / ${esc(profileFor(n).position)}</div><h1>${esc(n.title)}</h1>${experienceContent(n)}<a class="bottom-back" href="/#career">← 경력기술서 목록으로</a></div>`:'<h1>업무 경험을 찾을 수 없습니다.</h1><a href="/#career">경력기술서로 돌아가기</a>';
-document.title=n?n.title+' · 강동인':'업무 경험 · 강동인';
-}else{document.title=category+' · 강동인의 기록'}
+document.title=n?n.title+" · DONGIN'S PORTFOLIO":"업무 경험 · DONGIN'S PORTFOLIO";
+}else{document.title=category+" · DONGIN'S PORTFOLIO"}
 const linkedNote=notes.find(n=>n.id===location.hash.slice(1));
 if(linkedNote){const target=categoryPaths[linkedNote.category];if(linkedNote.category==='업무 경험'){location.replace('/experience/'+encodeURIComponent(linkedNote.id)+'/');return}if(category!==linkedNote.category||isHome){location.replace(target+location.search+location.hash);return}openNote(linkedNote)}
 }
