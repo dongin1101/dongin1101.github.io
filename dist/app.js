@@ -4,6 +4,7 @@ const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>
 function ratingValue(n){return (n.rating?.match(/[★⭐]/g)||[]).length}
 function render(){for(const sel of ['#nav','#tabs'])$(sel).innerHTML=cats.map((c,i)=>`<button data-cat="${c}" class="${category===c?'active':''}">${sel==='#nav'?['▤　','▥　','▧　','✳　'][i]:''}${c}${sel==='#nav'?`<span>${notes.filter(n=>n.category===c).length}</span>`:''}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{category=b.dataset.cat;tag='';authorFilter='';ratingFilter='';page=1;render()});
 const base=notes.filter(n=>n.category===category),tags=[...new Set(base.flatMap(n=>n.tags))];$('#tags').innerHTML=['',...tags].map(t=>`<button class="${tag===t?'active':''}" data-tag="${esc(t)}">${t?'# '+esc(t):'모든 태그'}</button>`).join('');document.querySelectorAll('[data-tag]').forEach(b=>b.onclick=()=>{tag=b.dataset.tag;page=1;render()});
+$('#tags').hidden=category==='업무 경험';
 const isReading=category==='독서';
 $('#author-filter-label').hidden=!isReading;$('#rating-filter-label').hidden=!isReading;
 const authors=[...new Set(base.map(n=>n.author).filter(Boolean))].sort();
