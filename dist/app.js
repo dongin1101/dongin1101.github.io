@@ -33,7 +33,7 @@ document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=Number(b
 function sourceLink(n){try{const u=new URL(n.sourceUrl);if(!['http:','https:'].includes(u.protocol))return '';const label=n.category==='독서'?'책 정보 보기':n.category==='뉴스'?'기사 원문 보기':'관련 원본 보기';return `<p class="source-link"><a href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${label} ↗ <small>${esc(u.hostname)}</small></a></p>`}catch{return ''}}
 function experienceContent(n){
 if(n.category!=='업무 경험')return '';
-const body=n.body.replace(/\r\n/g,'\n').replace(/^\*\*기간:\*\*[^\n]*/m,'**기간:** '+careerProfile.period+'  '),headings=[...body.matchAll(/^###\s+(상황|과제|행동|결과)\s*\((Situation|Task|Action|Result)\)\s*$/gm)];
+const body=n.body.replace(/\r\n/g,'\n').replace(/^\*\*기간:\*\*[^\n]*/m,line=>companyName(n)==='나라에이치알'?'**기간:** '+careerProfile.period+'  ':line),headings=[...body.matchAll(/^###\s+(상황|과제|행동|결과)\s*\((Situation|Task|Action|Result)\)\s*$/gm)];
 if(headings.length!==4||headings.map(h=>h[2]).join()!=='Situation,Task,Action,Result')return '';
 const result=body.match(/^\*\*핵심 성과:\*\*\s*([\s\S]*)$/m),end=result?result.index:body.length;
 const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
@@ -52,11 +52,16 @@ $('#search').oninput=()=>{page=1;render()};
 document.querySelectorAll('.close').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 $('#new').onclick=()=>{$('#form').reset();$('#form [name=category]').value=category;$('#form [name=date]').value=new Date().toLocaleDateString('sv-SE');$('#saveinfo').textContent='Markdown 파일로 내려받아 보관할 수 있습니다.';$('#editor').showModal()};
 $('#form').onsubmit=e=>{e.preventDefault();const v=Object.fromEntries(new FormData(e.target));const text=`---\ntitle: ${v.title}\ncategory: ${v.category}\ndate: ${v.date}\ntags: ${v.tags}\nurl: ${v.url}\n---\n\n${v.body}\n`;const u=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download=v.date+'-'+v.title.replace(/[<>:"/\\|?*]/g,'-')+'.md';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);$('#editor').close()};
-function renderCareer(){
-const experienceNotes=notes.filter(n=>n.category==='업무 경험');
-const order=['hr-ai-job-posting-generator','hr-applicant-db-cloud','hr-schedule-process-standardization','hr-stakeholder-communication','hr-employment-recognition-risk'];
+const careerCompanies=[{"company":"나라에이치알","period":"2026.03.30 ~ 2026.09.17","team":"채용관리팀","position":"매니저","scope":"채용공고 운영 · 약 45명 근로자 관리 · 고객사 커뮤니케이션 · HR 업무 개선","order":["hr-ai-job-posting-generator","hr-applicant-db-cloud","hr-schedule-process-standardization","hr-stakeholder-communication","hr-employment-recognition-risk"]},{"company":"가천대학교","period":"2025년 2월 ~ 2026년 1월","team":"인문대학 학과 사무실","position":"학과 행정조교","scope":"교원 공개채용 지원 · 프로그램·행사 운영 · 학생 프로젝트 관리 · 예산 집행·정산 · 학사 데이터 관리","order":["gachon-faculty-recruitment","gachon-promotion-contest","gachon-ebook-project","gachon-budget-academic-data"]}];
+function profileFor(n){return careerCompanies.find(c=>c.company===companyName(n))||careerProfile}
+function renderCompany(profile){
+const experienceNotes=notes.filter(n=>n.category==='업무 경험'&&companyName(n)===profile.company);
+const order=profile.order;
 experienceNotes.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));
-$('#career').innerHTML=`<div class="eyebrow">CAREER HISTORY</div><h2>경력기술서</h2><section class="company-career"><div class="company-heading"><h3>${esc(careerProfile.company)}</h3><div class="company-meta"><span>${esc(careerProfile.period)}</span><span>${esc(careerProfile.team)}</span><span>${esc(careerProfile.position)}</span></div></div><p class="career-scope">채용공고 운영 · 약 45명 근로자 관리 · 고객사 커뮤니케이션 · HR 업무 개선</p><ol class="experience-list">${experienceNotes.map(n=>`<li><a href="/experience/${encodeURIComponent(n.id)}/" data-experience="${esc(n.id)}" aria-haspopup="dialog"><div><h4>${esc(n.title)}</h4><p>${esc(n.summary||'')}</p></div><span class="entry-arrow" aria-hidden="true">↗</span></a></li>`).join('')}</ol></section>`;
+return `<section class="company-career"><div class="company-heading"><h3>${esc(profile.company)}</h3><div class="company-meta"><span>${esc(profile.period)}</span><span>${esc(profile.team)}</span><span>${esc(profile.position)}</span></div></div><p class="career-scope">${esc(profile.scope)}</p><ol class="experience-list">${experienceNotes.map(n=>`<li><a href="/experience/${encodeURIComponent(n.id)}/" data-experience="${esc(n.id)}" aria-haspopup="dialog"><div><h4>${esc(n.title)}</h4><p>${esc(n.summary||'')}</p></div><span class="entry-arrow" aria-hidden="true">↗</span></a></li>`).join('')}</ol></section>`;
+}
+function renderCareer(){
+$('#career').innerHTML='<div class="eyebrow">CAREER HISTORY</div><h2>경력기술서</h2>'+careerCompanies.map(renderCompany).join('');
 document.querySelectorAll('[data-experience]').forEach(a=>a.onclick=e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();openNote(notes.find(n=>n.id===a.dataset.experience))});
 }
 function setupPage(){
@@ -69,7 +74,7 @@ $('#profile').hidden=!isHome;$('#career').hidden=!isHome;$('#experience-page').h
 document.body.classList.toggle('career-detail-view',isDetail);
 if(isHome){renderCareer();document.title='강동인 · 자기소개와 경력기술서'}
 else if(isDetail){const id=decodeURIComponent(currentPath.split('/')[2]||''),n=notes.find(n=>n.id===id&&n.category==='업무 경험');
-$('#experience-page').innerHTML=n?`<div class="experience-page-toolbar"><a href="/#career">← 경력기술서</a><a class="detail-back" href="/#career" aria-label="경력기술서로 돌아가기">×</a></div><div class="experience-page-content"><div class="eyebrow">${esc(careerProfile.company)} / ${esc(careerProfile.team)} / ${esc(careerProfile.position)}</div><h1>${esc(n.title)}</h1>${experienceContent(n)}<a class="bottom-back" href="/#career">← 경력기술서 목록으로</a></div>`:'<h1>업무 경험을 찾을 수 없습니다.</h1><a href="/#career">경력기술서로 돌아가기</a>';
+$('#experience-page').innerHTML=n?`<div class="experience-page-toolbar"><a href="/#career">← 경력기술서</a><a class="detail-back" href="/#career" aria-label="경력기술서로 돌아가기">×</a></div><div class="experience-page-content"><div class="eyebrow">${esc(profileFor(n).company)} / ${esc(profileFor(n).team)} / ${esc(profileFor(n).position)}</div><h1>${esc(n.title)}</h1>${experienceContent(n)}<a class="bottom-back" href="/#career">← 경력기술서 목록으로</a></div>`:'<h1>업무 경험을 찾을 수 없습니다.</h1><a href="/#career">경력기술서로 돌아가기</a>';
 document.title=n?n.title+' · 강동인':'업무 경험 · 강동인';
 }else{document.title=category+' · 강동인의 기록'}
 const linkedNote=notes.find(n=>n.id===location.hash.slice(1));
