@@ -71,4 +71,9 @@
 #latest h2 { margin: 0 0 1rem; }
 #latest time { font-size: .875rem; }
 #latest a { color: inherit; }
-#latest p a { text-decoration: underline; text-underline-offset: .2em; }
+#latest section { display: flex; flex-direction: column; align-items: flex-start; }
+#latest ul { list-style: none; padding: 0; margin: 0 0 1.25rem; width: 100%; }
+#latest li + li { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--line); }
+#latest li a { text-decoration: underline; text-underline-offset: .2em; }
+#latest .archive-more { margin-top: auto; padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 4px; }
+#latest .archive-more:hover, #latest .archive-more:focus-visible { border-color: currentColor; }

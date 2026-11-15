@@ -40,12 +40,17 @@ if (category) {
   $('#home').hidden = false;
   navigation();
   $('#latest').innerHTML = cats.map(c => {
-    const latest = notes.filter(n => n.category === c).sort((a, b) => b.date.localeCompare(a.date))[0];
     const path = categoryPaths[c];
-    const entry = latest
-      ? '<p><time datetime="' + esc(latest.date) + '">' + esc(latest.date) + '</time><br><a href="' + path + '#' + encodeURIComponent(latest.id) + '">' + esc(latest.title) + '</a></p>'
-      : '<p>아직 기록이 없습니다.</p>';
-    return '<section><h2><a href="' + path + '">' + categoryLabels[c] + '</a></h2>' + entry + '</section>';
+    const label = categoryLabels[c];
+    const latest = notes.filter(n => n.category === c)
+      .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+    const entries = latest.map(note =>
+      '<li><time datetime="' + esc(note.date) + '">' + esc(note.date) + '</time><br>' +
+      '<a href="' + path + '#' + encodeURIComponent(note.id) + '">' + esc(note.title) + '</a></li>'
+    ).join('');
+    const list = entries ? '<ul>' + entries + '</ul>' : '<p>아직 기록이 없습니다.</p>';
+    return '<section><h2>' + label + '</h2>' + list +
+      '<a class="archive-more" href="' + path + '" aria-label="' + label + ' 자세히">자세히</a></section>';
   }).join('');
 }
 const linkedNote = notes.find(n => encodeURIComponent(n.id) === location.hash.slice(1) || n.id === location.hash.slice(1));
