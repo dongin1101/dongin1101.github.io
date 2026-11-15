@@ -63,3 +63,12 @@
 /* Align portrait with the introduction text; resume qualifications. */
 .profile-photo{margin-top:20px}.qualifications-section{border-top:1px solid var(--line);padding:36px 0 42px}.qualification-group{margin-top:28px}.qualification-group>h3{font-size:18px;margin:0 0 15px}.qualification-list{list-style:none;padding:0;margin:0}.qualification-list>li{display:grid;grid-template-columns:100px minmax(0,1fr);gap:24px;padding:21px 0;border-top:1px solid var(--line)}.qualification-list time{font-size:13px;color:var(--muted);padding-top:3px}.qualification-list h4{font-size:17px;font-weight:600;margin:0;line-height:1.6}.qualification-list p{font-size:14px;color:#6b786b;line-height:1.9;margin:7px 0 0;max-width:920px}.qualification-heading{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.qualification-heading>span{font-size:11px;color:#6b786b;border:1px solid var(--line);padding:3px 8px;border-radius:20px}
 @media(max-width:700px){.profile-photo{margin:0}.qualifications-section{padding:28px 0}.qualification-list>li{grid-template-columns:1fr;gap:8px;padding:19px 0}.qualification-list h4{font-size:16px}.qualification-list p{font-size:13px}}
+
+.home-section { padding: clamp(2rem, 6vw, 5rem) 0; }
+.home-section h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 .75rem; }
+#latest { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+#latest section { border-top: 1px solid currentColor; padding-top: 1rem; min-width: 0; }
+#latest h2 { margin: 0 0 1rem; }
+#latest time { font-size: .875rem; }
+#latest a { color: inherit; }
+#latest p a { text-decoration: underline; text-underline-offset: .2em; }
