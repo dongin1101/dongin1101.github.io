@@ -4,15 +4,16 @@
 
 ## 페이지 구성
 
-- `/`: 사이트 소개와 세 섹션의 최신 글
+- `/`: 사이트 소개와 네 섹션의 최신 글
 - `/reading/`: 독서 아카이브
 - `/hrnews/`: HR 뉴스 아카이브
+- `/hrstudy/`: HR Study 아카이브
 - `/interest/`: 관심사 아카이브
 - 기존 업무 경험 주소는 홈으로 이동합니다.
 
 ## 콘텐츠와 배포
 
-`dist/published.js`가 공개 기록 원본입니다. 노션 링크로 받은 공개용 글을 이 파일에 반영하고, `node build-pages.cjs`로 각 경로의 정적 HTML을 생성합니다. GitHub Actions도 배포 전에 같은 생성기를 실행합니다. `dist/index.html`이 공통 화면 원본이며 하위 폴더의 HTML은 자동 생성 결과입니다.
+`dist/published.js`가 공개 기록 원본입니다. HR Study 글은 다른 공개 글과 함께 여기에 추가하고 `category` 값을 `HR Study`로 지정합니다. 노션 링크로 받은 공개용 글을 이 파일에 반영하고, `node build-pages.cjs`로 각 경로의 정적 HTML을 생성합니다. GitHub Actions도 배포 전에 같은 생성기를 실행합니다. `dist/index.html`이 공통 화면 원본이며 하위 폴더의 HTML은 자동 생성 결과입니다.
 
 공개 전 로컬 확인: `node build-pages.cjs` 실행 후 `python -m http.server 8765 --directory dist`.
 

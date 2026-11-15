@@ -1,13 +1,13 @@
-const categoryPaths = {'독서': '/reading/', '뉴스': '/hrnews/', '관심사': '/interest/'};
+const categoryPaths = {'독서': '/reading/', '뉴스': '/hrnews/', 'HR Study': '/hrstudy/', '관심사': '/interest/'};
 const cats = Object.keys(categoryPaths);
-const categoryLabels = {'독서': '독서', '뉴스': 'HR 뉴스', '관심사': '관심사'};
+const categoryLabels = {'독서': '독서', '뉴스': 'HR 뉴스', 'HR Study': 'HR Study', '관심사': '관심사'};
 const currentPath = location.pathname.replace(/\/+$/, '') || '/';
 const category = cats.find(c => categoryPaths[c].slice(0, -1) === currentPath);
 const notes = publishedNotes;
 let tag = '', authorFilter = '', ratingFilter = '', sortBy = 'latest', page = 1;
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function ratingValue(n){return (n.rating?.match(/[★⭐]/g)||[]).length}
-function navigation(){for(const sel of ['#nav','#tabs'])$(sel).innerHTML=cats.map((c,i)=>`<a href="${categoryPaths[c]}" class="${category===c?'active':''}" ${category===c?'aria-current="page"':''}>${sel==='#nav'?['▥　','▧　','✳　'][i]:''}${categoryLabels[c]}${sel==='#nav'?`<span>${notes.filter(n=>n.category===c).length}</span>`:''}</a>`).join('')}
+function navigation(){for(const sel of ['#nav','#tabs'])$(sel).innerHTML=cats.map((c,i)=>`<a href="${categoryPaths[c]}" class="${category===c?'active':''}" ${category===c?'aria-current="page"':''}>${sel==='#nav'?['▥　','▧　','◇　','✳　'][i]:''}${categoryLabels[c]}${sel==='#nav'?`<span>${notes.filter(n=>n.category===c).length}</span>`:''}</a>`).join('')}
 function render(){navigation();
 const base=notes.filter(n=>n.category===category),tags=[...new Set(base.flatMap(n=>n.tags))];$('#tags').innerHTML=['',...tags].map(t=>`<button class="${tag===t?'active':''}" data-tag="${esc(t)}">${t?'# '+esc(t):'모든 태그'}</button>`).join('');document.querySelectorAll('[data-tag]').forEach(b=>b.onclick=()=>{tag=b.dataset.tag;page=1;render()});
 const isReading=category==='독서';

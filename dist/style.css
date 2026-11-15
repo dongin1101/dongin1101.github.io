@@ -66,7 +66,8 @@
 
 .home-section { padding: clamp(2rem, 6vw, 5rem) 0; }
 .home-section h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 .75rem; }
-#latest { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+#latest { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+@media (max-width: 700px) { #latest { grid-template-columns: minmax(0, 1fr); } }
 #latest section { border-top: 1px solid currentColor; padding-top: 1rem; min-width: 0; }
 #latest h2 { margin: 0 0 1rem; }
 #latest time { font-size: .875rem; }
